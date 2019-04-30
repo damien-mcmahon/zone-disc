@@ -1,0 +1,15 @@
+{
+  "users": [{
+    "id": 1234,
+    "name": "Damien",
+    "roles": [{
+      "name": "MAKER"
+    }]
+  }],
+
+  "tenants": [{
+    "name": "Discover Network",
+    "code": "DN",
+    "id": "DN00193123"
+  }]
+}
