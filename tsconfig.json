@@ -23,5 +23,8 @@
   "jsx": "preserve",
   "include": [
     "src"
+  ],
+  "exclude": [
+    "src/api/*.js"
   ]
 }
