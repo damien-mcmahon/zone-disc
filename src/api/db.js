@@ -1,6 +1,6 @@
-import { createUsers } from './user';
-import { createTenants } from './tenant';
-import { createParties } from './party';
+const { createUsers } = require('./user');
+const { createTenants } = require('./tenant');
+const { createParties } = require('./party');
 
 module.exports = () => {
   const tenants = createTenants(3);
