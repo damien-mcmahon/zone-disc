@@ -1,28 +1,29 @@
 import { applyMiddleware, createStore, compose } from 'redux';
 import { routerMiddleware } from 'connected-react-router';
-import createBrowserHistory from 'history/createBrowserHistory';
-import { createEpicMiddleware } from 'redux-observable';
+import {createBrowserHistory} from 'history';
+import createSagaMiddleware from 'redux-saga';
 
-import epics from './epics';
+import rootSaga from './sagas';
+
 import createRootReducer from './reducers';
 
 export const history = createBrowserHistory();
 
 const initialState = {};
-const epicMiddleware = createEpicMiddleware();
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const sagaMiddleware = createSagaMiddleware();
 
 const store = createStore(
   createRootReducer(history),
   initialState,
   composeEnhancers(
     applyMiddleware(
-      epicMiddleware,
       routerMiddleware(history),
+      sagaMiddleware,
     ),
   ),
 );
 
-epicMiddleware.run(epics);
+sagaMiddleware.run(rootSaga);
 
 export default store;
