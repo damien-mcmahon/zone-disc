@@ -1,10 +1,14 @@
 import { connect } from 'react-redux';
-import { setLoggedIn } from './actions';
+import { appInit, setLoggedIn } from './actions';
 import App from './index';
 
 const mapStateToProps = ({app: {loggedIn}}) => ({loggedIn});
 
 const mapDispatchToProps = dispatch => ({
+    init() {
+        dispatch(appInit());
+    },
+
     login() {
         dispatch(setLoggedIn(true));
     },
