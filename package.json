@@ -24,6 +24,7 @@
     "redux": "^4.0.1",
     "redux-actions": "^2.6.5",
     "redux-saga": "^1.0.2",
+    "styled-components": "^4.2.0",
     "typescript": "3.4.5"
   },
   "scripts": {
@@ -31,7 +32,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "local-mocks": "json-server -c ./src/api/config.json -w ./src/api/db.js"
+    "local-mocks": "json-server -c ./src/api/config.json -w ./src/api/db.js",
+    "storybook": "start-storybook -p 9009 -s public",
+    "build-storybook": "build-storybook -s public"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -52,6 +55,12 @@
     "faker": "^4.1.0",
     "json-server": "^0.14.2",
     "prettier": "1.17.0",
-    "range": "0.0.3"
+    "range": "0.0.3",
+    "@storybook/react": "^5.0.11",
+    "@storybook/addon-actions": "^5.0.11",
+    "@storybook/addon-links": "^5.0.11",
+    "@storybook/addons": "^5.0.11",
+    "@babel/core": "^7.4.4",
+    "babel-loader": "^8.0.5"
   }
 }
