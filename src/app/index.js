@@ -6,7 +6,7 @@ import { history } from '../store';
 import Dashboard from '../dashboard/container';
 import CreateParty from '../party/create/container';
 
-const App = ({loggedIn, login, logOut, init}) => {
+const App = ({init}) => {
     useEffect(() => {
         // set the cookie
         init();
@@ -16,7 +16,7 @@ const App = ({loggedIn, login, logOut, init}) => {
         <ConnectedRouter history={history}>
             <main>
                 <header>
-                    <h1>APP</h1>
+                    <h1>App</h1>
                     <nav>
                         <Link to="/">Home</Link>
                         <Link to="/create-party">Create Party</Link>
