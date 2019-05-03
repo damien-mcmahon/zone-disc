@@ -19,7 +19,6 @@ const App = ({init}) => {
             <main className="app__wrapper">
                 <AppHeader />
                 <AppNav />
-
                 <section className="app__panel-wrapper">
                     <Switch>
                         <Route path="/" exact component={Dashboard} />
