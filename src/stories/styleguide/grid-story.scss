@@ -1,0 +1,24 @@
+@import '../../styles/grid.scss';
+$orange: orange;
+$white: white;
+
+.grid-wrapper {
+    @include grid(12, 24px);    
+    @include grid-rows(5);
+    margin: 0 auto;
+}
+
+.box {
+    background: $orange;
+    padding: 5px;
+    min-height: 10vh;
+    color: $white;
+    text-align: center;
+    vertical-align: middle;
+}
+
+@for $i from 1 through 12 {
+    .-span#{$i} {
+        @include grid-span($i);
+    }
+}

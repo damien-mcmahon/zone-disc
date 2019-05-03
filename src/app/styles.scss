@@ -1,0 +1,30 @@
+.app {
+    &__wrapper {
+        display: grid;
+        min-height: 100vh;
+        width: 100vw;
+        grid-template-areas:
+            "header header"
+            "sidebar panel"
+            "footer footer";
+        grid-template-columns: 20vw 1fr;
+        grid-template-rows: 100px auto 100px;
+    }
+
+    &__header-wrapper {
+        background: white;
+        grid-area: header;
+    }
+
+    &__nav-wrapper {
+        grid-area: sidebar;
+    }
+
+    &__panel-wrapper {
+        grid-area: panel;
+    }
+
+    &__footer-wrapper {
+        grid-area: footer;
+    }
+}

@@ -1,11 +1,13 @@
 import React from 'react';
-
+import AppPanel from '../components/app-panel';
 import './styles.scss';
 
 const Dashboard = () => (
-    <section className="dashboard__wrapper">
-        <h1>DASHBOARD</h1>
-    </section>
+    <AppPanel name="Dashboard">
+        <section className="dashboard__wrapper">
+            <h2>Welcome...</h2>
+        </section>
+    </AppPanel>
 );
 
 export default Dashboard;
