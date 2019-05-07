@@ -1,5 +1,4 @@
 export const PARTY_DETAILS = {
-    debug: true,
     partyName: 'Riverwoods CC',
     networkId: 'DN',
     contactDetails: {
