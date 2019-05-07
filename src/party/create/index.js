@@ -3,11 +3,11 @@ import { FieldArray, Formik, Form } from 'formik'
 
 import STATES from '../../config/states.json';
 import COUNTRIES from '../../config/countries.json';
-
 import { createPartyValidationSchema } from './validation-schema';
 import AppPanel from '../../components/app-panel';
 import InputWrapper from '../../components/input-wrapper';
 import SelectWrapper from '../../components/select-wrapper';
+import { PARTY_DETAILS } from './mocks';
 
 // TODO - Precompute these
 const US_STATES = Object.keys(STATES).map(k => ({label: STATES[k], value: k}));
@@ -16,27 +16,11 @@ const USA_INDEX = WORLD_COUNTRIES.findIndex(c => c.value === 'US');
 
 const NETWORK_OPTIONS = [ {label: "Discover", value: "DN"}, {label: "Diners Club", value: "DCI"}];
 
-const eAddressForm = values => props => {
-    const { name } = props
-    const addresses = values[name] || [];
-
-    return (
-        <div>
-            {addresses.map(index => (
-            <InputWrapper 
-                key={index} 
-                name={`${name}[${index}].address`} 
-                label="Email Address: " />
-            ))}
-        </div>
-    );
-}
-
 const createPartyInitialValues = {
     partyName: '',
     networkId: '',
     contactDetails: {
-        contactType: '',
+        contactType: 'PERSON',
         postalAddress: {
             postalAddressLine1: '',
             postalAddressLine2: '',
@@ -46,19 +30,25 @@ const createPartyInitialValues = {
             postalCode: '',
             country: ''
         },
-        eAddress: [],
-        teleAddress: []
+        eAddress: [{
+            address: '',
+            addressType: ''
+        }],
+        teleAddress: [{
+            telecommunicationNumber: '',
+            telecomType: '',
+            extension: ''
+        }]
     }
 };
 
 const updateField = setFieldValue => name => value => setFieldValue(name, value);
 
-const renderPartyForm = ({setFieldValue, values}) => {
+const renderPartyForm = ({errors, touched, setFieldValue, values, setValues}) => {
     const setFormValue = updateField(setFieldValue);
 
     return (
         <Form>
-            {JSON.stringify(values)}
             <InputWrapper label="Party Name" type="text" name="partyName" />
             <SelectWrapper 
                 label="Network" 
@@ -89,24 +79,59 @@ const renderPartyForm = ({setFieldValue, values}) => {
 
             <h3>Contact Details</h3>
 
-            <FieldArray name="contactDetails.eAddress" render={eAddressForm(values)}/>
+            <FieldArray 
+                name="contactDetails.eAddress" 
+                render={({name}) => (
+                    <InputWrapper name={`${name}[0].address`} label="Email Address: " />
+                )}/>
 
+            <FieldArray 
+                name="contactDetails.teleAddress" 
+                render={({name}) => (
+                    <InputWrapper name={`${name}[0].telecommunicationNumber`} label="Telephone: " />
+                )}/>
             <button type="submit">Save</button>
+
+            {values.debug &&
+                <div>
+                    <button onClick={() => setValues(PARTY_DETAILS)}>Quick Entry</button>
+                    <pre>
+                        VALUES:
+                        <br />
+                        {JSON.stringify(values)}
+                        <br />
+                        ERRORS:
+                        <br />
+                        {JSON.stringify(errors)}
+                        <br />
+                        TOUCHED:
+                        <br />
+                        {JSON.stringify(touched)}
+                    </pre>
+                </div>
+            }
         </Form>
     );
 }
 
-const CreateParty = ({submitPartyForm}) => (
+const CreateParty = ({location,submitPartyForm}) => {
+    const queryParams = new URLSearchParams(location.search);
+    const debug = Boolean(queryParams.get('debug'));
+
+    const initialValues = debug ? 
+        { debug, ...createPartyInitialValues } : createPartyInitialValues;
+    return (
     <AppPanel name="Create Party">
         <section>
             <h2>Party Details</h2>
             <Formik 
                 validationSchema={createPartyValidationSchema}
-                initialValues={createPartyInitialValues}
+                initialValues={initialValues}
                 render={renderPartyForm}
-                submit={submitPartyForm} />
+                onSubmit={({debug, ...values}) => submitPartyForm(values)} />
         </section>
     </AppPanel>
 );
+    }
 
 export default CreateParty;

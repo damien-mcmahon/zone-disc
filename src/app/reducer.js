@@ -1,8 +1,12 @@
 import { handleActions } from 'redux-actions';
 import { setLoggedIn } from './actions';
+import { createParty } from '../party/create/actions';
 
 const defaultState = {
-    loggedIn: false
+    loggedIn: false,
+    parties: [],
+    tenants: [],
+    currentTenant: null
 };
 
 const AppReducer = handleActions({
@@ -11,6 +15,13 @@ const AppReducer = handleActions({
             ...state,
             loggedIn
         }
+    },
+
+    [createParty] : (state, { payload: party}) => {
+        return {
+            ...state,
+            parties: [...state.parties, party]
+        };
     }
 }, defaultState);
 
