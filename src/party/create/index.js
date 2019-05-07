@@ -1,43 +1,24 @@
 import React from 'react';
 import { FieldArray, Formik, Form } from 'formik'
-import * as Yup from 'yup';
 
+import STATES from '../../config/states.json';
+import COUNTRIES from '../../config/countries.json';
+
+import { createPartyValidationSchema } from './validation-schema';
 import AppPanel from '../../components/app-panel';
 import InputWrapper from '../../components/input-wrapper';
 import SelectWrapper from '../../components/select-wrapper';
 
-const US_POSTAL_CODE_REGEX = /^\d{5}(?:[-\s]\d{4})?$/gim;
-const US_STATES = [
-    {label: "Arizona", value: "AZ"},
-    {label: "Michigan", value: "MG"}
-];
+// TODO - Precompute these
+const US_STATES = Object.keys(STATES).map(k => ({label: STATES[k], value: k}));
+const WORLD_COUNTRIES = COUNTRIES.map(({name: label, code: value}) => ({label, value}));
+const USA_INDEX = WORLD_COUNTRIES.findIndex(c => c.value === 'US');
 
-const WORLD_COUNTRIES = [
-    {label: 'United States', value: 'US' },
-    {label: 'Afghanistan', value: 'AG'},
-    {label: 'Australia', value: 'AU'},
-    {label: 'Austria', value: 'AT'}
-];
-const NETWORK_OPTIONS = [
-    {label: "Discover", value: "DN"},
-    {label: "Diners Club", value: "DCI"}
-];
-const eAddressSchema = Yup.object().shape({
-    address: Yup.string().email('Please enter a correct email address').required('Email address is required'),
-    addressType: Yup.string()
-});
-
-const teleAddressSchema = Yup.object().shape({
-    telecommunicationNumber: Yup.string().required('Tele Address is required'),
-    telecomType: Yup.string(),
-    extension: Yup.string()
-});
+const NETWORK_OPTIONS = [ {label: "Discover", value: "DN"}, {label: "Diners Club", value: "DCI"}];
 
 const eAddressForm = values => props => {
     const { name } = props
     const addresses = values[name] || [];
-
-    console.log("DM => EE", name, values);
 
     return (
         <div>
@@ -50,25 +31,6 @@ const eAddressForm = values => props => {
         </div>
     );
 }
-
-const createPartyValidationSchema = Yup.object().shape({
-    partyName: Yup.string().required('Please enter a party name'),
-    networkId: Yup.string().required('Please select the network for this party'),
-    contactDetails: Yup.object().shape({
-        contactType: Yup.string().required('Please enter a contact type'),
-        postalAddress: Yup.object().shape({
-            postalAddressLine1: Yup.string().required('Please enter the first line of the address'),
-            postalAddressLine2: Yup.string(),
-            postalAddressLine3: Yup.string(),
-            city: Yup.string().required('Please enter the city for the party'),
-            state: Yup.string().required('Please enter the state'),
-            postalCode: Yup.string().matches(US_POSTAL_CODE_REGEX, 'Please enter a correct ZIP Code'),
-            country: Yup.string().default('USA')
-        }),
-        eAddress: Yup.array().of(eAddressSchema),
-        teleAddress: Yup.array().of(teleAddressSchema)
-    })
-});
 
 const createPartyInitialValues = {
     partyName: '',
@@ -119,7 +81,7 @@ const renderPartyForm = ({setFieldValue, values}) => {
             <InputWrapper label="ZIP Code" name="contactDetails.postalAddress.postalCode" />
 
             <SelectWrapper 
-                defaultValue={WORLD_COUNTRIES[0]} 
+                defaultValue={WORLD_COUNTRIES[USA_INDEX]} 
                 label="Country" 
                 name="contactDetails.postalAddress.country" 
                 onChange={setFormValue('contactDetails.postalAddress.country')}
