@@ -1,0 +1,69 @@
+@import '../../styles/colors';
+@import '../../styles/mixins';
+@import '../../styles/variables';
+@import '../../styles/fonts';
+
+$select-label-error: $error;
+$select-error-color: $error;
+$select-menu-border-color: $complementary;
+$select-menu-hover-color: $complementary;
+$select-menu-hover-bg: $gray-5;
+
+.select-wrapper {
+    &__wrapper {
+        margin-bottom: sp(3);
+
+        .select-component {
+            &__control {
+                &:hover {
+                    border-color: $select-menu-hover-color;
+                }
+            }
+
+            &__menu {
+                margin-top: -1px;
+                border-top-left-radius: 0;
+                border-top-right-radius: 0;
+                border: 2px solid;
+                border-top: none;
+                border-left-color: $select-menu-border-color;
+                border-right-color: $select-menu-border-color;
+                border-bottom-color: $select-menu-border-color;
+                box-shadow: none;
+            }
+
+            &__input,
+            &__value-container,
+            &__placeholder {
+                @extend .font--input;
+            }
+
+            &__menu-list {
+                border-top: none;
+            }
+
+            &__option {
+                @extend .font--input;
+
+                &:hover {
+                    background: $select-menu-hover-bg;
+                }
+            }
+        }
+    }
+
+    &__label {
+        @extend .font--label;
+        display: block;
+
+        .--error & {
+            color: $select-label-error;
+        }
+    }
+
+    &__error {
+        @extend .font--error;
+        color: $select-error-color;
+        display: block;
+    }
+}

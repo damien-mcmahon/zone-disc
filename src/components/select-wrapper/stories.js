@@ -8,13 +8,16 @@ const defaultOptions = [
     {label: "One", value: 1},
     {label: "Two", value: 2},
     {label: "Three", value: 3},
-]
+];
+
 storiesOf('Components/Form/Select Wrapper')
     .addDecorator(FormikWrapper({test: "someVal"}))
-    .add('Default', () => <SelectWrapper label="Label" name="test" options={defaultOptions} />)
+    .add('Default', () => 
+        <SelectWrapper label="Make your choice" name="test" options={defaultOptions} />
+    )
     .add('With Default Value', () => 
         <SelectWrapper 
-            label="Label" 
+            label="Choose a number" 
             name="test" 
             defaultValue={defaultOptions[2]}
             options={defaultOptions} />
