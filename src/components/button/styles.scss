@@ -13,13 +13,17 @@ $default-button-focus: $complementary;
 
 %button {
     @extend .shadow--regular;
-    @extend .button;
+    @extend .font--button;
     border: 1px solid transparent;
     border-radius: $border-radius;
     padding: sp(1) sp(3);
 
     &:focus {
         border: 1px solid;
+    }
+
+    &:active {
+        box-shadow: none;
     }
 
     &:disabled {

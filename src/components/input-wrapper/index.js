@@ -1,12 +1,23 @@
 import React from 'react';
 import { Field, ErrorMessage } from 'formik';
 
-const InputWrapper = ({name, label, type = 'text', errors}) => (
-    <div className="input-wrapper__wrapper">
-        <label>{label}</label>
-        <Field type={type} name={name} />
-        <ErrorMessage name={name} />
-    </div>
-);
+import './styles.scss';
+
+const InputWrapper = ({name, label, type = 'text', errors = '', ...props}) => {
+    const hasErrors = errors.length > 0; 
+    return (
+        <div className={`input-wrapper__wrapper ${hasErrors && '--error'}`}>
+            <label className="input-wrapper__label">{label}</label>
+            <Field className={`input-wrapper__input --${type}`} type={type} name={name} {...props}/>
+            <ErrorMessage name={name}>
+                {message => 
+                    <div className="input-wrapper__error">
+                        {message}
+                    </div>
+                }
+            </ErrorMessage>
+        </div>
+    );
+}
 
 export default InputWrapper;

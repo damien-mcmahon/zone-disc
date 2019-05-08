@@ -57,6 +57,20 @@ $font-size-list: (
             size: px(16),
             weight: "semi-bold",
             margin: 0
+        ),
+        label: (
+            size: px(12),
+            weight: "normal",
+            margin: 0 0 sp(1) 0
+        ),
+        input: (
+            size: px(13),
+            weight: "normal"
+        ),
+        error: (
+            size: px(11),
+            weight: "semi-bold",
+            margin: sp(1) 0 0 0
         )
     )
 );
@@ -65,7 +79,7 @@ $font-size-list: (
 // generate the font-styles from the list
 @each $label, $map in $font-size-list {
     @each $class, $vals in $map {
-        .#{$class} {
+        .font--#{$class} {
             font-family: $main-font;
             font-size: map-get($vals, size);
             font-weight: fw(map-get($vals, weight));
