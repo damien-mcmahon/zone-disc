@@ -1,5 +1,6 @@
 import * as Yup from 'yup';
 
+// TODO - Use this with postalCode to correctly check a ZIP
 // const US_POSTAL_CODE_REGEX = /^\d{5}(?:[-\s]\d{4})?$/gim;
 
 export const eAddressSchema = Yup.object().shape({

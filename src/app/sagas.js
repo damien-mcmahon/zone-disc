@@ -1,14 +1,6 @@
 import { call, put } from 'redux-saga/effects';
-import { setCookieError, setLoggedInEpicActionFailure, setLoggedInEpicActionSuccess, setCookieSuccess } from './actions';
+import { setCookieError, setCookieSuccess } from './actions';
 import Cookie from 'js-cookie';
-
-export function * setLoggedInSaga() {
-    try {
-        yield put(setLoggedInEpicActionSuccess());
-    } catch (err) {
-        yield put(setLoggedInEpicActionFailure(err));
-    }
-}
 
 export function * setProfileCookie() {
     const COOKIE_NAME = 'dn__user';

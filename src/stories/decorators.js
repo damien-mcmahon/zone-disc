@@ -16,7 +16,7 @@ export const FormikWrapper = (initialValues, validationSchema) => story => (
   <Formik
     initialValues={initialValues}
     validationSchema={validationSchema}
-    onSubmit={values => console.log(values)}>
-    {story()}
+    onSubmit={values => console.log(values)}
+    render={helpers => story(helpers)}>
   </Formik>
 );

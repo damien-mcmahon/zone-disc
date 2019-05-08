@@ -1,8 +1,8 @@
 // set up baseurl
-import config from '../config/api';
+import config from '../config/api.json';
 import axios from 'axios';
 
-const api = axios.config({
+const api = axios.create({
     baseURL: `${config.host}${config.apiPath}`,
     withCredentials: true
 });
