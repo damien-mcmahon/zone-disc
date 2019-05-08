@@ -1,0 +1,18 @@
+$breakpoints: (
+    desktop: 1025px,
+    tablet: 600px,
+    phablet: 480px,
+    mobile: 320px
+);
+
+$base-spacing: 8px;
+
+$font-weight-list: (
+    "bold": 700,
+    "semi-bold": 600,
+    "normal": 400
+);
+
+$main-font: 'Open Sans', sans-serif;
+
+$border-radius: 5px;

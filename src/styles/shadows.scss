@@ -1,0 +1,44 @@
+@import './colors.scss';
+
+$shadow-options: (
+    small: (
+        x-offset: 0,
+        y-offset: 1px,
+        blur: 5px,
+        spread: 0,
+        color: $shadow
+    ),
+    regular: (
+        x-offset: 0,
+        y-offset: 4px,
+        blur: 10px,
+        spread: 0,
+        color: $shadow
+    ),
+    medium: (
+        x-offset: 0,
+        y-offset: 6px,
+        blur: 14px,
+        spread: 0,
+        color: $shadow
+    ),
+    large: (
+        x-offset: 0,
+        y-offset: 10px,
+        blur: 20px,
+        spread: -2px,
+        color: $shadow
+    )
+);
+
+@each $size, $values in $shadow-options {
+    $x: map-get($values, x-offset);
+    $y: map-get($values, y-offset);
+    $blur: map-get($values, blur);
+    $spread: map-get($values, spread);
+    $color: map-get($values, color);
+
+    .shadow--#{$size} {
+        box-shadow: $x $y $blur $spread $color;
+    }
+}

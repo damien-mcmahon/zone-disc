@@ -2,8 +2,8 @@ import React from 'react';
 
 import './styles.scss';
 
-const Button = ({type = 'default', children}) => (
-    <button className={`button___${type}`}>{children}</button>
+const Button = ({type = 'default', children, ...props}) => (
+    <button className={`button--${type}`} {...props}>{children}</button>
 );
 
 export default Button;

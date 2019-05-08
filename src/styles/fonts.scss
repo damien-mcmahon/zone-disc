@@ -1,0 +1,81 @@
+@import './variables';
+@import './mixins';
+
+$font-size-list: (
+    desktop: (
+        display1: (
+            size: px(64),
+            weight: "bold",
+            margin: 0 sp(1)
+        ),
+        display2: (
+            size: px(48),
+            weight: "semi-bold",
+            margin: 0 sp(1)
+        ),
+        h1: (
+            size: px(32),
+            weight: "bold",
+            margin: 0 sp(1)
+        ),
+        h2: (
+            size: px(24),
+            weight: "bold",
+            margin: 0 sp(1)
+        ),
+        h3: (
+            size: px(24),
+            weight: "normal",
+            margin: 0 sp(1)
+        ),
+        h4: (
+            size: px(16),
+            weight: "bold",
+            margin: 0 sp(1)
+        ), 
+        h5: (
+            size: px(13),
+            weight: "bold",
+            margin: 0 sp(1)
+        ),
+        body: (
+            size: px(16),
+            weight: "normal",
+            margin: 0 sp(1)
+        ),
+        body-bold: (
+            size: px(16),
+            weight: "bold",
+            margin: 0 sp(1)
+        ),
+        note: (
+            size: px(14),
+            weight: "semi-bold",
+            margin: 0 sp(1)
+        ),
+        button: (
+            size: px(16),
+            weight: "semi-bold",
+            margin: 0
+        )
+    )
+);
+
+// TODO - This only handles the Desktop breakpoint at the moment...
+// generate the font-styles from the list
+@each $label, $map in $font-size-list {
+    @each $class, $vals in $map {
+        .#{$class} {
+            font-family: $main-font;
+            font-size: map-get($vals, size);
+            font-weight: fw(map-get($vals, weight));
+            margin: map-get($vals, margin);
+        }
+    }
+}
+
+@each $weight, $value in $font-weight-list {
+    .#{$weight} {
+        font-weight: $value;
+    }
+}
