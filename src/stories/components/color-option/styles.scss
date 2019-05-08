@@ -1,0 +1,85 @@
+@import '../../../styles/colors.scss';
+
+$label-color: hsl(0, 100%, 100%);
+$label-bg:hsla(0, 0%, 10%, .5);
+$palette-size: 10vw;
+
+.color-option {
+    &__wrapper {
+        height: $palette-size;
+        width: $palette-size;
+        margin: 10px 10px 10px 0;
+        padding: 8px;
+        border-radius: 4px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        &.primary {
+            background: $primary;
+        }
+
+        &.primary-dark {
+            background: $primary-dark;
+        }
+
+        &.complementary {
+            background: $complementary;
+        }
+
+        &.complementary-dark {
+            background: $complementary-dark;
+        }
+
+        &.secondary-blue {
+            background: $secondary-blue;
+        }
+        &.secondary-light-blue {
+            background: $secondary-light-blue;
+        }
+
+        &.secondary-gray {
+            background: $secondary-gray;
+        }
+
+        &.gray-1 {
+            background: $gray-1;
+        }
+
+        &.gray-2 {
+            background:$gray-2
+        }
+
+        &.gray-3 {
+            background:$gray-3
+        }
+
+        &.gray-4 {
+            background:$gray-4
+        }
+
+        &.gray-5 {
+            background:$gray-5
+        }
+
+        &.success {
+            background:$success;
+        }
+
+        &.error {
+            background:$error;
+        }
+
+        &.warning {
+            background:$warning;
+        }
+    }
+
+    &__label {
+        font-size: 12px;
+        color: $label-color;
+        background: $label-bg;
+        padding: 4px 8px;
+        border-radius: 4px;
+    }
+}
