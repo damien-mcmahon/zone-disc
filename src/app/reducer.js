@@ -1,6 +1,6 @@
 import { handleActions } from 'redux-actions';
 import { setLoggedIn } from './actions';
-import { createParty } from '../party/create/actions';
+import { createParty } from 'party/create/actions';
 
 const defaultState = {
     loggedIn: false,

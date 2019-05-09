@@ -1,12 +1,12 @@
 import React from 'react';
 import { FieldArray, Formik, Form } from 'formik'
 
-import STATES from '../../config/states.json';
-import COUNTRIES from '../../config/countries.json';
+import STATES from 'config/states.json';
+import COUNTRIES from 'config/countries.json';
 import { createPartyValidationSchema } from './validation-schema';
-import AppPanel from '../../components/app-panel';
-import InputWrapper from '../../components/input-wrapper';
-import SelectWrapper from '../../components/select-wrapper';
+import AppPanel from 'components/app-panel';
+import InputWrapper from 'components/input-wrapper';
+import SelectWrapper from 'components/select-wrapper';
 import { PARTY_DETAILS } from './mocks';
 
 // TODO - Precompute these

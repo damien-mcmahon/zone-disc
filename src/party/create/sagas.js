@@ -1,6 +1,6 @@
 import { call, put } from 'redux-saga/effects';
 import { createPartySuccess, createPartyError } from './actions';
-import { POST } from '../../store/api';
+import { POST } from 'store/api';
 
 // TODO - Collect these into an endpoints file?
 const CREATE_PARTY = '/parties';

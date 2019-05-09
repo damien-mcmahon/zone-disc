@@ -1,5 +1,5 @@
 import React from 'react';
-import AppPanel from '../components/app-panel';
+import AppPanel from 'components/app-panel';
 import './styles.scss';
 
 const Dashboard = () => (

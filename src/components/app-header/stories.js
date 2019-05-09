@@ -5,4 +5,5 @@ import AppHeader from '.';
 
 storiesOf('Components/App/Header', module)
     .addDecorator(StoryRouter())
-    .add('Default', () => <AppHeader />);
+    .add('Discover', () => <AppHeader tenant="DN"/>)
+    .add('Diners Club', () => <AppHeader tenant="DCI"/>);
