@@ -1,12 +1,14 @@
-@import 'styles/grid.scss';
+@import 'styles/colors';
+@import 'styles/grid';
+@import 'styles/mixins';
 
+$nav-wrapper-border-color: $gray-5;
 .app {
     &__wrapper {
         @include grid(12);
         height: 100vh;
         max-height: 100vh;
-        grid-template-rows: 5vh auto 5vh;
-        overflow: hidden;
+        grid-template-rows: [header] 80px [body] auto [footer] 5vh;
     }
 
     &__header-wrapper {
@@ -15,13 +17,17 @@
 
     &__nav-wrapper {
         @include grid-span(2);
+        padding: sp(1);
+        border-right: 2px solid $nav-wrapper-border-color;
     }
 
     &__panel-wrapper {
         @include grid-span(10);
+        padding: sp(1);
     }
 
     &__footer-wrapper {
         @include grid-span(12);
+        padding: sp(1);
     }
 }

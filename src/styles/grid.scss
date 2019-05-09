@@ -1,7 +1,9 @@
-@mixin grid($cols: 12, $gutter: 10px) {
+@import 'styles/mixins';
+
+@mixin grid($cols: 12, $gutter: sp(2)) {
     display: grid;
     grid-template-columns: repeat($cols, 1fr);
-    grid-gap: $gutter;
+    grid-column-gap: $gutter;
 }
 
 @mixin grid-span($span) {

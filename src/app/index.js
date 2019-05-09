@@ -11,20 +11,23 @@ import CreateParty from 'party/create/container';
 
 import './styles.scss';
 
-const App = ({init}) => {
+const App = ({init, tenant = "DN"}) => {
     useEffect(() => init(), [init]); 
 
     return (
         <ConnectedRouter history={history}>
             <main className="app__wrapper">
-                <AppHeader />
+                <AppHeader tenant={tenant} />
+
                 <AppNav />
+
                 <section className="app__panel-wrapper">
                     <Switch>
                         <Route path="/" exact component={Dashboard} />
                         <Route path="/create-party" component={CreateParty} />
                     </Switch>
                 </section>
+
                 <AppFooter />
             </main>
         </ConnectedRouter>

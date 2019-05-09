@@ -2,6 +2,8 @@
 
 .logo {
     &__wrapper {
-        max-width: 300px;
+        width: 100%;
+        display: inline-flex;
+        align-items: center;
     }
 }

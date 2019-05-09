@@ -1,7 +1,16 @@
 @import 'styles/colors';
 @import 'styles/grid';
+@import 'styles/mixins';
+@import 'styles/shadows';
+
 $header-border-bottom-color: $gray-5;
 
 .app__header-wrapper {
-    border-bottom: 2px solid $header-border-bottom-color;    
+    @include grid(12);
+    @extend .shadow--small;
+    padding: sp(1);
+
+    .logo__wrapper {
+        @include grid-span(2);
+    }
 }
