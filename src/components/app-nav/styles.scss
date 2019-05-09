@@ -1,10 +1,35 @@
+@import 'styles/colors';
+@import 'styles/shadows';
+@import 'styles/mixins';
+@import 'styles/fonts';
+
+$nav-wrapper-border-color: $gray-5;
+$nav-item-bg: $gray-5;
+
 .app__nav {
-    &-wrapper {
-        a {
-            display: block;
-            &.-active {
-            }
+    &__wrapper {
+        @extend .shadow--small;
+        border-right: 1px solid $nav-wrapper-border-color;
+    }
+}
+
+.nav {
+    &__item-wrapper {
+        border-bottom: 1px solid $nav-wrapper-border-color;
+    }
+
+    &__link {
+        @extend .font--body;
+        display: block;
+        padding: sp(3) sp(2);
+        text-decoration: none;
+
+        &.--active {
+            background: $nav-item-bg;
         }
     }
-    
+
+    &__icon {
+        margin-right: sp(2);
+    }
 }

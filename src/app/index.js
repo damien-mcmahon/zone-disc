@@ -6,8 +6,10 @@ import { history } from 'store';
 import AppNav from 'components/app-nav';
 import AppHeader from 'components/app-header';
 import AppFooter from 'components/app-footer';
+
 import Dashboard from 'dashboard/container';
 import CreateParty from 'party/create/container';
+import PartyIndex from 'party';
 
 import './styles.scss';
 
@@ -24,11 +26,13 @@ const App = ({init, tenant = "DN"}) => {
                 <section className="app__panel-wrapper">
                     <Switch>
                         <Route path="/" exact component={Dashboard} />
-                        <Route path="/create-party" component={CreateParty} />
+                        <Route path="/party/create" component={CreateParty} />
+                        <Route path="/party" exact component={PartyIndex} />
                     </Switch>
+
+                    <AppFooter />
                 </section>
 
-                <AppFooter />
             </main>
         </ConnectedRouter>
     );

@@ -4,11 +4,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faGripHorizontal, faPlusSquare, faWrench } from '@fortawesome/free-solid-svg-icons'
 
 import App from 'app/container';
 import store from 'store';
 
 import './global.scss';
+
+library.add(faGripHorizontal, faPlusSquare, faWrench);
 
 ReactDOM.render(
     <Provider store={store}>
