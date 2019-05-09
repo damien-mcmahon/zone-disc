@@ -1,0 +1,7 @@
+@import '../../styles/colors';
+@import '../../styles/grid';
+$header-border-bottom-color: $gray-5;
+
+.app__header-wrapper {
+    border-bottom: 2px solid $header-border-bottom-color;    
+}

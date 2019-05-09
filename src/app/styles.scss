@@ -1,30 +1,27 @@
+@import '../styles/grid.scss';
+
 .app {
     &__wrapper {
-        display: grid;
-        min-height: 100vh;
-        width: 100vw;
-        grid-template-areas:
-            "header header"
-            "sidebar panel"
-            "footer footer";
-        grid-template-columns: 20vw 1fr;
-        grid-template-rows: 100px auto 100px;
+        @include grid(12);
+        height: 100vh;
+        max-height: 100vh;
+        grid-template-rows: 5vh auto 5vh;
+        overflow: hidden;
     }
 
     &__header-wrapper {
-        background: white;
-        grid-area: header;
+        @include grid-span(12);
     }
 
     &__nav-wrapper {
-        grid-area: sidebar;
+        @include grid-span(2);
     }
 
     &__panel-wrapper {
-        grid-area: panel;
+        @include grid-span(10);
     }
 
     &__footer-wrapper {
-        grid-area: footer;
+        @include grid-span(12);
     }
 }

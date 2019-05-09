@@ -8,6 +8,8 @@ import * as serviceWorker from './serviceWorker';
 import App from './app/container';
 import store from './store';
 
+import './global.scss';
+
 ReactDOM.render(
     <Provider store={store}>
         <App />

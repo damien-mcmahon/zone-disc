@@ -2,9 +2,11 @@ import React from 'react';
 
 import Logo from '../logo';
 
-const AppHeader = () => (
+import './styles.scss';
+
+const AppHeader = ({tenant = 'DN'}) => (
     <header className="app__header-wrapper">
-        <Logo />
+        <Logo tenant={tenant} />
     </header>
 );
 
