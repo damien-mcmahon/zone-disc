@@ -1,4 +1,3 @@
 module.exports = {
-    range: (size, startAt = 0) => 
-    [...Array(size).keys()].map(i => i + startAt)
+    range: (startAt = 0, size) => [...Array(size).keys()].map(i => i + startAt)
 };
