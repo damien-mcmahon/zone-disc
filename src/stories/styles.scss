@@ -1,5 +1,6 @@
 @import '../styles/fonts';
 @import '../styles/base';
+@import '../styles/mixins';
 
 .styleguide {
     &__wrapper {
@@ -10,5 +11,19 @@
 
     &__section-title {
         @extend .font--h3;
+    }
+
+    &__icon-wrapper {
+        padding: sp(1);
+        display: inline-flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__icon-label {
+        display: block;
+        font-size: 14px;
+        margin: sp(1) 0;
     }
 }

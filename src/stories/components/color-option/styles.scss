@@ -3,9 +3,11 @@
 $label-color: hsl(0, 100%, 100%);
 $label-bg:hsla(0, 0%, 10%, .5);
 $palette-size: 10vw;
+$white: hsla(0, 100%, 100%, .75);
 
 .color-option {
     &__wrapper {
+        position: relative;
         height: $palette-size;
         width: $palette-size;
         margin: 10px 10px 10px 0;
@@ -81,5 +83,16 @@ $palette-size: 10vw;
         background: $label-bg;
         padding: 4px 8px;
         border-radius: 4px;
+    }
+
+    &__value {
+        color: $white;
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translate(-50%, 5px);
+        width: 100%;
+        text-align: center;
+        font-size: 16px;
     }
 }
