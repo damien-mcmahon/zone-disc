@@ -24,6 +24,8 @@
     &__panel-wrapper {
         @include grid-span(10);
         padding: sp(1);
+        display: flex;
+        flex-direction: column;
     }
 
     &__footer-wrapper {

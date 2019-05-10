@@ -1,9 +1,12 @@
 @import 'styles/colors';
+@import 'styles/mixins';
 
 $app-panel-bg: $secondary-gray;
 
-.app__panel {
-    &-wrapper {
+.panel {
+    &__wrapper {
         background: $app-panel-bg;
+        flex: 1;
+        padding: sp(1);
     }
 }
