@@ -4,7 +4,9 @@
 @import 'styles/fonts';
 
 $nav-wrapper-border-color: $gray-5;
-$nav-item-bg: $gray-5;
+$nav-item-bg: $secondary-gray;
+$nav-item-color: $gray-1;
+$nav-item-active-color: $primary;
 
 .app__nav {
     &__wrapper {
@@ -24,9 +26,11 @@ $nav-item-bg: $gray-5;
         display: block;
         padding: sp(3) sp(2);
         text-decoration: none;
+        color: $nav-item-color;
 
         &.--active {
             background: $nav-item-bg;
+            color: $nav-item-active-color;
         }
     }
 

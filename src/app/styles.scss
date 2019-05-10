@@ -11,10 +11,14 @@
 
     &__header__wrapper {
         @include grid-span(12);
+        display: relative;
+        z-index: 10;
     }
 
     &__nav__wrapper {
         @include grid-span(2);
+        display: relative;
+        z-index: 5;
     }
 
     &__panel-wrapper {
