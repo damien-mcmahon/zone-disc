@@ -1,6 +1,8 @@
-import { addParameters, configure } from '@storybook/react';
+import { addParameters, configure, addDecorator } from '@storybook/react';
 import yourTheme from './discoverTheme';
+import { withA11y } from '@storybook/addon-a11y';
 
+addDecorator(withA11y)
 
 const req = require.context('../src/components', true, /stories\.js$/);
 

@@ -6,6 +6,7 @@ import COUNTRIES from 'config/countries.json';
 import { createPartyValidationSchema } from './validation-schema';
 import AppPanel from 'components/app-panel';
 import InputWrapper from 'components/input-wrapper';
+import Button from 'components/button';
 import SelectWrapper from 'components/select-wrapper';
 import { PARTY_DETAILS } from './mocks';
 
@@ -90,11 +91,12 @@ const renderPartyForm = ({ errors, touched, setFieldValue, values, setValues }) 
                 render={({ name }) => (
                     <InputWrapper name={`${name}[0].telecommunicationNumber`} label="Telephone: " />
                 )} />
-            <button type="submit">Save</button>
+
+            <Button type="submit">Save</Button>
 
             {values.debug &&
                 <div>
-                    <button onClick={() => setValues({ ...values, ...PARTY_DETAILS })}>Quick Entry</button>
+                    <Button onClick={() => setValues({ ...values, ...PARTY_DETAILS })}>Quick Entry</Button>
                     <pre>
                         VALUES:
                         <br />
