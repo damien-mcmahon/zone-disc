@@ -13,3 +13,7 @@
 @mixin grid-rows($rows) {
     grid-template-rows: repeat($rows, 1fr);
 }
+
+@mixin grid-offset($offset, $span, $grid-size: 12) {
+    grid-column: ($offset - ($grid-size + 1)) / span $span;
+}

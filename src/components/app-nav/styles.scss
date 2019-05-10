@@ -16,10 +16,11 @@ $nav-item-bg: $gray-5;
 .nav {
     &__item-wrapper {
         border-bottom: 1px solid $nav-wrapper-border-color;
+        padding: 0;
     }
 
     &__link {
-        @extend .font--body;
+        @extend .font--button;
         display: block;
         padding: sp(3) sp(2);
         text-decoration: none;

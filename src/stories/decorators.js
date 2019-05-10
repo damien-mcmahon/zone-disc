@@ -1,15 +1,16 @@
 import React from 'react';
 import { Formik } from 'formik';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faGripHorizontal, faPlusSquare, faWrench, faEnvelope, faUserCircle } from '@fortawesome/free-solid-svg-icons'
 
-export const StyleguideWrapper = storyFn => (
-    <div className="styleguide__wrapper">{storyFn()}</div>
-);
+library.add(faGripHorizontal, faPlusSquare, faWrench, faEnvelope, faUserCircle);
+
+export const StyleguideWrapper = storyFn => <div className="styleguide__wrapper">{storyFn()}</div>
 
 /**
  * Decorates a story with Formik
  * @param initialValues
  * @param validationSchema - yup schema (formik validationSchema)
- * @returns {function(*): *}
  */
 
 export const FormikWrapper = (initialValues, validationSchema) => story => (

@@ -1,13 +1,14 @@
 @import '../styles/fonts';
 @import '../styles/base';
 @import '../styles/mixins';
+@import '../styles/grid';
 
 .styleguide {
     &__wrapper {
+        @include grid(12);
     }
 
-    &__section-wrapper {
-    }
+    &__section-wrapper {}
 
     &__section-title {
         @extend .font--h3;
@@ -25,5 +26,9 @@
         display: block;
         font-size: 14px;
         margin: sp(1) 0;
+    }
+
+    &__nav-container {
+        @include grid-span(2);
     }
 }

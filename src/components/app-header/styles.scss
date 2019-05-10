@@ -2,15 +2,36 @@
 @import 'styles/grid';
 @import 'styles/mixins';
 @import 'styles/shadows';
+@import 'styles/fonts';
 
 $header-border-bottom-color: $gray-5;
 
-.app__header-wrapper {
+.app__header__wrapper {
     @include grid(12);
     @extend .shadow--small;
     padding: sp(1);
+    align-content: center;
 
     .logo__wrapper {
-        @include grid-span(2);
+        @include grid-span(1);
+    }
+
+    .header {
+        &__title {
+            @extend .font--h3;
+            @include grid-offset(2, 3);
+        }
+
+        &__actions-wrapper {
+            display: flex;
+            @extend .font--h4;
+            @include grid-offset(11, 1);
+            align-items: center;
+            justify-content: center;
+        }
+
+        &__nav-action {
+            margin-left: sp(1);
+        }
     }
 }

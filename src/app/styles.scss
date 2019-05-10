@@ -9,7 +9,7 @@
         grid-template-rows: [header] 80px [body] auto;
     }
 
-    &__header-wrapper {
+    &__header__wrapper {
         @include grid-span(12);
     }
 
