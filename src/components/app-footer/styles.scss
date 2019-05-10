@@ -1,0 +1,37 @@
+@import 'styles/colors';
+@import 'styles/fonts';
+@import 'styles/grid';
+@import 'styles/mixins';
+
+$footer-nav-link-color: $gray-2;
+
+.app__footer-wrapper {
+    @include grid(10);
+    padding: sp(3) sp(1);
+    border: 1px solid red;
+}
+
+.footer {
+    &__copyright-notice {
+        @include grid-offset(9, 1, 10);
+        padding: sp(1) 0;
+    }
+    &__nav-wrapper {
+        @include grid-span(5);
+        display: inline-flex;
+    }
+
+    &__nav-item-wrapper {
+        padding: sp(1);
+    }
+
+    &__nav-link {
+        @extend .font--label;
+        color: $footer-nav-link-color;
+        text-decoration: none;
+    }
+
+    &__brand-wrapper {
+        @include grid-offset(6,4, 10);
+    }
+}

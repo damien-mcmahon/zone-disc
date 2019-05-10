@@ -7,11 +7,13 @@ $nav-wrapper-border-color: $gray-5;
 $nav-item-bg: $secondary-gray;
 $nav-item-color: $gray-1;
 $nav-item-active-color: $primary;
+$nav-bg: $white;
 
 .app__nav {
     &__wrapper {
         @extend .shadow--small;
         border-right: 1px solid $nav-wrapper-border-color;
+        background: $nav-bg;
     }
 }
 

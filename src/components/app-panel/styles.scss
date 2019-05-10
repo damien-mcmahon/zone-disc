@@ -1,5 +1,9 @@
+@import 'styles/colors';
+
+$app-panel-bg: $secondary-gray;
+
 .app__panel {
     &-wrapper {
-        padding: 20px;
+        background: $app-panel-bg;
     }
 }

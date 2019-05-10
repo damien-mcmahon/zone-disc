@@ -4,6 +4,7 @@
 @import 'styles/shadows';
 @import 'styles/fonts';
 
+$header-bg: $white;
 $header-border-bottom-color: $gray-5;
 
 .app__header__wrapper {
@@ -11,6 +12,7 @@ $header-border-bottom-color: $gray-5;
     @extend .shadow--small;
     padding: sp(1);
     align-content: center;
+    background: $header-bg;
 
     .logo__wrapper {
         @include grid-span(1);
