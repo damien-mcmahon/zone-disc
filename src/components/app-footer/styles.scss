@@ -8,17 +8,27 @@ $footer-nav-link-color: $gray-2;
 .app__footer-wrapper {
     @include grid(10);
     padding: sp(3) sp(1);
-    border: 1px solid red;
+    align-content: center;
 }
 
 .footer {
     &__copyright-notice {
-        @include grid-offset(9, 1, 10);
-        padding: sp(1) 0;
+        @include grid-offset(8, 2, 10);
+        @extend .font--label;
+        padding: sp(1);
+        text-align: right;
     }
+
+    &__links-wrapper {
+        @include grid-span(10);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
     &__nav-wrapper {
-        @include grid-span(5);
         display: inline-flex;
+        flex: 1;
     }
 
     &__nav-item-wrapper {
@@ -26,12 +36,18 @@ $footer-nav-link-color: $gray-2;
     }
 
     &__nav-link {
-        @extend .font--label;
+        @extend .font--note;
         color: $footer-nav-link-color;
         text-decoration: none;
     }
 
     &__brand-wrapper {
-        @include grid-offset(6,4, 10);
+        max-width: 30vw;
+        display: inline-flex;
+        justify-content: flex-end;
+    }
+
+    &__brands-image {
+        width: 80%;
     }
 }
