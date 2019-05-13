@@ -1,0 +1,33 @@
+@import 'styles/colors';
+@import 'styles/mixins';
+@import 'styles/shadows';
+
+$card-bg: $white;
+$card-hover-bg: $primary;
+$svg-color: $primary;
+$svg-hover-color: $white;
+$text-color: $gray-1;
+$text-hover-color: $white;
+
+.card {
+    &__wrapper {
+        background: $card-bg;
+        padding: sp(3);
+        margin: sp(2);
+
+        color: $text-color;
+
+        svg {
+           color: $svg-color;
+        }
+
+        &:hover {
+            svg {
+                color: $svg-hover-color;
+            }
+            background: $card-hover-bg;
+
+            color: $text-hover-color;
+        }
+    }
+}
