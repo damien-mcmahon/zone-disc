@@ -1,9 +1,21 @@
 import React from 'react';
 import { Formik } from 'formik';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faGripHorizontal, faPlusSquare, faWrench, faEnvelope, faUserCircle } from '@fortawesome/free-solid-svg-icons'
+import { 
+  faEnvelope, 
+  faGripHorizontal, 
+  faPlusSquare, 
+  faUserCircle,
+  faWrench, 
+} from '@fortawesome/free-solid-svg-icons'
 
-library.add(faGripHorizontal, faPlusSquare, faWrench, faEnvelope, faUserCircle);
+library.add(
+  faEnvelope, 
+  faGripHorizontal, 
+  faPlusSquare, 
+  faUserCircle,
+  faWrench, 
+);
 
 export const StyleguideWrapper = storyFn => <div className="styleguide__wrapper">{storyFn()}</div>
 

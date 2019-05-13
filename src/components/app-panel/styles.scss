@@ -1,5 +1,6 @@
 @import 'styles/colors';
 @import 'styles/mixins';
+@import 'styles/fonts';
 
 $app-panel-bg: $secondary-gray;
 
@@ -8,5 +9,10 @@ $app-panel-bg: $secondary-gray;
         background: $app-panel-bg;
         flex: 1;
         padding: sp(1);
+    }
+
+    &__header {
+        @extend .font--h3;
+        margin-top: sp(2);
     }
 }

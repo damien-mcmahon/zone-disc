@@ -1,3 +1,66 @@
+@import 'styles/colors';
+@import 'styles/fonts';
+@import 'styles/grid';
+@import 'styles/mixins';
+
+$dashboard-bg: $white;
+
 .dashboard {
-    &__wrapper {}
+    &__wrapper {
+        background: $dashboard-bg;
+    }
+
+    &__header {
+        @include grid(10, sp(3));
+    }
+
+    &__queue {}
+}
+
+.new-party-card {
+    &__wrapper {
+        @include grid-span(2);
+    }
+
+    &__icon {
+        @extend .font--h1;
+    }
+
+    &__text {
+        @extend .font--h3;
+        margin-top: sp(2);
+    }
+
+    &__text-emphasis {
+        @extend .bold;
+        display: block;
+        font-style: normal;
+    }
+}
+
+.search-card {
+    &__wrapper {
+        @include grid-span(7);
+        display: flex;
+    }
+
+    &__icon {
+        @extend .font--h1;
+    }
+
+    &__text {
+        @extend .font--h3;
+        margin-top: sp(2);
+    }
+
+    &__text-emphasis {
+        @extend .bold;
+        display: block;
+        font-style: normal;
+    }
+
+    &__form-wrapper {
+        flex: 1;
+        display: flex;
+    }
 }

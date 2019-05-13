@@ -8,17 +8,18 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { 
     faEnvelope, 
     faGripHorizontal, 
-    faPlusSquare, 
+    faPlusSquare,
+    faSearch,
     faUserCircle, 
     faWrench 
-} from '@fortawesome/free-solid-svg-icons'
+} from '@fortawesome/free-solid-svg-icons';
 
 import App from 'app/container';
 import store from 'store';
 
 import './global.scss';
 
-library.add(faEnvelope, faGripHorizontal, faPlusSquare, faUserCircle, faWrench);
+library.add(faEnvelope, faGripHorizontal, faPlusSquare, faSearch, faUserCircle, faWrench);
 
 ReactDOM.render(
     <Provider store={store}>

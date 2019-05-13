@@ -6,7 +6,7 @@ import './styles.scss';
 
 // TODO - Put this into config?
 const NAV_ITEMS = [
-    {path: '/', label: "Home", icon: 'grip-horizontal'},
+    {path: '/', label: 'Dashboard', icon: 'grip-horizontal'},
     {path: '/party/create', label: 'Create Account', icon: 'plus-square'},
     {path: '/party', label: 'Servicing Party', icon: 'wrench'}
 ];
