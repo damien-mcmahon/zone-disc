@@ -1,15 +1,11 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { HOME, CREATE_PARTY, SERVICE_PARTY } from 'config/routes';
 
 import './styles.scss';
 
-// TODO - Put this into config?
-const NAV_ITEMS = [
-    {path: '/', label: 'Dashboard', icon: 'grip-horizontal'},
-    {path: '/party/create', label: 'Create Account', icon: 'plus-square'},
-    {path: '/party', label: 'Servicing Party', icon: 'wrench'}
-];
+const NAV_ITEMS = [ HOME, CREATE_PARTY, SERVICE_PARTY ];
 
 const AppNav = () => (
     <nav className="app__nav__wrapper">

@@ -14,7 +14,13 @@ $dashboard-bg: $white;
         @include grid(10, sp(3));
     }
 
-    &__queue {}
+    &__queue {
+        margin: sp(2) 0;
+    }
+
+    &__section-header {
+        @extend .font--h3;
+    }
 }
 
 .new-party-card {
