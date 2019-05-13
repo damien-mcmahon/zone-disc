@@ -24,7 +24,7 @@ const Dashboard = ({sendSearch}) => (
                 </Card>
             </Link>
 
-            <Card className="search-card__wrapper">
+            <Card className="search-card__wrapper" applyHoverStyle={false}>
                 <header className="search-card__header">
                     <FontAwesomeIcon className="search-card__icon" icon="search" />
                     <h3 className="search-card__text">
@@ -34,6 +34,7 @@ const Dashboard = ({sendSearch}) => (
                         Party Account
                     </h3>
                 </header>
+
                 <div className="search-card__form-wrapper">
                     <Formik
                         initialValues={searchFormInitialValues}

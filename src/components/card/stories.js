@@ -6,6 +6,12 @@ import { faCcDiscover } from '@fortawesome/free-brands-svg-icons';
 
 storiesOf('Components/Card', module)
     .add('Default', () => <Card><h1>Card Text</h1></Card>)
+    .add('With and without hover style', () => 
+        <div style={{background: "#EEE", padding: "50px"}}>
+            <Card depth={1}><h1>WITH HoverStyle</h1></Card>
+            <Card depth={1} applyHoverStyle={false}><h1>WITHOUT HoverStyle</h1></Card>
+        </div>
+    )
     .add('Various Depths', () => (
         <div style={{background: "#EEE", padding: "50px"}}>
             <Card><h1>Depth 0</h1></Card>

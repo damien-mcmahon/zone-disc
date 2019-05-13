@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { HOME, CREATE_PARTY, SERVICE_PARTY } from 'config/routes';
+import { HOME, CREATE_PARTY, SERVICE_PARTY } from '../../config/routes';
 
 import './styles.scss';
 

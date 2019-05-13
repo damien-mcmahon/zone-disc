@@ -21,7 +21,7 @@ $text-hover-color: $white;
            color: $svg-color;
         }
 
-        &:hover {
+        &.--hover:hover {
             svg {
                 color: $svg-hover-color;
             }
