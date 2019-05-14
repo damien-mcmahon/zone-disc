@@ -59,6 +59,11 @@ $select-menu-hover-bg: $gray-5;
         .--error & {
             color: $select-label-error;
         }
+
+        .--required &:after {
+            content: '*';
+            margin-left: sp(1);
+        }
     }
 
     &__error {
