@@ -6,7 +6,8 @@ import './styles.scss';
 const Tooltip = ({direction = "top", name, children, content}) => (
     <span className="tooltip__wrapper">
         <div data-tip={name}>{children}</div>
-        <ReactTooltip place={direction} effect="solid">
+
+        <ReactTooltip type="light" place={direction} effect="solid">
             {content}
         </ReactTooltip>
     </span>

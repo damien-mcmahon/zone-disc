@@ -56,7 +56,7 @@ const createPartyInitialValues = {
 const createHelp = {
     name: 'main-help',
     content: 'Creating a party requires the following information',
-    children: <FontAwesomeIcon icon="question-circle" />
+    children: <FontAwesomeIcon className="create-party__help-icon" icon="question-circle" />
 }
 
 const updateField = setFieldValue => name => value => setFieldValue(name, value);
@@ -171,7 +171,7 @@ const renderPartyForm = ({ errors, touched, setFieldValue, values, setValues }) 
     );
 }
 
-const CreateParty = ({ networkId, submitPartyForm }) => {
+const CreateParty = ({ app: {tenant:networkId}, submitPartyForm }) => {
     const initialValues = networkId ?
         { networkId, ...createPartyInitialValues } : createPartyInitialValues;
 

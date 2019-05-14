@@ -10,7 +10,7 @@ const NAV_ACTIONS = [
     {icon: 'user-circle'}
 ];
 
-const AppHeader = ({tenant = 'DN'}) => (
+const AppHeader = ({tenant}) => (
     <header className="app__header__wrapper">
         <Logo tenant={tenant} />
 

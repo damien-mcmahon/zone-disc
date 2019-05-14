@@ -1,7 +1,15 @@
 @import 'styles/mixins';
 @import 'styles/fonts';
+@import 'styles/colors';
+
+$create-party-icon-color: $primary;
 
 .create-party {
+    &__help-icon {
+        @extend .font--h4;
+        color: $create-party-icon-color;
+    }
+
     &__form {
         .input-wrapper__wrapper,
         .select-wrapper__wrapper {

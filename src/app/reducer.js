@@ -6,7 +6,8 @@ const defaultState = {
     loggedIn: false,
     parties: [],
     tenants: [],
-    currentTenant: null
+    currentTenant: null,
+    tenant: 'DN'
 };
 
 const AppReducer = handleActions({

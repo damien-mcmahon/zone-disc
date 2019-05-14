@@ -13,7 +13,7 @@ import PartyIndex from 'party';
 
 import './styles.scss';
 
-const App = ({init, tenant = "DN"}) => {
+const App = ({init, tenant}) => {
     useEffect(() => init(), [init]); 
 
     return (
