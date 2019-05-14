@@ -11,7 +11,11 @@ $footer-bg: $secondary-gray;
         @include grid(12);
     }
 
-    &__section-wrapper {}
+    &__section-wrapper {
+        @include grid-span(12);
+        padding: sp(5);
+        width: 100%;
+    }
 
     &__section-title {
         @extend .font--h3;
