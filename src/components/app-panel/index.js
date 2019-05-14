@@ -1,14 +1,38 @@
 import React from 'react';
+import { shape, string, element, oneOfType, oneOf } from 'prop-types';
+
+import Tooltip from '../tooltip';
 
 import './styles.scss';
 
-const AppPanel = ({name, children}) => (
+const AppPanel = ({title, children, help}) => (
     <div className="panel__wrapper">
-        {name && <h2 className="panel__header">{name}</h2>}
+        {title && 
+            <div className="panel__header">
+                <h2 className="panel__title">{title}</h2>
+                {help &&
+                    <Tooltip place={help.place} name={help.name} content={help.content}>
+                        {help.children}
+                    </Tooltip>
+                }
+            </div>
+        }
+
         <div className="panel__content-container">
             {children}
         </div>
     </div>
 );
+
+AppPanel.propTypes = {
+    name: string,
+    children: element,
+    help: shape({
+        name: string.isRequired,
+        content: oneOfType([string, element]).isRequired,
+        children: element.isRequired,
+        place: oneOf(['top', 'right', 'bottom', 'left'])
+    })
+};
 
 export default AppPanel;

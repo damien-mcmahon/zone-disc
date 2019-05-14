@@ -12,7 +12,14 @@ $app-panel-bg: $secondary-gray;
     }
 
     &__header {
+        display: flex;
+        align-items: center;
+        width: auto;
+    }
+
+    &__title {
         @extend .font--h3;
         margin-top: sp(2);
+        display: inline-block;
     }
 }
