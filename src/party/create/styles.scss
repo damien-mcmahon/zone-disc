@@ -1,0 +1,28 @@
+@import 'styles/mixins';
+
+.create-party {
+    &__form {
+        .input-wrapper__wrapper,
+        .select-wrapper__wrapper {
+            width: 35%;
+        }
+        
+    }
+
+    &__inline-fields {
+        display: flex;
+        align-items: center;
+
+        .select-wrapper__wrapper:first-child {
+            margin-right: sp(3);
+        }
+
+        .input-wrapper__wrapper {
+            flex: 1;
+
+            &:first-child {
+                flex: 1.5;
+            }
+        }
+    }
+}

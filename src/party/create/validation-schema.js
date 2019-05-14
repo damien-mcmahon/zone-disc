@@ -16,7 +16,10 @@ export const teleAddressSchema = Yup.object().shape({
 
 export const createPartyValidationSchema = Yup.object().shape({
     partyName: Yup.string().required('Please enter a party name'),
+    primaryContactName: Yup.string().required('Please enter the Contact\'s name'),
     networkId: Yup.string().required('Please select the network for this party'),
+    DXSCode: Yup.string(),
+    currencyCode: Yup.string().required('Please select a currency code'),
     contactDetails: Yup.object().shape({
         contactType: Yup.string().required('Please enter a contact type'),
         postalAddress: Yup.object().shape({

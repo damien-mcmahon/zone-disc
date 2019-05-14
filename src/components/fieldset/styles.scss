@@ -1,0 +1,9 @@
+@import 'styles/mixins';
+
+.fieldset {
+    &__wrapper {
+        padding: sp(3) sp(1);
+        border: none;
+        margin-top: sp(2);
+    }
+}

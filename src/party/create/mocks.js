@@ -1,6 +1,7 @@
 export const PARTY_DETAILS = {
     partyName: 'Riverwoods CC',
     networkId: 'DN',
+    currencyCode: 'USD',
     contactDetails: {
         contactType: 'PERSON',
         postalAddress: {

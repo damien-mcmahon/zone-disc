@@ -11,6 +11,9 @@ $default-button-hover-bg: $primary-dark;
 $default-color: $gray-5;
 $default-button-focus: $complementary;
 
+$secondary-button-bg: $gray-1;
+$secondary-button-color: $white;
+
 %button {
     @extend .shadow--regular;
     @extend .font--button;
@@ -50,5 +53,11 @@ $default-button-focus: $complementary;
         &:focus {
             border-color: $default-button-focus;
         }
+    }
+
+    &--secondary {
+        @extend %button;
+        background: $secondary-button-bg;
+        color: $secondary-button-color;
     }
 }

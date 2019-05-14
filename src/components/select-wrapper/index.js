@@ -1,14 +1,16 @@
 import React from 'react';
 import {ErrorMessage} from 'formik';
 import Select from 'react-select';
-import { any, boolean, string, shape } from 'prop-types';
+import { any, arrayOf, bool, object, string, shape } from 'prop-types';
 import classNames from 'classnames';
 
 import './styles.scss';
 
-const SelectWrapper = ({name, label, options, errors, required = false, ...props}) => {
-    const wrapperClassNames = classNames('select-wrapper__wrapper', {
-        '--required': required
+const SelectWrapper = ({className, name, label, options, errors, required = false, ...props}) => {
+    const hasErrors = errors && errors[name] && errors[name].length > 0;
+    const wrapperClassNames = classNames('select-wrapper__wrapper', className, {
+        '--required': required,
+        '--error': hasErrors
     });
 
     return (
@@ -35,12 +37,12 @@ const SelectWrapper = ({name, label, options, errors, required = false, ...props
 SelectWrapper.propTypes = {
     name: string.isRequired,
     label: string.isRequired,
-    options: shape({
+    options: arrayOf(shape({
         label: string,
         value: any
-    }),
-    errors: string,
-    required: boolean
+    })),
+    errors: object,
+    required: bool
 };
 
 export default SelectWrapper;

@@ -24,7 +24,7 @@ storiesOf('Components/Form/Input Wrapper')
     .addDecorator(FormikWrapper({name: ''}, errorValidationSchema))
     .add('Text with Error', ({errors}) => 
         <Fragment>
-            <InputWrapper name="name" label="Name" errors={errors['name']} />
+            <InputWrapper name="name" label="Name" errors={errors} />
             <Button type="submit">Save</Button>
         </Fragment>
     )
