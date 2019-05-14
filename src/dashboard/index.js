@@ -15,7 +15,7 @@ const Dashboard = ({sendSearch}) => (
     <AppPanel title="Welcome">
         <header className="dashboard__header">
             <Link to={CREATE_PARTY.path} className="new-party-card__wrapper">
-                <Card depth={2}>
+                <Card applyHoverStyle depth={2}>
                     <FontAwesomeIcon className="new-party-card__icon" icon="plus-square" />
                         <h3 className="new-party-card__text">
                             <em className="new-party-card__text-emphasis">Create a new</em>

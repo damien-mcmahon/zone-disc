@@ -9,6 +9,7 @@ import AppFooter from 'components/app-footer';
 
 import Dashboard from 'dashboard/container';
 import CreateParty from 'party/create/container';
+import Confirmation from 'party/confirmation/container';
 import PartyIndex from 'party';
 
 import './styles.scss';
@@ -26,7 +27,8 @@ const App = ({init, tenant}) => {
                 <section className="app__panel-wrapper">
                     <Switch>
                         <Route path="/" exact component={Dashboard} />
-                        <Route path="/party/create" component={CreateParty} />
+                        <Route path="/party/create" exact component={CreateParty} />
+                        <Route path="/party/create/success" component={Confirmation} />
                         <Route path="/party" exact component={PartyIndex} />
                     </Switch>
 

@@ -1,0 +1,21 @@
+@import 'styles/mixins';
+@import 'styles/colors';
+
+$banner-success-bg: $success;
+$banner-success-color: $white;
+
+.banner {
+    &__wrapper {
+        padding: sp(2);
+        display: flex;
+
+        &.--success {
+            background: $banner-success-bg;
+            color: $banner-success-color;
+        }
+    }
+
+    &__icon-wrapper {
+        padding: sp(1);
+    }
+}

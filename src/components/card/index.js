@@ -6,7 +6,7 @@ import './styles.scss';
 
 const DEPTH_CLASSNAMES = ["", "small", "regular", "medium", "large" ];
 
-const Card = ({className, children, depth = null, applyHoverStyle = true}) => {
+const Card = ({className, children, depth = null, applyHoverStyle = false }) => {
     const cardClassNames = classnames('card__wrapper', className, {
         [`shadow--${DEPTH_CLASSNAMES[depth]}`]: depth,
         '--hover': applyHoverStyle

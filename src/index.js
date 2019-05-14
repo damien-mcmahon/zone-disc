@@ -13,6 +13,7 @@ import {
     faQuestionCircle,
     faUserCircle, 
     faWrench,
+    faCheckCircle
 } from '@fortawesome/free-solid-svg-icons';
 
 import App from 'app/container';
@@ -20,7 +21,16 @@ import store from 'store';
 
 import './global.scss';
 
-library.add(faEnvelope, faGripHorizontal, faPlusSquare, faQuestionCircle, faSearch, faUserCircle, faWrench);
+library.add(
+    faCheckCircle,
+    faEnvelope, 
+    faGripHorizontal, 
+    faPlusSquare, 
+    faQuestionCircle, 
+    faSearch, 
+    faUserCircle, 
+    faWrench
+);
 
 ReactDOM.render(
     <Provider store={store}>

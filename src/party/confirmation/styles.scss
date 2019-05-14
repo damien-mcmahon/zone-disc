@@ -1,0 +1,52 @@
+@import 'styles/mixins';
+@import 'styles/grid';
+@import 'styles/colors';
+@import 'styles/fonts';
+
+$clone-help-bg: $complementary;
+$clone-help-icon-color: $white;
+$clone-color: $white;
+
+.confirmation {
+    &__wrapper {
+        @include grid(10);
+    }
+
+    &__banner {
+        margin: sp(-2) sp(-2) 0 sp(-4);
+        @include grid-span(10);
+    }
+
+    &__info-wrapper {
+        @include grid-span(6);
+    }
+
+    &__actions-wrapper {
+        @include grid-span(4);
+    }
+
+    &__clone-help {
+        background: $clone-help-bg;
+        color: $clone-color;
+    }
+
+    &__action-cards-wrapper {
+        display: flex;
+
+        .card__wrapper {
+            flex: 1;
+            width: 45%;
+        }
+    }
+}
+
+.clone-help {
+    &__title {
+        @extend .font--h3;
+    }
+
+    &__icon {
+        display: inline-block!important;
+        color: $clone-help-icon-color !important;
+    }
+}
