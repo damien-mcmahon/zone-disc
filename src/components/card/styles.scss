@@ -8,13 +8,14 @@ $svg-color: $primary;
 $svg-hover-color: $white;
 $text-color: $gray-1;
 $text-hover-color: $white;
+$border-radius: 4px;
 
 .card {
     &__wrapper {
         background: $card-bg;
         padding: sp(3);
         margin: sp(2) 0;
-
+        border-radius: $border-radius;
         color: $text-color;
 
         svg {

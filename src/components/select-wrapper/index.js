@@ -3,11 +3,13 @@ import {ErrorMessage} from 'formik';
 import Select from 'react-select';
 import { any, arrayOf, bool, object, string, shape } from 'prop-types';
 import classNames from 'classnames';
+import get from 'lodash.get';
 
 import './styles.scss';
 
 const SelectWrapper = ({className, name, label, options, errors, required = false, ...props}) => {
-    const hasErrors = errors && errors[name] && errors[name].length > 0;
+    const errorField = errors && get(errors, name);
+    const hasErrors = errorField && errorField.length > 0;
     const wrapperClassNames = classNames('select-wrapper__wrapper', className, {
         '--required': required,
         '--error': hasErrors

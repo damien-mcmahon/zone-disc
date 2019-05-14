@@ -2,11 +2,13 @@ import React from 'react';
 import { Field, ErrorMessage } from 'formik';
 import { any, arrayOf, object, string, bool } from 'prop-types';
 import classNames from 'classnames';
+import get from 'lodash.get';
 
 import './styles.scss';
 // TODO - Passing errors object is flaky...
-const InputWrapper = ({name, label, type = 'text', errors = '', className, required = false, ...props}) => {
-    const hasErrors = errors && errors[name] && errors[name].length > 0; 
+const InputWrapper = ({name, label, type = 'text', errors, className, required = false, ...props}) => {
+    const errorField = errors && get(errors, name);
+    const hasErrors = errorField && errorField.length > 0; 
     const wrapperClassNames = classNames('input-wrapper__wrapper', className, {
         '--error': hasErrors,
         '--required': required

@@ -159,12 +159,11 @@ const renderPartyForm = ({ errors, touched, setFieldValue, values, setValues }) 
             </Fieldset>
 
             <Fieldset>
-                <Card className="create-party__upload" applyHoverStyle={false} depth="1">
+                <Card className="create-party__upload" applyHoverStyle={false} depth={1}>
                     <h2 className="upload__label">Upload Files</h2>
                     <h3 className="upload__label-meta">(2MB maximum per file)</h3>
-                    <Button state="secondary">Choose Files</Button>
+                    <Button disabled className="upload__button" state="secondary">Choose Files</Button>
                 </Card>
-
             </Fieldset>
 
             <Button type="submit">Save</Button>

@@ -1,4 +1,5 @@
 @import 'styles/mixins';
+@import 'styles/fonts';
 
 .create-party {
     &__form {
@@ -6,7 +7,6 @@
         .select-wrapper__wrapper {
             width: 35%;
         }
-        
     }
 
     &__inline-fields {
@@ -24,5 +24,29 @@
                 flex: 1.5;
             }
         }
+    }
+
+    &__upload {
+        width: 40%;
+    }
+}
+
+.upload {
+    &__label,
+    &__label-meta {
+        display: inline-block;
+    }
+
+    &__label {
+        @extend .font--body;
+    }
+
+    &__label-meta {
+        @extend .font--note;
+    }
+
+    &__button {
+        display: block;
+        margin-top: sp(2);
     }
 }

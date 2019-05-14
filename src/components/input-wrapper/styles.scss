@@ -52,6 +52,10 @@ $input-error-color: $error;
                 color: $input-text-placeholder;
                 font-style: italic;
             }
+
+            .--error & {
+                border-bottom-color: $input-error-color;
+            }
         }
     }
 

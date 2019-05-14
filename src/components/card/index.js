@@ -1,5 +1,5 @@
 import React from 'react';
-import { string, element, number, bool } from 'prop-types';
+import { arrayOf, string, element, number, bool } from 'prop-types';
 import classnames from 'classnames';
 
 import './styles.scss';
@@ -17,7 +17,7 @@ const Card = ({className, children, depth = null, applyHoverStyle = true}) => {
 
 Card.propTypes = {
     className: string,
-    children: element,
+    children: arrayOf(element),
     depth: number,
     applyHoverStyle: bool,
 };
