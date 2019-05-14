@@ -14,6 +14,7 @@ storiesOf('Components/Form/Input Wrapper')
             <InputWrapper label="Label" name="test2"/>
         </div>
     )
+    .add('Field is required', () => <InputWrapper label="Required Field" name="test" required />)
 
 const errorValidationSchema = Yup.object().shape({
     name: Yup.string().min(2, '2 or more characters required').required('Please enter a valid string')

@@ -124,7 +124,7 @@ const CreateParty = ({ location, submitPartyForm }) => {
         { debug, ...createPartyInitialValues } : createPartyInitialValues;
 
     return (
-        <AppPanel name="Create Party">
+        <AppPanel title="Create Party">
             <section>
                 <h2>Party Details</h2>
                 <Formik

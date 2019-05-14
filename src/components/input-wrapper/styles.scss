@@ -23,6 +23,11 @@ $input-error-color: $error;
         .--error & {
             color: $input-label-error;
         }
+
+        .--required &:after {
+            content: '*';
+            margin-left: sp(1);
+        }
     }
 
     &__input {

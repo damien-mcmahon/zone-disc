@@ -12,9 +12,9 @@ const helpObject = {
 };
 
 storiesOf('Components/App/Panel', module)
-    .add('With Title', () => <AppPanel name="Storybook"><h1>This is an app panel</h1></AppPanel>)
+    .add('With Title', () => <AppPanel title="Storybook"><h1>This is an app panel</h1></AppPanel>)
     .add('with no title', () => <AppPanel><h1>This is an app panel</h1></AppPanel>)
-    .add('With Tooltip in title', () => 
+    .add('With Tooltip', () => 
         <AppPanel title="Some complex thing" help={helpObject}>
             <h1>This is an app panel</h1>
         </AppPanel>

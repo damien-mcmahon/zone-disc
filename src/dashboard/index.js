@@ -12,7 +12,7 @@ import './styles.scss';
 const searchFormInitialValues = { search: '' };
 
 const Dashboard = ({sendSearch}) => (
-    <AppPanel name="Welcome">
+    <AppPanel title="Welcome">
         <header className="dashboard__header">
             <Link to={CREATE_PARTY.path} className="new-party-card__wrapper">
                 <Card depth={2}>
