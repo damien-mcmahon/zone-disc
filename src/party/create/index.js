@@ -182,7 +182,7 @@ const CreateParty = ({ app: {tenant:networkId}, submitPartyForm }) => {
                     validationSchema={createPartyValidationSchema}
                     initialValues={initialValues}
                     render={renderPartyForm}
-                    onSubmit={({ values }) => submitPartyForm(values)} />
+                    onSubmit={values => submitPartyForm(values)} />
             </section>
         </AppPanel>
     );

@@ -6,7 +6,7 @@ const defaultState = {
     loggedIn: false,
     parties: [],
     tenants: [],
-    currentTenant: null,
+    currentTenant: 'DN',
     tenant: 'DN'
 };
 
@@ -21,7 +21,7 @@ const AppReducer = handleActions({
     [createParty] : (state, { payload: party}) => {
         return {
             ...state,
-            parties: [...state.parties, party]
+            parties: [...state.parties, party],
         };
     }
 }, defaultState);

@@ -10,6 +10,12 @@ export const CREATE_PARTY = {
     icon: 'plus-square'
 };
 
+export const CREATE_PARTY_CONFIRMATION = {
+    path: '/party/create/success',
+    label: 'Account Created',
+    icon: 'plus-square'
+};
+
 export const SERVICE_PARTY = {
     path: '/party/:id',
     label: 'Service Account',
@@ -19,7 +25,8 @@ export const SERVICE_PARTY = {
 const ROUTES = {
     HOME,
     CREATE_PARTY,
-    SERVICE_PARTY
+    SERVICE_PARTY,
+    CREATE_PARTY_CONFIRMATION
 };
 
     
