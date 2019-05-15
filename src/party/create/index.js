@@ -30,6 +30,7 @@ const createPartyInitialValues = {
     partyName: '',
     primaryContactName: '',
     currencyCode: ['USD'],
+    statusName: 'Awaiting Approval',
     contactDetails: {
         contactType: 'PERSON',
         postalAddress: {
@@ -61,19 +62,21 @@ const createHelp = {
 
 const updateField = setFieldValue => name => value => setFieldValue(name, value);
 
-const renderPartyForm = ({ errors, setFieldValue, values }) => {
+const renderPartyForm = ({ errors, setFieldValue, touched, values }) => {
     const setFormValue = updateField(setFieldValue);
 
     return (
         <Form className="create-party__form">
             <Fieldset className="create-party__inline-fields">
                 <InputWrapper 
+                    touched={touched}
                     label="Business Name" 
                     required name="partyName" 
                     errors={errors} />
 
                 <InputWrapper 
                     label="Primary Contact Name" 
+                    touched={touched}
                     required  
                     name="primaryContactName" 
                     errors={errors} />
@@ -85,6 +88,7 @@ const renderPartyForm = ({ errors, setFieldValue, values }) => {
                     required
                     label="Country"
                     errors={errors}
+                    touched={touched}
                     className="create-party__country-select"
                     name="contactDetails.postalAddress.country"
                     onChange={setFormValue('contactDetails.postalAddress.country')}
@@ -92,6 +96,7 @@ const renderPartyForm = ({ errors, setFieldValue, values }) => {
 
                 <div className="create-party__inline-fields">
                     <InputWrapper 
+                        touched={touched}
                         errors={errors}
                         required
                         label="Street Address 1" 
@@ -99,18 +104,21 @@ const renderPartyForm = ({ errors, setFieldValue, values }) => {
 
                     <InputWrapper 
                         label="Street Address 2" 
+                        touched={touched}
                         errors={errors}
                         name="contactDetails.postalAddress.postalAddressLine2" />
                 </div>
 
                 <InputWrapper 
                     errors={errors}
+                    touched={touched}
                     required
                     label="City" 
                     name="contactDetails.postalAddress.city" />
 
                 <SelectWrapper
                     errors={errors}
+                    touched={touched}
                     required
                     label="State"
                     name="contactDetails.postalAddress.state"
@@ -119,6 +127,7 @@ const renderPartyForm = ({ errors, setFieldValue, values }) => {
 
                 <InputWrapper 
                     errors={errors}
+                    touched={touched}
                     label="ZIP Code" 
                     required
                     name="contactDetails.postalAddress.postalCode" />
@@ -127,6 +136,7 @@ const renderPartyForm = ({ errors, setFieldValue, values }) => {
                     name="contactDetails.teleAddress"
                     render={({ name }) => (
                         <InputWrapper 
+                            touched={touched}
                             errors={errors}
                             name={`${name}[0].telecommunicationNumber`} 
                             label="Telephone: " />
@@ -136,6 +146,7 @@ const renderPartyForm = ({ errors, setFieldValue, values }) => {
                     name="contactDetails.eAddress"
                     render={({ name }) => (
                         <InputWrapper 
+                            touched={touched}
                             errors={errors}
                             name={`${name}[0].address`} 
                             label="Email Address: " />
@@ -144,6 +155,7 @@ const renderPartyForm = ({ errors, setFieldValue, values }) => {
 
             <Fieldset className="create-party__inline-fields">
                 <SelectWrapper
+                    touched={touched}
                     errors={errors}
                     required
                     isMulti
@@ -154,6 +166,7 @@ const renderPartyForm = ({ errors, setFieldValue, values }) => {
 
                 {values.networkId === DCI &&
                     <InputWrapper
+                        touched={touched}
                         label="DXS Code"
                         name="DXSCode"
                         errors={errors} />

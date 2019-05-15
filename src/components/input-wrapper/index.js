@@ -6,11 +6,12 @@ import get from 'lodash.get';
 
 import './styles.scss';
 // TODO - Passing errors object is flaky...
-const InputWrapper = ({name, label, type = 'text', errors, className, required = false, ...props}) => {
+const InputWrapper = ({name, label, type = 'text', errors, className, required = false, touched, ...props}) => {
     const errorField = errors && get(errors, name);
     const hasErrors = errorField && errorField.length > 0; 
+    const isTouched = !!(touched && get(touched, name));
     const wrapperClassNames = classNames('input-wrapper__wrapper', className, {
-        '--error': hasErrors,
+        '--error': hasErrors && isTouched,
         '--required': required
     });
 

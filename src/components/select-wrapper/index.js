@@ -7,12 +7,13 @@ import get from 'lodash.get';
 
 import './styles.scss';
 
-const SelectWrapper = ({className, name, label, options, errors, required = false, ...props}) => {
+const SelectWrapper = ({className, name, label, options, errors, required = false, touched, ...props}) => {
     const errorField = errors && get(errors, name);
     const hasErrors = errorField && errorField.length > 0;
+    const isTouched = !!(touched && get(touched, name));
     const wrapperClassNames = classNames('select-wrapper__wrapper', className, {
         '--required': required,
-        '--error': hasErrors
+        '--error': hasErrors && isTouched
     });
 
     return (

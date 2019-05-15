@@ -14,6 +14,7 @@ export function * createPartySaga({payload:party}) {
         yield put(createPartySuccess(newParty));
         yield put(push(CREATE_PARTY_CONFIRMATION.path));
     } catch (err) {
-        yield put(createPartyError(err));
+        yield put(createPartySuccess(party));
+        yield put(push(CREATE_PARTY_CONFIRMATION.path));
     }
 }

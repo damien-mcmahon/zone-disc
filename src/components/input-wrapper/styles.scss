@@ -56,6 +56,10 @@ $input-error-color: $error;
             .--error & {
                 border-bottom-color: $input-error-color;
             }
+
+            .--error &:focus {
+                border-bottom-color: $input-text-focus-border;
+            }
         }
     }
 
