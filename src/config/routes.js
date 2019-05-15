@@ -18,7 +18,7 @@ export const CREATE_PARTY_CONFIRMATION = {
 
 export const SERVICE_PARTY_ID = {
     path: '/party/:id',
-    label: 'Service Account',
+    label: 'Account Maintenance',
     icon: 'wrench'
 };
 

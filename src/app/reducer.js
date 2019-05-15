@@ -2,14 +2,14 @@ import { handleActions } from 'redux-actions';
 import { setLoggedIn } from './actions';
 import { createParty } from 'party/create/actions';
 
-import {PARTY_DETAILS} from '../config/mocks';
+import {QUEUE_MOCKS} from '../config/mocks';
 
 const defaultState = {
     loggedIn: false,
-    parties: [PARTY_DETAILS],
+    parties: [...QUEUE_MOCKS],
     tenants: [],
     currentTenant: 'DN',
-    tenant: 'DN'
+    tenant: 'DCI'
 };
 
 const AppReducer = handleActions({

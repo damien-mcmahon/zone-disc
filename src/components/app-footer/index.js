@@ -21,7 +21,7 @@ const AppFooter = () => (
         <div className="footer__links-wrapper">
             <nav className="footer__nav-wrapper">
                 {FOOTER_NAV_ITEMS.map(item => (
-                    <div className="footer__nav-item-wrapper">
+                    <div key={item.label} className="footer__nav-item-wrapper">
                         <Link 
                             className="footer__nav-link"
                             to={item.path}>{item.label}</Link>

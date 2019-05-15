@@ -1,5 +1,5 @@
 import React from 'react';
-import { shape, string, element, oneOfType, oneOf } from 'prop-types';
+import { arrayOf, shape, string, element, oneOfType, oneOf } from 'prop-types';
 import classnames from 'classnames';
 
 import Tooltip from '../tooltip';
@@ -30,7 +30,7 @@ const AppPanel = ({className, title, children, help}) => {
 
 AppPanel.propTypes = {
     name: string,
-    children: element,
+    children: oneOfType([element, arrayOf(element)]),
     help: shape({
         name: string.isRequired,
         content: oneOfType([string, element]).isRequired,

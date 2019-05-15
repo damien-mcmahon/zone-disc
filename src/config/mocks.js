@@ -1,12 +1,15 @@
+import { getRandomInt } from '../utils';
+import Faker from 'faker';
+
 export const PARTY_DETAILS = {
-    id: '555-555-555',
+    id: Faker.random.uuid(),
     statusName: 'Active',
     partyName: 'Riverwoods CC',
     primaryContactName: 'Jin Doe',
     networkId: 'DN',
     currencyCode: ['USD'],
     contactDetails: {
-        contactType: 'PERSON',
+        contactType: 'preferred',
         postalAddress: {
             postalAddressLine1: '123 Main Street',
             postalAddressLine2: 'Suburb',
@@ -27,3 +30,13 @@ export const PARTY_DETAILS = {
         }]
     }
 };
+
+const STATUSES = ['Active', 'Awaiting Approval', 'Rejected'];
+const ACCOUNT_NAMES = ['FIRST DATA CORPORATION', 'ADYEN','WELLS FARGO', 'FDCS/O&M CHASE&FSTFIN','ADYEN CANADA LTD.','GLOBAL PAYMENTS CANADA','SECURE BANCARD'];
+
+export const QUEUE_MOCKS = ACCOUNT_NAMES.map(partyName => ({
+    ...PARTY_DETAILS,
+    id: Faker.random.uuid(),
+    partyName,
+    statusName: STATUSES[getRandomInt(0, STATUSES.length-1)] 
+}));

@@ -28,8 +28,8 @@ const App = ({init, tenant}) => {
                     <Switch>
                         <Route path="/" exact component={Dashboard} />
                         <Route path="/party/create" exact component={CreateParty} />
-                        <Route path="/party/create/success" component={Confirmation} />
-                        <Route path="/party" exact component={PartyIndex} />
+                        <Route path="/party/create/success" exact component={Confirmation} />
+                        <Route path="/party/:id" exact component={PartyIndex} />
                     </Switch>
 
                     <AppFooter />

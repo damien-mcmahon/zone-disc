@@ -16,6 +16,7 @@ $queue-icon-color: rgba($white, .5);
         border-radius: 4px;
         margin: sp(1);
         background: $queue-bg;
+        overflow: hidden;
     }
 
     &__status-wrapper {
@@ -45,7 +46,7 @@ $queue-icon-color: rgba($white, .5);
     }
 
     &__business-name {
-        @extend .font--h3;
+        @extend .font--h4;
     }
 
     &__approval-status {

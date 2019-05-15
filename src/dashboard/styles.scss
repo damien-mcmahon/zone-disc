@@ -15,7 +15,17 @@ $dashboard-bg: $white;
     }
 
     &__queue {
-        margin: sp(2) 0;
+        margin: sp(5) 0;
+    }
+
+    &__queue-items-wrapper {
+        padding: sp(2) 0;
+        display: flex;
+        flex-wrap: wrap;
+
+        .queue-card__wrapper {
+            width: 30%;
+        }
     }
 
     &__section-header {

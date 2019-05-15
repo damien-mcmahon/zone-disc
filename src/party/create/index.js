@@ -94,8 +94,9 @@ const renderPartyForm = ({ errors, setFieldValue, values }) => {
                     <InputWrapper 
                         errors={errors}
                         required
-                        label="Street Name and Number" 
+                        label="Street Address 1" 
                         name="contactDetails.postalAddress.postalAddressLine1" />
+
                     <InputWrapper 
                         label="Street Address 2" 
                         errors={errors}

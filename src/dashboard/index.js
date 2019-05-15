@@ -49,11 +49,13 @@ const Dashboard = ({sendSearch, userQueue = []}) => (
 
         <section className="dashboard__queue">
             <h2 className="dashboard__section-header">Account Queue</h2>
-            {userQueue.map(party => (
-                <QueueCard key={party.id} party={party} />
-            ))}
-        </section>
 
+            <div className="dashboard__queue-items-wrapper">
+                {userQueue.map(party => (
+                    <QueueCard key={party.id} party={party} />
+                ))}
+            </div>
+        </section>
     </AppPanel>
 );
 

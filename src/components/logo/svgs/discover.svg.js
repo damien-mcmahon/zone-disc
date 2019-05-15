@@ -1,7 +1,7 @@
 import React from 'react';
 
-const DiscoverSVG = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220.56734 36.535367">
+const DiscoverSVG = ({className}) => (
+    <svg xmlns="http://www.w3.org/2000/svg" className={className} viewBox="0 0 220.56734 36.535367">
     <defs>
       <clipPath id="a">
         <path d="m 0,0 1766.57,0 0,479 L 0,479 0,0 Z"/>
