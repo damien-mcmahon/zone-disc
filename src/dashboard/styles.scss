@@ -35,7 +35,7 @@ $dashboard-bg: $white;
 
 .new-party-card {
     &__wrapper {
-        @include grid-span(2);
+        @include grid-span(3);
     }
 
     &__icon {
@@ -56,7 +56,7 @@ $dashboard-bg: $white;
 
 .search-card {
     &__wrapper {
-        @include grid-span(7);
+        @include grid-span(6);
         display: flex;
     }
 

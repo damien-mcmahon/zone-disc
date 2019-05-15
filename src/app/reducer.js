@@ -9,7 +9,7 @@ const defaultState = {
     parties: [...QUEUE_MOCKS],
     tenants: [],
     currentTenant: 'DN',
-    tenant: 'DCI'
+    tenant: 'DN'
 };
 
 const AppReducer = handleActions({

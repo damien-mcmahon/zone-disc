@@ -25,7 +25,17 @@ const SelectWrapper = ({className, name, label, options, errors, required = fals
                 options={options} 
                 className="select-wrapper__input"
                 classNamePrefix="select-component"
-                onChange={({value}) => props.onChange && props.onChange(value)} />
+                onChange={vals => {
+                    let valueToSend;
+
+                    if (vals.length) {
+                        valueToSend = vals.map(v => v.value);    
+                    } else {
+                        const { value } = vals;
+                        valueToSend = value;
+                    } 
+                    props.onChange && props.onChange(valueToSend)
+                }} />
 
             <ErrorMessage name={name}>
                 {message => 

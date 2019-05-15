@@ -29,7 +29,7 @@ const DCI = 'DCI';
 const createPartyInitialValues = {
     partyName: '',
     primaryContactName: '',
-    currencyCode: 'USD',
+    currencyCode: ['USD'],
     contactDetails: {
         contactType: 'PERSON',
         postalAddress: {
@@ -146,6 +146,7 @@ const renderPartyForm = ({ errors, setFieldValue, values }) => {
                 <SelectWrapper
                     errors={errors}
                     required
+                    isMulti
                     label="Currency Code"
                     name="contactDetails.postalAddress.state"
                     onChange={setFormValue('currencyCode')}
