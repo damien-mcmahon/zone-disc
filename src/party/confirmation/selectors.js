@@ -7,4 +7,9 @@ export const newestPartySelector = createSelector(
     (parties) => {
         return parties[parties.length -1];
     }
-)
+);
+
+export const queueItemsSelector = createSelector(
+    partiesSelector,
+    parties => parties.length
+);

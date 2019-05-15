@@ -1,13 +1,15 @@
 @import 'styles/mixins';
 @import 'styles/colors';
+@import 'styles/fonts';
 
 $banner-success-bg: $success;
 $banner-success-color: $white;
 
 .banner {
     &__wrapper {
-        padding: sp(2);
+        padding: sp(4);
         display: flex;
+        align-items: center;
 
         &.--success {
             background: $banner-success-bg;
@@ -17,5 +19,14 @@ $banner-success-color: $white;
 
     &__icon-wrapper {
         padding: sp(1);
+    }
+
+    &__title {
+        @extend .font--h1;
+    }
+
+    &__extraInfo {
+        @extend .font--h2;
+        margin-top: sp(2);
     }
 }

@@ -18,7 +18,7 @@ const Banner = ({state = 'default', title, subTitle, className}) => {
     return (
         <div className={bannerClasses}>
             <div className="banner__icon-wrapper">
-                <FontAwesomeIcon icon={ICON_MAPPINGS[state]} size="5x" />
+                <FontAwesomeIcon icon={ICON_MAPPINGS[state]} size="8x" />
             </div>
 
             <div className="banner__title-wrapper">

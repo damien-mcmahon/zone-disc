@@ -17,8 +17,18 @@ $clone-color: $white;
         @include grid-span(10);
     }
 
+    &__title {
+        @extend .font--h3;
+        margin: sp(2) 0 sp(3);
+    }
+
     &__info-wrapper {
         @include grid-span(6);
+        padding: sp(3);
+    }
+
+    &__party-overview {
+        margin-bottom: sp(3);
     }
 
     &__actions-wrapper {
@@ -26,8 +36,10 @@ $clone-color: $white;
     }
 
     &__clone-help {
+        display: flex;
         background: $clone-help-bg;
         color: $clone-color;
+        align-items: center;
     }
 
     &__action-cards-wrapper {
@@ -44,13 +56,37 @@ $clone-color: $white;
     }
 }
 
+
+// TODO - Candidate for a Component?
 .clone-help {
     &__title {
         @extend .font--h3;
+        @extend .normal;
+        margin-left: sp(2);
+    }
+
+    &__emphasis {
+        font-style: normal;
     }
 
     &__icon {
         display: inline-block!important;
         color: $clone-help-icon-color !important;
+    }
+}
+
+// TODO - Candidate for a Component?
+.queue-card {
+    &__title {
+        @extend .font--h3;
+        margin: sp(1) 0 sp(2);
+    }
+
+    &__emphasis {
+        @extend .bold;
+    }
+
+    &__link {
+        @extend .font--body;
     }
 }

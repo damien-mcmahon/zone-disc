@@ -16,6 +16,12 @@ export const CREATE_PARTY_CONFIRMATION = {
     icon: 'plus-square'
 };
 
+export const ACCOUNT_MAINTENANCE = {
+    path: '/party/maintenance',
+    icon: 'wrench',
+    label: 'Account Maintenance'
+};
+
 export const SERVICE_PARTY_ID = {
     path: '/party/:id',
     label: 'Account Maintenance',
@@ -25,6 +31,7 @@ export const SERVICE_PARTY_ID = {
 export const replaceParam = (path, val, REPLACE_REG_EX = /:([\w]+)/gim) => path.replace(REPLACE_REG_EX, val);
 
 const ROUTES = {
+    ACCOUNT_MAINTENANCE,
     HOME,
     CREATE_PARTY,
     SERVICE_PARTY_ID,

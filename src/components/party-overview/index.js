@@ -1,5 +1,6 @@
 import React from 'react'
 import get from 'lodash.get';
+import classnames from 'classnames';
 
 import COUNTRIES from '../../config/countries.json';
 
@@ -19,12 +20,13 @@ const countryCodeToLabel = cCode => {
     return name || 'United States';
 };
 
-const PartyOverview = ({party}) => {
+const PartyOverview = ({className, party}) => {
     const hasPostalAddress2 = !!get(party, 'contactDetails.postalAddress.postalAddressLine2');
     const hasDXSCode = !!get(party, 'DXSCode');
+    const overviewClasses = classnames('party-overview__wrapper', className);
 
     return (
-        <div className="party-overview__wrapper">
+        <div className={overviewClasses}>
             <div className="party-overview__info-group">
                 <div className="party-overview__info-item-wrapper">
                     <p className="party-overview__info-value --network">{getTenantName(party.networkId)}</p>

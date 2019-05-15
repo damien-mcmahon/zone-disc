@@ -2,10 +2,11 @@ import { connect } from 'react-redux';
 
 import Confirmation from '.';
 
-import { newestPartySelector } from './selectors';
+import { newestPartySelector, queueItemsSelector } from './selectors';
 
 const mapStateToProps = state => ({
-    party: newestPartySelector(state)
+    party: newestPartySelector(state),
+    queueItemsLength: queueItemsSelector(state)
 });
 
 const mapDispatchToProps = dispatch => ({});
