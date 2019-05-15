@@ -1,6 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react';
-import { PARTY_DETAILS} from '../../party/create/mocks';
+import { PARTY_DETAILS} from '../../config/mocks';
 
 import PartyOverview from '.';
 

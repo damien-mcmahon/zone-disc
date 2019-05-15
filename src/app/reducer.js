@@ -2,7 +2,7 @@ import { handleActions } from 'redux-actions';
 import { setLoggedIn } from './actions';
 import { createParty } from 'party/create/actions';
 
-import {PARTY_DETAILS} from '../party/create/mocks';
+import {PARTY_DETAILS} from '../config/mocks';
 
 const defaultState = {
     loggedIn: false,
