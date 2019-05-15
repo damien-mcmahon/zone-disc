@@ -3,11 +3,13 @@ const { range } = require('./utils');
 
 module.exports =  {
   createParties: (count, tenants) => range(0,count).map(() => {
-      const randTenant = Math.max(0, Math.floor(Math.random() * tenants.length -1));
+      const randNum = Math.round(Math.random() * tenants.length -1);
+      const randTenant = Math.max(0, randNum);
       const tenant = tenants[randTenant];
       const partyName = Faker.company.companyName();
+
       const contactDetails = {
-        contactType: 'CHANGE_CHANGE_CHANGE',
+        contactType: 'Preffered',
         postalAddress: {
           postalAddressLine1: Faker.address.streetAddress(),
           city: Faker.address.city(),
@@ -28,7 +30,7 @@ module.exports =  {
 
       return {
         id: Faker.random.uuid(),
-        tenantId: tenant.id,
+        networkId: tenant.shortCode,
         partyName,
         contactDetails
       };
