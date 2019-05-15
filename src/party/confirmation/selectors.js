@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect';
 
-const partiesSelector = state => state.app.parties;
+import { partiesSelector } from 'app/selectors';
 
 export const newestPartySelector = createSelector(
     partiesSelector,

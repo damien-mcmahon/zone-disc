@@ -35,8 +35,12 @@ $clone-color: $white;
 
         .card__wrapper {
             flex: 1;
-            width: 45%;
+            margin: 0 sp(1);
         }
+    }
+
+    &__link-to-create {
+        display: block;
     }
 }
 

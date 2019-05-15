@@ -1,8 +1,11 @@
 import { connect } from 'react-redux';
 
 import Dashboard from './index';
+import { userQueueSelector } from './selectors';
 
-const mapStateToProps = ({app}) => ({app});
+const mapStateToProps = state => ({
+    userQueue: userQueueSelector(state)
+});
 
 const mapDispatchToProps = dispatch => ({});
 

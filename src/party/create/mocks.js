@@ -1,4 +1,6 @@
 export const PARTY_DETAILS = {
+    id: '555-555-555',
+    statusName: 'Active',
     partyName: 'Riverwoods CC',
     primaryContactName: 'Jin Doe',
     networkId: 'DN',

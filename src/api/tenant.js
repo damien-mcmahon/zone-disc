@@ -1,5 +1,4 @@
 const Faker = require('faker');
-const { range } = require('./utils');
 
 module.exports = {
   getTenants: () => ([

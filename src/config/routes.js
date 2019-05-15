@@ -16,16 +16,18 @@ export const CREATE_PARTY_CONFIRMATION = {
     icon: 'plus-square'
 };
 
-export const SERVICE_PARTY = {
+export const SERVICE_PARTY_ID = {
     path: '/party/:id',
     label: 'Service Account',
     icon: 'wrench'
-}
+};
+
+export const replaceParam = (path, val, REPLACE_REG_EX = /:([\w]+)/gim) => path.replace(REPLACE_REG_EX, val);
 
 const ROUTES = {
     HOME,
     CREATE_PARTY,
-    SERVICE_PARTY,
+    SERVICE_PARTY_ID,
     CREATE_PARTY_CONFIRMATION
 };
 

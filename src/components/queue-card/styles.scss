@@ -1,0 +1,60 @@
+@import 'styles/colors';
+@import 'styles/shadows';
+@import 'styles/mixins';
+@import 'styles/fonts';
+
+$queue-bg: $white;
+$queue-active-bg: $success;
+$queue-awaiting-bg: $warning;
+$queue-rejected-bg: $error;
+$queue-icon-color: rgba($white, .5);
+
+.queue-card {
+    &__wrapper {
+        @extend .shadow--medium;
+        display: flex;
+        border-radius: 4px;
+        margin: sp(1);
+        background: $queue-bg;
+    }
+
+    &__status-wrapper {
+        color: $queue-icon-color;
+        padding: sp(1.5);
+
+        .--active & {
+            background: $queue-active-bg;
+        }
+
+        .--awaiting & {
+            background: $queue-awaiting-bg;
+        }
+
+        .--rejected & {
+            background: $queue-rejected-bg;
+        }
+    }
+
+    &__icon {
+        font-size: 20px;
+    }
+
+    &__info-wrapper {
+        flex: 1;
+        padding: sp(1);
+    }
+
+    &__business-name {
+        @extend .font--h3;
+    }
+
+    &__approval-status {
+        @extend .font--body;
+    }
+
+    &__action-link {
+        @extend .font--label;
+        display: inline-block;
+        margin-top: sp(3);
+    }
+}

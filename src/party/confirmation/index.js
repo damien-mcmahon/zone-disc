@@ -1,4 +1,7 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
+
+import { CREATE_PARTY, SERVICE_PARTY_ID } from 'config/routes';
 
 import AppPanel from 'components/app-panel';
 import Banner from 'components/banner';
@@ -21,6 +24,12 @@ const Confirmation = ({party}) => {
                 <h1 className="confirmation__title">Details submitted for approval</h1>    
 
                 <PartyOverview party={party} />
+
+                <Link 
+                    to={SERVICE_PARTY_ID.path.replace(':id', party.id)} 
+                    className="button--default confirmation__">
+                    Edit Details
+                </Link>
             </Card>
 
             <section className="confirmation__actions-wrapper">
@@ -30,13 +39,15 @@ const Confirmation = ({party}) => {
                 </Card>
 
                 <div className="confirmation__action-cards-wrapper">
-                    <Card applyHoverStyle depth={2}>
-                        <FontAwesomeIcon className="new-party-card__icon" icon="plus-square" />
-                            <h3 className="new-party-card__text">
-                                <em className="new-party-card__text-emphasis">Create a new</em>
-                                Party Account
-                            </h3>
-                    </Card>
+                    <Link className="confirmation__link-to-create" to={CREATE_PARTY.path}>
+                        <Card applyHoverStyle depth={2}>
+                            <FontAwesomeIcon className="new-party-card__icon" icon="plus-square" />
+                                <h3 className="new-party-card__text">
+                                    <em className="new-party-card__text-emphasis">Create a new</em>
+                                    Party Account
+                                </h3>
+                        </Card>
+                    </Link>
 
                     <Card applyHoverStyle depth={2}>
                         <FontAwesomeIcon className="new-party-card__icon" icon="plus-square" />

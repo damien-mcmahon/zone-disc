@@ -13,7 +13,10 @@ import {
     faQuestionCircle,
     faUserCircle, 
     faWrench,
-    faCheckCircle
+    faCheckCircle,
+    faCheckDouble,
+    faHourglassStart,
+    faTimes
 } from '@fortawesome/free-solid-svg-icons';
 
 import App from 'app/container';
@@ -29,7 +32,10 @@ library.add(
     faQuestionCircle, 
     faSearch, 
     faUserCircle, 
-    faWrench
+    faWrench,
+    faCheckDouble,
+    faHourglassStart,
+    faTimes
 );
 
 ReactDOM.render(
