@@ -1,0 +1,23 @@
+@import 'styles/mixins';
+@import 'styles/fonts';
+
+.party-overview {
+    &__wrapper {}
+
+    &__info-group {
+        margin: sp(1) 0 sp(2);
+    }
+
+    &__info-value {
+        @extend .font--body;
+        padding: sp(1) 0 0;
+
+        &.--network {
+            @extend .semi-bold;
+        }
+
+        &.--currency-code {
+            display: inline-block;
+        }
+    }
+}

@@ -1,12 +1,13 @@
 export const PARTY_DETAILS = {
     partyName: 'Riverwoods CC',
+    primaryContactName: 'Jin Doe',
     networkId: 'DN',
-    currencyCode: 'USD',
+    currencyCode: ['USD'],
     contactDetails: {
         contactType: 'PERSON',
         postalAddress: {
             postalAddressLine1: '123 Main Street',
-            postalAddressLine2: '',
+            postalAddressLine2: 'Suburb',
             postalAddressLine3: '',
             city: 'Riverwoods',
             state: 'IL',

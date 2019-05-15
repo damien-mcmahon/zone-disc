@@ -3,13 +3,12 @@ import React from 'react'
 import AppPanel from 'components/app-panel';
 import Banner from 'components/banner';
 import Card from 'components/card';
+import PartyOverview from 'components/party-overview';
 
 import './styles.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Confirmation = ({party}) => {
-    console.log("DM => PARTY", party);
-
     return (
         <AppPanel className="confirmation__wrapper">
             <Banner
@@ -21,10 +20,7 @@ const Confirmation = ({party}) => {
             <Card className="confirmation__info-wrapper">
                 <h1 className="confirmation__title">Details submitted for approval</h1>    
 
-                <div className="account-overview__wrapper">
-                <h2 className="account-overview__label">Business Name:</h2> 
-                <h2 className="account-overview__info">DM Bank</h2>
-                </div>
+                <PartyOverview party={party} />
             </Card>
 
             <section className="confirmation__actions-wrapper">

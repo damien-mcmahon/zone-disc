@@ -39,7 +39,7 @@ const createPartyInitialValues = {
             city: '',
             state: '',
             postalCode: '',
-            country: ''
+            country: WORLD_COUNTRIES[USA_INDEX].value
         },
         eAddress: [{
             address: '',
@@ -61,7 +61,7 @@ const createHelp = {
 
 const updateField = setFieldValue => name => value => setFieldValue(name, value);
 
-const renderPartyForm = ({ errors, touched, setFieldValue, values, setValues }) => {
+const renderPartyForm = ({ errors, setFieldValue, values }) => {
     const setFormValue = updateField(setFieldValue);
 
     return (
@@ -172,8 +172,12 @@ const renderPartyForm = ({ errors, touched, setFieldValue, values, setValues }) 
 }
 
 const CreateParty = ({ app: {tenant:networkId}, submitPartyForm }) => {
-    const initialValues = networkId ?
+    let initialValues = networkId ?
         { networkId, ...createPartyInitialValues } : createPartyInitialValues;
+   
+    if (networkId === DCI) {
+        initialValues = { DXSCode: '', ...initialValues};
+    }
 
     return (
         <AppPanel title="Create Party" help={createHelp}>
