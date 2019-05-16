@@ -3,7 +3,7 @@ import Faker from 'faker';
 
 export const PARTY_DETAILS = {
     id: Faker.random.uuid(),
-    statusName: 'Active',
+    statusName: 'Awaiting Approval',
     partyName: 'Riverwoods CC',
     primaryContactName: 'Jin Doe',
     networkId: 'DN',
