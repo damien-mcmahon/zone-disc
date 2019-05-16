@@ -2,8 +2,6 @@ import React from 'react';
 import { FieldArray, Formik, Form } from 'formik'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import STATES from 'config/states.json';
-import COUNTRIES from 'config/countries.json';
 import { createPartyValidationSchema } from './validation-schema';
 import AppPanel from 'components/app-panel';
 import InputWrapper from 'components/input-wrapper';
@@ -15,16 +13,6 @@ import SelectWrapper from 'components/select-wrapper';
 import { PARTY_DETAILS } from 'config/mocks';
 
 import './styles.scss';
-
-// TODO - Precompute these
-const US_STATES = Object.keys(STATES).map(k => ({ label: STATES[k], value: k }));
-const WORLD_COUNTRIES = COUNTRIES.map(({ name: label, code: value }) => ({ label, value }));
-const USA_INDEX = WORLD_COUNTRIES.findIndex(c => c.value === 'US');
-const CURRENCIES = [
-    {label: 'US Dollars', value: 'USD'},
-    {label: 'British Pounds', value: 'GBP'},
-    {label: 'Canadian Dollars', value: 'CAD'}
-];
 
 const DCI = 'DCI';
 
@@ -42,7 +30,7 @@ const createPartyInitialValues = {
             city: '',
             state: '',
             postalCode: '',
-            country: WORLD_COUNTRIES[USA_INDEX].value
+            country: 'US'
         },
         eAddress: [{
             address: '',
@@ -64,7 +52,7 @@ const createHelp = {
 
 const updateField = setFieldValue => name => value => setFieldValue(name, value);
 
-const renderPartyForm = ({ errors, setFieldValue, touched, values, setValues }) => {
+const renderPartyForm = (countries, currencies, states, currentCountryIndex) => ({ errors, setFieldValue, touched, values, setValues }) => {
     const setFormValue = updateField(setFieldValue);
 
     return (
@@ -86,7 +74,7 @@ const renderPartyForm = ({ errors, setFieldValue, touched, values, setValues }) 
 
             <Fieldset className="create-party__address-info">
                 <SelectWrapper
-                    defaultValue={WORLD_COUNTRIES[USA_INDEX]}
+                    defaultValue={countries[currentCountryIndex]}
                     required
                     label="Country"
                     errors={errors}
@@ -94,7 +82,7 @@ const renderPartyForm = ({ errors, setFieldValue, touched, values, setValues }) 
                     className="create-party__country-select"
                     name="contactDetails.postalAddress.country"
                     onChange={setFormValue('contactDetails.postalAddress.country')}
-                    options={WORLD_COUNTRIES} />
+                    options={countries} />
 
                 <div className="create-party__inline-fields">
                     <InputWrapper 
@@ -125,7 +113,7 @@ const renderPartyForm = ({ errors, setFieldValue, touched, values, setValues }) 
                     label="State"
                     name="contactDetails.postalAddress.state"
                     onChange={setFormValue('contactDetails.postalAddress.state')}
-                    options={US_STATES} />
+                    options={states} />
 
                 <InputWrapper 
                     errors={errors}
@@ -164,7 +152,7 @@ const renderPartyForm = ({ errors, setFieldValue, touched, values, setValues }) 
                     label="Currency Code"
                     name="contactDetails.postalAddress.state"
                     onChange={setFormValue('currencyCode')}
-                    options={CURRENCIES} />
+                    options={currencies} />
 
                 {values.networkId === DCI &&
                     <InputWrapper
@@ -188,7 +176,15 @@ const renderPartyForm = ({ errors, setFieldValue, touched, values, setValues }) 
     );
 }
 
-const CreateParty = ({ app: {tenant:networkId}, submitPartyForm }) => {
+const CreateParty = ({
+    countries, 
+    currencies, 
+    currentCountryIndex, 
+    states, 
+    submitPartyForm,
+    tenant:networkId, 
+}) => {
+
     let initialValues = networkId ?
         { networkId, ...createPartyInitialValues } : createPartyInitialValues;
    
@@ -203,7 +199,7 @@ const CreateParty = ({ app: {tenant:networkId}, submitPartyForm }) => {
                 <Formik
                     validationSchema={createPartyValidationSchema}
                     initialValues={initialValues}
-                    render={renderPartyForm}
+                    render={renderPartyForm(countries, currencies, states, currentCountryIndex)}
                     onSubmit={values => submitPartyForm(values)} />
             </section>
         </AppPanel>

@@ -12,7 +12,8 @@ const defaultState = {
     config: {
         currencies: [],
         countries: [],
-        states: []
+        states: [],
+        currentCountry: 'USA'
     }
 };
 
@@ -32,7 +33,8 @@ const AppReducer = handleActions({
         config: {
             ...state.config,
             countries,
-            currencies
+            currencies,
+            states
         }
     }),
 
