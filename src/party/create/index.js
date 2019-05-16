@@ -103,7 +103,7 @@ const renderPartyForm = ({ errors, setFieldValue, touched, values }) => {
                         name="contactDetails.postalAddress.postalAddressLine1" />
 
                     <InputWrapper 
-                        label="Street Address 2" 
+                        label="Street Address 2 (Optional)" 
                         touched={touched}
                         errors={errors}
                         name="contactDetails.postalAddress.postalAddressLine2" />
@@ -197,6 +197,7 @@ const CreateParty = ({ app: {tenant:networkId}, submitPartyForm }) => {
     return (
         <AppPanel title="Create Party" help={createHelp}>
             <section>
+                <p className="create-party__message">All fields are mandatory unless indicated.</p>
                 <Formik
                     validationSchema={createPartyValidationSchema}
                     initialValues={initialValues}

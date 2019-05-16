@@ -10,6 +10,11 @@ $create-party-icon-color: $primary;
         color: $create-party-icon-color;
     }
 
+    &__message {
+        @extend .font--body;
+        margin-top: sp(2);
+    }
+
     &__form {
         .input-wrapper__wrapper,
         .select-wrapper__wrapper {
