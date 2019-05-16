@@ -1,5 +1,16 @@
+@import 'styles/mixins';
+@import 'styles/colors';
+@import 'styles/shadows';
+
 .tooltip {
     &__wrapper {
         display: inline-block;
     }
+}
+
+.__react_component_tooltip {
+    @extend .shadow--medium;
+
+    padding: sp(1);
+    background: $white;
 }

@@ -1,14 +1,19 @@
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { 
-  faEnvelope, 
-  faGripHorizontal, 
-  faPlusSquare, 
-  faUserCircle,
-  faWrench,
-  faCheckDouble,
-  faTimes,
-  faHourglassStart, 
-} from '@fortawesome/free-solid-svg-icons'
+    faComments,
+    faEnvelope, 
+    faGripHorizontal, 
+    faPlusSquare,
+    faSearch,
+    faQuestionCircle,
+    faUserCircle, 
+    faWrench,
+    faCheckCircle,
+    faCheckDouble,
+    faHourglassStart,
+    faTimes,
+    faTimesCircle
+} from '@fortawesome/free-solid-svg-icons';
 
 library.add(
   faEnvelope, 
@@ -18,5 +23,10 @@ library.add(
   faWrench,
   faCheckDouble,
   faHourglassStart,
-  faTimes
+  faTimes,
+  faTimesCircle,
+  faComments,
+  faSearch,
+  faQuestionCircle,
+  faCheckCircle,
 );

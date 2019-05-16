@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { 
+    faComments,
     faEnvelope, 
     faGripHorizontal, 
     faPlusSquare,
@@ -16,7 +17,8 @@ import {
     faCheckCircle,
     faCheckDouble,
     faHourglassStart,
-    faTimes
+    faTimes,
+    faTimesCircle
 } from '@fortawesome/free-solid-svg-icons';
 
 import App from 'app/container';
@@ -26,6 +28,7 @@ import './global.scss';
 
 library.add(
     faCheckCircle,
+    faComments,
     faEnvelope, 
     faGripHorizontal, 
     faPlusSquare, 
@@ -35,7 +38,8 @@ library.add(
     faWrench,
     faCheckDouble,
     faHourglassStart,
-    faTimes
+    faTimes,
+    faTimesCircle
 );
 
 ReactDOM.render(

@@ -15,7 +15,7 @@ const FOOTER_NAV_ITEMS = [
 const AppFooter = () => (
     <footer className="app__footer-wrapper">
         <div className="footer__copyright-notice">
-            &copy; 2019 DFS Services LLC
+            &copy; 2019 Zone Digital Limited
         </div>
 
         <div className="footer__links-wrapper">
@@ -30,9 +30,6 @@ const AppFooter = () => (
             </nav>
 
             <div className="footer__brand-wrapper">
-                <img 
-                    className="footer__brands-image"
-                    src={networks} alt="Discover, Diners Club and Pulse Network logos"/>
             </div>
         </div>
     </footer>

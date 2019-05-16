@@ -1,0 +1,29 @@
+@import 'styles/mixins';
+@import 'styles/fonts';
+
+
+.notification-message {
+    &__wrapper {
+        display: flex;
+    }
+
+    &__icon-wrapper {
+        padding: sp(1);
+    }
+
+    &__info-wrapper {
+        padding: sp(1);
+        flex: 1;
+        text-align: left;
+    }
+
+    &__text {
+        @extend .font--body;
+        margin: 0;
+    }
+
+    &__timestamp {
+        @extend .font--note;
+        margin: 0;
+    }
+}

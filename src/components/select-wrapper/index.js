@@ -30,7 +30,7 @@ const SelectWrapper = ({className, name, label, options, errors, required = fals
                     let valueToSend;
 
                     if (vals.length) {
-                        valueToSend = vals.map(v => v.value);    
+                        valueToSend = vals.map(({value}) => value);    
                     } else {
                         const { value } = vals;
                         valueToSend = value;
