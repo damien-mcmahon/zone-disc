@@ -7,18 +7,18 @@ import '../../stories/font-icons';
 import QueueCard from '.';
 
 const ACTIVE_PARTY = {
-    statusName: 'Active',
-    ...PARTY_DETAILS
+    ...PARTY_DETAILS,
+    statusName: 'Active'
 };
 
 const AWAITING_APPROVAL_PARTY = {
-    statusName: 'Awaiting Approval',
-    ...PARTY_DETAILS
+    ...PARTY_DETAILS,
+    statusName: 'Awaiting Approval'
 };
 
 const REJECTED_PARTY = {
-    statusName: 'Rejected',
-    ...PARTY_DETAILS
+    ...PARTY_DETAILS,
+    statusName: 'Rejected'
 };
 
 storiesOf('Components/Queue/Card', module)
