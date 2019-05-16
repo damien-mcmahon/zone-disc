@@ -9,7 +9,7 @@ const DinersClubSVG = lazy(() => import('./svgs/diners-club.svg'));
 
 const Logo = ({tenant}) => (
     <div className="logo__wrapper">
-        <ZoneSVG className="logo__image"  style={{width: '50%'}}/>
+        <ZoneSVG className="logo__image --zone"  style={{width: '50%'}}/>
     </div>
 );
 /*

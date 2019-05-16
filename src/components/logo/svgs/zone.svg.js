@@ -1,6 +1,6 @@
 import React from 'react'
-const ZoneSVG = () => (
-    <svg viewBox="0 0 245 89" xmlns="http://www.w3.org/2000/svg">
+const ZoneSVG = ({className}) => (
+    <svg className={className} viewBox="0 0 245 89" xmlns="http://www.w3.org/2000/svg">
         <defs>
             <path id="a" d="M.772.837h20.095V13.94H.772z" />
             <path id="c" d="M.69.152h13.601V16.94H.69z" />
