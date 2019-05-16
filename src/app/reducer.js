@@ -1,31 +1,45 @@
 import { handleActions } from 'redux-actions';
 import { setLoggedIn } from './actions';
 import { createParty } from 'party/create/actions';
-
-import {QUEUE_MOCKS} from '../config/mocks';
+import { getQueueDataSuccess, getInitialDataSuccess } from 'app/actions';
 
 const defaultState = {
     loggedIn: false,
-    parties: [...QUEUE_MOCKS],
+    parties: [],
     tenants: [],
     currentTenant: 'DN',
-    tenant: 'DN'
+    tenant: 'DN',
+    config: {
+        currencies: [],
+        countries: []
+    }
 };
 
 const AppReducer = handleActions({
-    [setLoggedIn] : (state, {payload: loggedIn}) => {
-        return {
-            ...state,
-            loggedIn
-        }
-    },
+    [setLoggedIn] : (state, {payload: loggedIn}) => ({
+        ...state,
+        loggedIn
+    }),
 
-    [createParty] : (state, { payload: party}) => {
-        return {
-            ...state,
-            parties: [...state.parties, party],
-        };
-    }
+    [getQueueDataSuccess] : (state, { payload: parties}) => ({
+        ...state,
+        parties
+    }),
+
+    [getInitialDataSuccess] : (state, { payload: { countries, currencies}}) => ({
+        ...state,
+        config: {
+            ...state.config,
+            countries,
+            currencies
+        }
+    }),
+
+    [createParty] : (state, { payload: party}) => ({
+        ...state,
+        parties: [...state.parties, party],
+    })
+    
 }, defaultState);
 
 export default AppReducer;

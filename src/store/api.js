@@ -7,7 +7,9 @@ const api = axios.create({
     withCredentials: true
 });
 
-export const GET = (path, params) => api.get(path, {params});
+const getData = ({data}) => data;
+
+export const GET = (path, params) => api.get(path, {params}).then(getData);
 export const POST = (path, data) => api.post(path, data);
 export const PUT = (path, data) => api.put(path, data);
 export const DELETE = (path, data) => api.delete(path, data);
