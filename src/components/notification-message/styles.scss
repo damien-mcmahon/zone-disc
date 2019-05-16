@@ -1,5 +1,11 @@
 @import 'styles/mixins';
 @import 'styles/fonts';
+@import 'styles/colors';
+
+$notificaton-icon-color: $gray-3;
+$notificaton-icon-error-color: $error;
+$notificaton-icon-success-color: $success;
+$notificaton-icon-warning-color: $warning;
 
 
 .notification-message {
@@ -9,6 +15,22 @@
 
     &__icon-wrapper {
         padding: sp(1);
+    }
+
+    &__icon {
+        color: $notificaton-icon-color;
+
+        .--success & {
+            color: $notificaton-icon-success-color;
+        }
+
+        .--error & {
+            color: $notificaton-icon-error-color;
+        }
+
+        .--warning & {
+            color: $notificaton-icon-warning-color;
+        }
     }
 
     &__info-wrapper {

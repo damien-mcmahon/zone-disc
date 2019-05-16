@@ -34,9 +34,9 @@ export const PARTY_DETAILS = {
 const STATUSES = ['Active', 'Awaiting Approval', 'Rejected'];
 const ACCOUNT_NAMES = ['FIRST DATA CORPORATION', 'ADYEN','WELLS FARGO', 'FDCS/O&M CHASE&FSTFIN','ADYEN CANADA LTD.','GLOBAL PAYMENTS CANADA','SECURE BANCARD'];
 
-export const QUEUE_MOCKS = ACCOUNT_NAMES.map(partyName => ({
+export const QUEUE_MOCKS = ACCOUNT_NAMES.map(() => ({
     ...PARTY_DETAILS,
     id: Faker.random.uuid(),
-    partyName,
+    partyName: Faker.company.companyName().toUpperCase(),
     statusName: STATUSES[getRandomInt(0, STATUSES.length-1)] 
 }));

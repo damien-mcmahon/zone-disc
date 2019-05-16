@@ -1,15 +1,18 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { shape, string } from 'prop-types';
+import { shape, string, oneOf } from 'prop-types';
+import classnames from 'classnames';
 
 import './styles.scss';
 
 const NotificationMessage = ({info}) => {
-    const { icon, message, timestamp } = info
+    const { icon, message, timestamp, status = 'default' } = info
+    const iconWrapperClasses = classnames('notification-message__icon-wrapper', `--${status}`);
+
     return (
         <div className="notification-message__wrapper">
-            <div className="notification-message__icon-wrapper">
-                <FontAwesomeIcon icon={icon} />
+            <div className={iconWrapperClasses}>
+                <FontAwesomeIcon className="notification-message__icon" icon={icon} />
             </div>
 
             <div className="notification-message__info-wrapper">
@@ -24,7 +27,8 @@ NotificationMessage.propTypes = {
     info: shape({
         icon: string,
         message: string,
-        timestamp: string
+        timestamp: string,
+        status: oneOf(['default', 'success', 'error', 'warning'])
     })
 };
 

@@ -15,15 +15,18 @@ const NAV_ACTIONS = [
 const notifications = [{
     icon: 'times-circle',
     message: 'Your application was rejected',
-    timestamp: '12 minutes ago'
+    timestamp: '12 minutes ago',
+    status: 'error'
 }, {
     icon: 'comments',
     message: 'John Doe replied to your comment',
-    timestamp: '23 minutes ago'
+    timestamp: '23 minutes ago',
+    status: 'default'
 }, {
     icon: 'check-double',
     message: 'Application was approved',
-    timestamp: '23 minutes ago'
+    timestamp: '23 minutes ago',
+    status: 'success'
 }];
 
 const NotificationTooltip = (
@@ -44,7 +47,7 @@ const AppHeader = ({tenant}) => (
             {NAV_ACTIONS.map(action => (
                 <div key={action.icon} className="header__nav-action">
                     {action.label === 'Notifications' ?
-                        <Tooltip name="notifications" direction="left" content={NotificationTooltip}>
+                        <Tooltip name="notifications" direction="bottom" content={NotificationTooltip}>
                             <FontAwesomeIcon icon={action.icon} /> 
                         </Tooltip> 
                         :
