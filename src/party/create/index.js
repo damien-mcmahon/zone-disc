@@ -12,6 +12,8 @@ import Card from 'components/card';
 import Fieldset from 'components/fieldset';
 import SelectWrapper from 'components/select-wrapper';
 
+import { PARTY_DETAILS } from 'config/mocks';
+
 import './styles.scss';
 
 // TODO - Precompute these
@@ -62,7 +64,7 @@ const createHelp = {
 
 const updateField = setFieldValue => name => value => setFieldValue(name, value);
 
-const renderPartyForm = ({ errors, setFieldValue, touched, values }) => {
+const renderPartyForm = ({ errors, setFieldValue, touched, values, setValues }) => {
     const setFormValue = updateField(setFieldValue);
 
     return (
@@ -181,7 +183,7 @@ const renderPartyForm = ({ errors, setFieldValue, touched, values }) => {
                 </Card>
             </Fieldset>
 
-            <Button type="submit">Save</Button>
+            <Button type="submit" onClick={values => setValues({ ...values, ...PARTY_DETAILS })}>Save</Button>
         </Form>
     );
 }
