@@ -11,7 +11,8 @@ const defaultState = {
     tenant: 'DN',
     config: {
         currencies: [],
-        countries: []
+        countries: [],
+        states: []
     }
 };
 
@@ -26,7 +27,7 @@ const AppReducer = handleActions({
         parties
     }),
 
-    [getInitialDataSuccess] : (state, { payload: { countries, currencies}}) => ({
+    [getInitialDataSuccess] : (state, { payload: { countries, currencies, states}}) => ({
         ...state,
         config: {
             ...state.config,

@@ -8,7 +8,7 @@ import {
     getQueueDataError
 } from './actions';
 import Cookie from 'js-cookie';
-
+import API_PATHS from 'config/api-paths';
 import { GET } from 'store/api';
 
 export function * setProfileCookie() {
@@ -25,12 +25,14 @@ export function * setProfileCookie() {
 
 export function * getInitialData() {
     try {
-        const countries = yield call(GET, '/countries');
-        const currencies = yield call(GET, '/currencies');
+        const countries = yield call(GET, API_PATHS.COUNTRIES);
+        const currencies = yield call(GET, API_PATHS.CURRENCIES);
+        const states = yield call(GET, API_PATHS.STATES);
 
         const initialData = {
             countries,
-            currencies
+            currencies,
+            states
         };
 
         yield put(getInitialDataSuccess(initialData));
@@ -41,7 +43,7 @@ export function * getInitialData() {
 
 export function * getQueue() {
     try {
-        const queueData = yield call(GET, '/queue');
+        const queueData = yield call(GET, API_PATHS.QUEUE);
         yield put(getQueueDataSuccess(queueData));
     } catch (err) {
         yield put(getQueueDataError(err));
