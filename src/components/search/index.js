@@ -1,46 +1,78 @@
-import React from 'react'
+import React, { Fragment, useState } from 'react'
 import { func, array} from 'prop-types';
 import { Form, Formik } from 'formik';
+import * as Yup from 'yup';
 import { Link } from 'react-router-dom';
+import classnames from 'classnames';
 
-import InputWrapper from 'components/input-wrapper';
-import Button from 'components/button';
+import InputWrapper from '../input-wrapper';
+import Button from '../button';
+
+import './styles.scss';
 
 const has = val => val && val.length > 0;
-
-const renderSearchForm = () => {
-    return (
-        <Form className="dashboard-search__wrapper">
-            <InputWrapper className="dashboard-search__input"  name="search" />
-            <Button className="dashboard-search__button">Search</Button>
-        </Form>
-    )
-};
-
-const searchInitialValues = {
-    search: ''
-};
+const searchInitialValues = { search: '' };
+const searchValidationSchema = Yup.object().shape({
+    search: Yup.string()
+        .min(2, 'Please enter 2 characters')
+        .required('Please enter a search term')
+});
     
 const Search = ({results, onSearch, clearResult}) => {
+    const [isSearching, setIsSearching] = useState(false);
+    const autoCompleteClasses = classnames('search__autocomplete-wrapper', {
+        '--has-results': has(results)
+    });
+
+
     return (
         <div className="search__wrapper">
             <Formik
                 initialValues={searchInitialValues}
-                onSubmit={onSearch}
-                render={renderSearchForm}
-                />
-            {has(results) &&
-                <div className="search__results-wrapper">
-                    {results.map(r => (
-                        <div key={r.id} className="search__result">
-                            <Link to={`/party/${r.id}`} onClick={clearResult}>
-                                {r.partyName}
-                            </Link>
-                        </div>
-                    ))}
-                </div>
-            }
+                validationSchema={searchValidationSchema}
+                onSubmit={({search}) => {
+                    onSearch(search);
+                    setIsSearching(true);
+                }}>
 
+                {({handleReset}) => {
+                    const resetForm = () => {
+                        setIsSearching(false);
+                        handleReset();
+                    };
+
+                    return (
+                    <Form className="search__form-wrapper">
+                        <div className={autoCompleteClasses}>
+                            <InputWrapper className="search__input"  name="search" />
+
+                            {isSearching &&
+                                <div className="search__results-wrapper">
+                                    {has(results) ? (
+                                        <Fragment>
+                                            {results.map(r => (
+                                                <div key={r.id} className="search__result">
+                                                    <Link className="search__link" to={`/party/${r.id}`} onClick={clearResult}>
+                                                        {r.partyName}
+                                                    </Link>
+                                                </div>
+                                            ))}
+                                            <div 
+                                                onClick={() => resetForm()}
+                                                className="search__result --clear">Clear Search</div>
+                                        </Fragment>
+                                    ) : (
+                                        <div 
+                                            onClick={() => resetForm()} 
+                                            className="search__result --no-results">Nothing Found</div>
+                                    )}
+                                </div>
+                            }
+                        </div>
+                        <Button className="search__button">Search</Button>
+                    </Form>
+                )}}
+            </Formik>
         </div>
     );
 }

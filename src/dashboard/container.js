@@ -10,7 +10,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    sendSearch({search}) {
+    sendSearch(search) {
         dispatch(searchParties(search));
     }
 });

@@ -31,13 +31,11 @@ const InputWrapper = ({name, label, type = 'text', errors, className, required =
 
             <Field className={fieldClassNames} type={type} name={name} {...props}/>
 
-            <ErrorMessage name={name}>
-                {message => 
-                    <div className="input-wrapper__error">
-                        {message}
-                    </div>
-                }
-            </ErrorMessage>
+            <div className="input-wrapper__error">
+                <ErrorMessage name={name}>
+                    {message => message}
+                </ErrorMessage>
+            </div>
         </div>
     );
 };
