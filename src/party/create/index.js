@@ -52,7 +52,7 @@ const createHelp = {
 
 const updateField = setFieldValue => name => value => setFieldValue(name, value);
 
-const renderPartyForm = (countries, currencies, states, currentCountryIndex, networks, user) => ({ errors, setFieldValue, touched, values, setValues }) => {
+const renderPartyForm = (countries, currencies, states, currentCountryIndex, networks, user) => ({ errors, setFieldValue, touched, values }) => {
     const setFormValue = updateField(setFieldValue);
 
     const userNetworks = user.networks.map(optionise('name', 'shortCode'));
@@ -200,6 +200,12 @@ const CreateParty = ({
     user,
 }) => {
     let initialValues = createPartyInitialValues;
+
+    if (user.networks.length === 1) {
+        const [{shortCode: networkId}]= user.networks;
+        initialValues = { ...createPartyInitialValues, networkId};
+    }
+
     if (networkId === DCI) {
         initialValues = { DXSCode: '', ...initialValues};
     }
