@@ -171,7 +171,7 @@ const renderPartyForm = (countries, currencies, states, currentCountryIndex) => 
                 </Card>
             </Fieldset>
 
-            <Button type="submit" onClick={values => setValues({ ...values, ...PARTY_DETAILS })}>Save</Button>
+            <Button type="submit">Save</Button>
         </Form>
     );
 }

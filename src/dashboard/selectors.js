@@ -7,3 +7,5 @@ export const userQueueSelector = createSelector(
     partiesSelector,
     (tenant, parties) => parties.filter(p => p.networkId === tenant)
 )
+
+export const searchResultsSelector = state => state.dashboard.searchResults;

@@ -1,9 +1,11 @@
 //import something from somewhere else 
 import { takeEvery } from 'redux-saga/effects';
-import { appInit } from '../app/actions';
-import { setProfileCookie, getInitialData, getQueue } from '../app/sagas';
-import { createParty } from '../party/create/actions';
-import { createPartySaga } from '../party/create/sagas';
+import { appInit } from 'app/actions';
+import { setProfileCookie, getInitialData, getQueue } from 'app/sagas';
+import { createParty } from 'party/create/actions';
+import { createPartySaga } from 'party/create/sagas';
+import { searchParties } from 'dashboard/actions';
+import { searchPartiesSaga } from 'dashboard/sagas';
 
 export default function *rootSaga() {
     // App
@@ -13,4 +15,7 @@ export default function *rootSaga() {
 
     //Party
     yield takeEvery(createParty, createPartySaga);
+
+    //Dashboard
+    yield takeEvery(searchParties, searchPartiesSaga);
 } 

@@ -17,14 +17,15 @@ export const currenciesSelector = createSelector(
     configSelector,
     ({currencies}) => 
         currencies
-        .map(optionise('isoCurrencyName', 'isoCurrencyCode'))
+            .map(optionise('isoCurrencyName', 'isoCurrencyCode'))
             .sort(label)
 );
 
 export const currentCountryIndexSelector = createSelector(
     configSelector, 
     countriesSelector,
-    ({currentCountry}, countries) => countries.findIndex(c => c.value === currentCountry)
+    ({currentCountry}, countries) => 
+        countries.findIndex(c => c.value === currentCountry)
 )
 
 export const statesSelector = createSelector(

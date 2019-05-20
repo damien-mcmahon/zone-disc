@@ -25,9 +25,9 @@ export function * setProfileCookie() {
 
 export function * getInitialData() {
     try {
-        const countries = yield call(GET, API_PATHS.COUNTRIES);
-        const currencies = yield call(GET, API_PATHS.CURRENCIES);
-        const states = yield call(GET, API_PATHS.STATES);
+        const {countries} = yield call(GET, API_PATHS.COUNTRIES);
+        const {currencies} = yield call(GET, API_PATHS.CURRENCIES);
+        const {states} = yield call(GET, API_PATHS.STATES);
 
         const initialData = {
             countries,
@@ -43,8 +43,8 @@ export function * getInitialData() {
 
 export function * getQueue() {
     try {
-        const queueData = yield call(GET, API_PATHS.QUEUE);
-        yield put(getQueueDataSuccess(queueData));
+        const {queue} = yield call(GET, API_PATHS.QUEUE);
+        yield put(getQueueDataSuccess(queue));
     } catch (err) {
         yield put(getQueueDataError(err));
     }
