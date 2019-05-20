@@ -19,7 +19,7 @@ const SelectWrapper = ({className, name, label, options, errors, required = fals
     return (
         <div className={wrapperClassNames}>
             <label className="select-wrapper__label" htmlFor={name}>{label}</label>
-
+            
             <Select 
                 {...props} 
                 name={name} 

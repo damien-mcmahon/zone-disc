@@ -4,16 +4,21 @@ import { createParty } from 'party/create/actions';
 import { getQueueDataSuccess, getInitialDataSuccess } from 'app/actions';
 
 const defaultState = {
-    loggedIn: false,
-    parties: [],
-    tenants: [],
-    currentTenant: 'DN',
-    tenant: 'DN',
     config: {
         currencies: [],
         countries: [],
         states: [],
-        currentCountry: 'USA'
+        currentCountry: 'USA',
+        networks: []
+    },
+    loggedIn: false,
+    parties: [],
+    tenant: 'DN',
+    tenants: [],
+    user: {
+        networks: [
+            {shortCode:'DN', name: 'Discover'},
+        ]
     }
 };
 
@@ -28,13 +33,11 @@ const AppReducer = handleActions({
         parties
     }),
 
-    [getInitialDataSuccess] : (state, { payload: { countries, currencies, states}}) => ({
+    [getInitialDataSuccess] : (state, { payload }) => ({
         ...state,
         config: {
             ...state.config,
-            countries,
-            currencies,
-            states
+            ...payload
         }
     }),
 

@@ -1,7 +1,10 @@
 const API_PATHS = {
-    COUNTRIES: '/countries',
-    CURRENCIES: '/currencies',
-    STATES: '/states',
+    CONFIG: {
+        COUNTRIES: '/countries',
+        CURRENCIES: '/currencies',
+        STATES: '/states',
+        NETWORKS: '/networks'
+    },
     QUEUE: '/queue',
     SEARCH_PARTIES: '/parties',
 };

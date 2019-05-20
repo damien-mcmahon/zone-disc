@@ -25,14 +25,16 @@ export function * setProfileCookie() {
 
 export function * getInitialData() {
     try {
-        const {countries} = yield call(GET, API_PATHS.COUNTRIES);
-        const {currencies} = yield call(GET, API_PATHS.CURRENCIES);
-        const {states} = yield call(GET, API_PATHS.STATES);
+        const {countries} = yield call(GET, API_PATHS.CONFIG.COUNTRIES);
+        const {currencies} = yield call(GET, API_PATHS.CONFIG.CURRENCIES);
+        const {states} = yield call(GET, API_PATHS.CONFIG.STATES);
+        const {networks} = yield call(GET, API_PATHS.CONFIG.NETWORKS)
 
         const initialData = {
             countries,
             currencies,
-            states
+            states,
+            networks
         };
 
         yield put(getInitialDataSuccess(initialData));

@@ -36,3 +36,12 @@ export const statesSelector = createSelector(
             value: key
         }))
 );
+
+export const networksSelector = createSelector(
+    configSelector,
+    ({networks}) => 
+        networks
+            .map(optionise('name', 'shortCode'))
+            .sort(label)
+
+    )

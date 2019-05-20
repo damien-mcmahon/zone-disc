@@ -3,15 +3,23 @@ import { connect } from 'react-redux';
 import CreateParty from './index';
 import { createParty } from './actions';
 
-import { tenantSelector } from 'app/selectors';
-import { countriesSelector, currenciesSelector, statesSelector, currentCountryIndexSelector } from './selectors';
+import { tenantSelector, currentUserSelector } from 'app/selectors';
+import { 
+    countriesSelector, 
+    currenciesSelector, 
+    statesSelector, 
+    currentCountryIndexSelector,
+    networksSelector,
+} from './selectors';
 
 const mapStateToProps = state => ({
     tenant: tenantSelector(state),
     currencies: currenciesSelector(state),
     states: statesSelector(state),
     countries: countriesSelector(state),
-    currentCountryIndex: currentCountryIndexSelector(state)
+    networks: networksSelector(state),
+    currentCountryIndex: currentCountryIndexSelector(state),
+    user: currentUserSelector(state)
 });
 
 const mapDispatchToProps = dispatch => ({

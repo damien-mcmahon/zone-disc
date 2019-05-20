@@ -2,6 +2,7 @@ import React from 'react';
 import { FieldArray, Formik, Form } from 'formik'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import { optionise } from 'utils';
 import { createPartyValidationSchema } from './validation-schema';
 import AppPanel from 'components/app-panel';
 import InputWrapper from 'components/input-wrapper';
@@ -9,8 +10,6 @@ import Button from 'components/button';
 import Card from 'components/card';
 import Fieldset from 'components/fieldset';
 import SelectWrapper from 'components/select-wrapper';
-
-import { PARTY_DETAILS } from 'config/mocks';
 
 import './styles.scss';
 
@@ -21,8 +20,9 @@ const createPartyInitialValues = {
     primaryContactName: '',
     currencyCode: ['USD'],
     statusName: 'Awaiting Approval',
+    networkId: '',
     contactDetails: {
-        contactType: 'PERSON',
+        contactType: 'preferred',
         postalAddress: {
             postalAddressLine1: '',
             postalAddressLine2: '',
@@ -52,11 +52,24 @@ const createHelp = {
 
 const updateField = setFieldValue => name => value => setFieldValue(name, value);
 
-const renderPartyForm = (countries, currencies, states, currentCountryIndex) => ({ errors, setFieldValue, touched, values, setValues }) => {
+const renderPartyForm = (countries, currencies, states, currentCountryIndex, networks, user) => ({ errors, setFieldValue, touched, values, setValues }) => {
     const setFormValue = updateField(setFieldValue);
+
+    const userNetworks = user.networks.map(optionise('name', 'shortCode'));
 
     return (
         <Form className="create-party__form">
+            <Fieldset className="create-party__tenant-select">
+                <SelectWrapper
+                    touched={touched}
+                    label="Select Tenant"
+                    name="networkId" 
+                    options={networks}
+                    onChange={setFormValue('networkId')}
+                    defaultValue={userNetworks[0]}
+                    isDisabled={user.networks.length === 1}/>
+            </Fieldset>
+            
             <Fieldset className="create-party__inline-fields">
                 <InputWrapper 
                     touched={touched}
@@ -183,11 +196,10 @@ const CreateParty = ({
     states, 
     submitPartyForm,
     tenant:networkId, 
+    networks,
+    user,
 }) => {
-
-    let initialValues = networkId ?
-        { networkId, ...createPartyInitialValues } : createPartyInitialValues;
-   
+    let initialValues = createPartyInitialValues;
     if (networkId === DCI) {
         initialValues = { DXSCode: '', ...initialValues};
     }
@@ -199,7 +211,7 @@ const CreateParty = ({
                 <Formik
                     validationSchema={createPartyValidationSchema}
                     initialValues={initialValues}
-                    render={renderPartyForm(countries, currencies, states, currentCountryIndex)}
+                    render={renderPartyForm(countries, currencies, states, currentCountryIndex, networks, user)}
                     onSubmit={values => submitPartyForm(values)} />
             </section>
         </AppPanel>
