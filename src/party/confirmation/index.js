@@ -7,11 +7,11 @@ import { ACCOUNT_MAINTENANCE, HOME, CREATE_PARTY, SERVICE_PARTY_ID } from 'confi
 import AppPanel from 'components/app-panel';
 import Banner from 'components/banner';
 import Card from 'components/card';
-import PartyOverview from 'components/party-overview/container';
+import PartyOverview from 'components/party-overview';
 
 import './styles.scss';
 
-const Confirmation = ({party, queueItemsLength}) => {
+const Confirmation = ({party, queueItemsLength, networks, countries}) => {
     if (!party) {
         return <Redirect to="/" />
     }
@@ -27,7 +27,11 @@ const Confirmation = ({party, queueItemsLength}) => {
             <Card className="confirmation__info-wrapper">
                 <h1 className="confirmation__title">Details submitted for approval</h1>    
 
-                <PartyOverview className="confirmation__party-overview" party={party} />
+                <PartyOverview 
+                    countries={countries}
+                    networks={networks}
+                    className="confirmation__party-overview" 
+                    party={party} />
 
                 <Link 
                     to={SERVICE_PARTY_ID.path.replace(':id', party.id)} 
