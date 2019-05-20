@@ -32,7 +32,7 @@ const notifications = [{
 const NotificationTooltip = (
     <div className="notifications__wrapper">
         {notifications.map(n => 
-            <NotificationMessage info={n} />
+            <NotificationMessage key={n.message} info={n} />
         )}
     </div>
 );

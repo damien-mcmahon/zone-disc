@@ -10,7 +10,7 @@ const CREATE_PARTY = '/parties';
 
 export function * createPartySaga({payload:party}) {
     try {
-        const newParty = yield call(POST, CREATE_PARTY, party);
+        const newParty = yield call(POST, CREATE_PARTY, {parties: [party]});
         yield put(createPartySuccess(newParty));
         yield put(push(CREATE_PARTY_CONFIRMATION.path));
     } catch (err) {

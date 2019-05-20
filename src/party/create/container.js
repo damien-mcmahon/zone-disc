@@ -3,14 +3,16 @@ import { connect } from 'react-redux';
 import CreateParty from './index';
 import { createParty } from './actions';
 
-import { tenantSelector, currentUserSelector } from 'app/selectors';
 import { 
-    countriesSelector, 
-    currenciesSelector, 
-    statesSelector, 
-    currentCountryIndexSelector,
+    countriesSelector,
+    currenciesSelector,
+    currentUserSelector,
     networksSelector,
-} from './selectors';
+    statesSelector,
+    tenantSelector, 
+} from 'app/selectors';
+
+import { currentCountryIndexSelector } from './selectors';
 
 const mapStateToProps = state => ({
     tenant: tenantSelector(state),

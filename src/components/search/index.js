@@ -79,7 +79,7 @@ const Search = ({results, onSearch, clearResult}) => {
 
 Search.propTypes = {
     results: array,
-    onChange: func.isRequired
+    onSearch: func.isRequired
 };
 
 export default Search;

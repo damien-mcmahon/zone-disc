@@ -4,9 +4,7 @@ import { partiesSelector } from 'app/selectors';
 
 export const newestPartySelector = createSelector(
     partiesSelector,
-    (parties) => {
-        return parties[parties.length -1];
-    }
+    (parties) => parties[parties.length -1]
 );
 
 export const queueItemsSelector = createSelector(

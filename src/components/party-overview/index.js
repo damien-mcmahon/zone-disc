@@ -2,28 +2,24 @@ import React from 'react'
 import get from 'lodash.get';
 import classnames from 'classnames';
 
-import COUNTRIES from '../../config/countries.json';
-
 import './styles.scss';
 
-// TODO - Handle this better
-const getTenantName = tenantId => {
-    const TENANTS = {
-        "DN": "Discover",
-        "DCI": "Diners Club"
-    };
-    return TENANTS[tenantId];
+const getNetwork = networks => tenantId => {
+    const result = networks && networks.find(n => n.shortCode === tenantId);
+    return result? result.name : 'Discover';
 }
 
-const countryCodeToLabel = cCode => {
-    const { name } = COUNTRIES.find(c => c.code === cCode);
-    return name || 'United States';
-};
-
-const PartyOverview = ({className, party}) => {
+const PartyOverview = ({className, party, countries, networks}) => {
     const hasPostalAddress2 = !!get(party, 'contactDetails.postalAddress.postalAddressLine2');
     const hasDXSCode = !!get(party, 'DXSCode');
     const overviewClasses = classnames('party-overview__wrapper', className);
+
+    const countryCodeToLabel = code => {
+        const result = countries.find(c => c.value === code);
+        return result ? result.label : 'United States';
+    };
+
+    const getTenantName = getNetwork(networks);
 
     return (
         <div className={overviewClasses}>
