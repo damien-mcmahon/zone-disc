@@ -35,11 +35,12 @@ const InputWrapper = ({name, label, type = 'text', errors, className, required =
                 name={name} 
                 {...props} />
 
-            <div className="input-wrapper__error">
+            {errors && <div className="input-wrapper__error">
                 <ErrorMessage name={name}>
                     {message => message}
                 </ErrorMessage>
             </div>
+            }
         </div>
     );
 };

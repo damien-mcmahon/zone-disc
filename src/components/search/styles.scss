@@ -11,6 +11,8 @@ $result-item-hover-bg: $gray-5;
 .search {
     &__wrapper {
         width: 100%;
+        display: flex;
+        align-items: center;
     }
 
     &__form-wrapper {
@@ -45,7 +47,7 @@ $result-item-hover-bg: $gray-5;
         position: absolute;
         background: $results-bg;
         width: 100%;
-        top: calc(100% - #{sp(7) + 3px});
+        top: calc(100% - #{sp(2) + 3px});
         left: 0;
         border-bottom-left-radius: $border-radius;
         border-bottom-right-radius: $border-radius;

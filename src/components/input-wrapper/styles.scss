@@ -14,7 +14,6 @@ $input-error-color: $error;
 .input-wrapper {
     &__wrapper {
         margin: sp(2) 0;
-        padding: sp(1) 0;
     }
 
     &__label {
@@ -29,8 +28,7 @@ $input-error-color: $error;
     &__input {
         &.--text {
             @extend .font--input;
-            line-height: sp(4);
-            padding: 0 sp(2);
+            padding: sp(1) sp(2);
             border-radius: 4px;
             border: 2px solid $input-text-border;
             width: 80%;

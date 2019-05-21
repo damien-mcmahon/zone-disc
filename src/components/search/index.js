@@ -1,7 +1,6 @@
 import React, { Fragment, useState } from 'react'
 import { string, func, array} from 'prop-types';
 import { Form, Formik } from 'formik';
-import * as Yup from 'yup';
 import { Link } from 'react-router-dom';
 import classnames from 'classnames';
 
@@ -13,12 +12,6 @@ import './styles.scss';
 //TODO - Utils?
 const has = val => val && val.length > 0;
 
-const searchValidationSchema = Yup.object().shape({
-    search: Yup.string()
-        .min(2, 'Please enter 2 characters')
-        .required('Please enter a search term')
-});
-    
 const Search = ({currentSearch = '', results, onSearch, onSelect}) => {
     const [isSearching, setIsSearching] = useState(false);
     const autoCompleteClasses = classnames('search__autocomplete-wrapper', {
@@ -32,7 +25,6 @@ const Search = ({currentSearch = '', results, onSearch, onSelect}) => {
             <Formik
                 enableReinitialize
                 initialValues={searchInitialValues}
-                validationSchema={searchValidationSchema}
                 onSubmit={({search}) => {
                     onSearch(search);
                     setIsSearching(true);
@@ -48,8 +40,6 @@ const Search = ({currentSearch = '', results, onSearch, onSelect}) => {
                     <Form className="search__form-wrapper">
                         <div className={autoCompleteClasses}>
                             <InputWrapper 
-                                errors={errors}
-                                touched={touched}
                                 className="search__input"  
                                 name="search" />
 

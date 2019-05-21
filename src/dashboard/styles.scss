@@ -4,14 +4,17 @@
 @import 'styles/mixins';
 
 $dashboard-bg: $white;
+$grid-size: 10;
+$grid-spacing: sp(3);
 
 .dashboard {
     &__wrapper {
         background: $dashboard-bg;
+        border: 1px solid red;
     }
 
     &__header {
-        @include grid(10, sp(3));
+        @include grid($grid-size, $grid-spacing);
     }
 
     &__queue {
@@ -19,12 +22,11 @@ $dashboard-bg: $white;
     }
 
     &__queue-items-wrapper {
+        @include grid($grid-size, $grid-spacing);
         padding: sp(2) 0;
-        display: flex;
-        flex-wrap: wrap;
 
         .queue-card__wrapper {
-            width: 30%;
+            @include grid-span(3);
         }
     }
 
@@ -56,7 +58,7 @@ $dashboard-bg: $white;
 
 .search-card {
     &__wrapper {
-        @include grid-span(6);
+        @include grid-offset(2, 5, $grid-size);
         display: flex;
     }
 
