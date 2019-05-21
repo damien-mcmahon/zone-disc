@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { withRouter } from 'react-router';
 import classnames from 'classnames';
 
-import { HOME, CREATE_PARTY, ACCOUNT_MAINTENANCE } from 'config/routes';
+import { HOME, CREATE_PARTY, ACCOUNT_MAINTENANCE } from '../../config/routes';
 
 import './styles.scss';
 

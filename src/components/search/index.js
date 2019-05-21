@@ -7,10 +7,9 @@ import classnames from 'classnames';
 import InputWrapper from '../input-wrapper';
 import Button from '../button';
 
-import { ACCOUNT_MAINTENANCE_ID, replaceParam} from 'config/routes';
+import { ACCOUNT_MAINTENANCE_ID, replaceParam} from '../../config/routes';
 
 import './styles.scss';
-import { replace } from 'connected-react-router';
 
 //TODO - Utils?
 const has = val => val && val.length > 0;
