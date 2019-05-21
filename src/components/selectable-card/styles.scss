@@ -1,0 +1,49 @@
+@import 'styles/colors';
+@import 'styles/mixins';
+
+$selectable-border-hover: $primary;
+$selectable-border: transparent;
+$selectable-toggle-button-bg: transparent;
+$selectable-toggle-button-selected-bg: $primary;
+$selectable-toggle-border: $primary;
+
+.selectable-card {
+    &__wrapper {
+        border: 2px solid $selectable-border;
+        display: flex;
+        cursor: pointer;
+
+        &.--selected,
+        &:hover {
+            border: 2px solid $selectable-border-hover;
+        }
+    }
+
+    &__selection-wrapper {
+        padding: sp(1);
+        max-width: sp(10);
+    }
+
+    &__select-toggle {
+        height: sp(5);
+        width: sp(5);
+        border-radius: 50%;
+        padding: 0;
+        box-shadow: none;
+        background: $selectable-toggle-button-bg;
+        border: 1px solid $selectable-toggle-border;
+
+        &:hover {
+            background: $selectable-toggle-button-bg;
+        }
+
+        .--selected & {
+            background: $selectable-toggle-button-selected-bg;
+        }
+    }
+
+    &__content-wrapper {
+        flex: 1;
+        padding: sp(1);
+    }
+}

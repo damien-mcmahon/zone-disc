@@ -6,13 +6,13 @@ import './styles.scss';
 
 const DEPTH_CLASSNAMES = ["", "small", "regular", "medium", "large" ];
 
-const Card = ({className, children, depth = null, applyHoverStyle = false }) => {
+const Card = ({className, children, depth = null, applyHoverStyle = false, ...props}) => {
     const cardClassNames = classnames('card__wrapper', className, {
         [`shadow--${DEPTH_CLASSNAMES[depth]}`]: depth,
         '--hover': applyHoverStyle
     });
 
-    return (<div className={cardClassNames}> {children} </div>);
+    return (<div className={cardClassNames} {...props}> {children} </div>);
 };
 
 Card.propTypes = {
