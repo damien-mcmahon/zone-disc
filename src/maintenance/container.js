@@ -6,7 +6,7 @@ import {
     networksSelector,
 } from 'app/selectors';
 import { searchParties } from 'dashboard/actions';
-import PartyIndex from '.';
+import PartyIndex from '../maintenance';
 import { searchResultsSelector } from 'dashboard/selectors';
 
 const mapStateToProps = (state, props) => ({ 

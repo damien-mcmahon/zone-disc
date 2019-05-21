@@ -10,9 +10,9 @@ import AppFooter from 'components/app-footer';
 import Dashboard from 'dashboard/container';
 import CreateParty from 'party/create/container';
 import Confirmation from 'party/confirmation/container';
-import PartyIndex from 'party/container';
-import PartyEdit from 'party/edit';
-import PartyProducts from 'party/products';
+import MaintenanceIndex from 'maintenance/container';
+import MaintenanceEdit from 'maintenance/edit';
+import MaintenanceProducts from 'maintenance/products';
 
 import { 
     ACCOUNT_MAINTENANCE,
@@ -41,10 +41,10 @@ const App = ({init, tenant}) => {
                         <Route path={HOME.path} exact component={Dashboard} />
                         <Route path={CREATE_PARTY.path} exact component={CreateParty} />
                         <Route path={CREATE_PARTY_CONFIRMATION.path} exact component={Confirmation} />
-                        <Route path={ACCOUNT_MAINTENANCE.path} exact component={PartyIndex} />
-                        <Route path={ACCOUNT_MAINTENANCE_ID.path} exact component={PartyIndex} />
-                        <Route path={ACCOUNT_EDIT.path} exact component={PartyEdit} />
-                        <Route path={ACCOUNT_PRODUCTS.path} exact component={PartyProducts} />
+                        <Route path={ACCOUNT_MAINTENANCE.path} exact component={MaintenanceIndex} />
+                        <Route path={ACCOUNT_MAINTENANCE_ID.path} exact component={MaintenanceIndex} />
+                        <Route path={ACCOUNT_EDIT.path} exact component={MaintenanceEdit} />
+                        <Route path={ACCOUNT_PRODUCTS.path} exact component={MaintenanceProducts} />
                     </Switch>
 
                     <AppFooter />
