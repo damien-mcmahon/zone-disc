@@ -11,6 +11,8 @@ import Dashboard from 'dashboard/container';
 import CreateParty from 'party/create/container';
 import Confirmation from 'party/confirmation/container';
 import PartyIndex from 'party/container';
+import PartyEdit from 'party/edit';
+import PartyProducts from 'party/products';
 
 import './styles.scss';
 
@@ -30,6 +32,8 @@ const App = ({init, tenant}) => {
                         <Route path="/party/create" exact component={CreateParty} />
                         <Route path="/party/create/success" exact component={Confirmation} />
                         <Route path="/party/:id" exact component={PartyIndex} />
+                        <Route path="/party/:id/edit" exact component={PartyEdit} />
+                        <Route path="/party/:id/products" exact component={PartyProducts} />
                     </Switch>
 
                     <AppFooter />

@@ -62,7 +62,7 @@ const PartyIndex = ({countries, networks, party, searchResults, sendSearch}) => 
 
                                 <Link 
                                     className="party-index__edit button--default" 
-                                    to={`party/${party.id}/edit`}>
+                                    to={`/party/${party.id}/edit`}>
                                     Edit Details
                                 </Link>
                             </Fragment>
