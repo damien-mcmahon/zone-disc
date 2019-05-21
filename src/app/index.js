@@ -14,6 +14,16 @@ import PartyIndex from 'party/container';
 import PartyEdit from 'party/edit';
 import PartyProducts from 'party/products';
 
+import { 
+    ACCOUNT_MAINTENANCE,
+    ACCOUNT_MAINTENANCE_ID,
+    ACCOUNT_EDIT,
+    ACCOUNT_PRODUCTS,
+    CREATE_PARTY,
+    CREATE_PARTY_CONFIRMATION,
+    HOME 
+} from 'config/routes';
+
 import './styles.scss';
 
 const App = ({init, tenant}) => {
@@ -28,12 +38,13 @@ const App = ({init, tenant}) => {
 
                 <section className="app__panel-wrapper">
                     <Switch>
-                        <Route path="/" exact component={Dashboard} />
-                        <Route path="/party/create" exact component={CreateParty} />
-                        <Route path="/party/create/success" exact component={Confirmation} />
-                        <Route path="/party/:id" exact component={PartyIndex} />
-                        <Route path="/party/:id/edit" exact component={PartyEdit} />
-                        <Route path="/party/:id/products" exact component={PartyProducts} />
+                        <Route path={HOME.path} exact component={Dashboard} />
+                        <Route path={CREATE_PARTY.path} exact component={CreateParty} />
+                        <Route path={CREATE_PARTY_CONFIRMATION.path} exact component={Confirmation} />
+                        <Route path={ACCOUNT_MAINTENANCE.path} exact component={PartyIndex} />
+                        <Route path={ACCOUNT_MAINTENANCE_ID.path} exact component={PartyIndex} />
+                        <Route path={ACCOUNT_EDIT.path} exact component={PartyEdit} />
+                        <Route path={ACCOUNT_PRODUCTS.path} exact component={PartyProducts} />
                     </Switch>
 
                     <AppFooter />

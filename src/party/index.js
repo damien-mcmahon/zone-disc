@@ -7,7 +7,13 @@ import AppPanel from 'components/app-panel';
 import Card from 'components/card';
 import PartyOverview from 'components/party-overview';
 import Search from 'components/search';
-import { CREATE_PARTY } from 'config/routes';
+
+import { 
+    ACCOUNT_EDIT, 
+    ACCOUNT_PRODUCTS,
+    CREATE_PARTY, 
+    replaceParam,
+} from 'config/routes';
 
 import './styles.scss';
 
@@ -62,7 +68,7 @@ const PartyIndex = ({countries, networks, party, searchResults, sendSearch}) => 
 
                                 <Link 
                                     className="party-index__edit button--default" 
-                                    to={`/party/${party.id}/edit`}>
+                                    to={replaceParam(ACCOUNT_EDIT.path, party.id)}>
                                     Edit Details
                                 </Link>
                             </Fragment>
@@ -80,7 +86,7 @@ const PartyIndex = ({countries, networks, party, searchResults, sendSearch}) => 
 
                                 <Link 
                                     className="button--default" 
-                                    to={`/party/${party.id}/products/`}>
+                                    to={replaceParam(ACCOUNT_PRODUCTS.path, party.id)}>
                                     Assign Products
                                 </Link>
                             </Fragment> 

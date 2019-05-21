@@ -17,24 +17,32 @@ export const CREATE_PARTY_CONFIRMATION = {
 };
 
 export const ACCOUNT_MAINTENANCE = {
-    path: '/party/maintenance',
+    path: '/maintenance',
     icon: 'wrench',
     label: 'Account Maintenance'
 };
 
-export const SERVICE_PARTY_ID = {
-    path: '/party/:id',
+export const ACCOUNT_MAINTENANCE_ID = {
+    path: '/maintenance/:id',
     label: 'Account Maintenance',
     icon: 'wrench'
 };
+
+export const ACCOUNT_EDIT = {
+    path: '/maintenance/:id/edit',
+};
+
+export const ACCOUNT_PRODUCTS = {
+    path: '/maintenance/:id/products',
+}
 
 export const replaceParam = (path, val, REPLACE_REG_EX = /:([\w]+)/gim) => path.replace(REPLACE_REG_EX, val);
 
 const ROUTES = {
     ACCOUNT_MAINTENANCE,
+    ACCOUNT_MAINTENANCE_ID,
     HOME,
     CREATE_PARTY,
-    SERVICE_PARTY_ID,
     CREATE_PARTY_CONFIRMATION
 };
 

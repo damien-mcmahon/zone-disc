@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import classnames from 'classnames';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { SERVICE_PARTY_ID, replaceParam } from '../../config/routes';
+import { ACCOUNT_MAINTENANCE_ID, replaceParam } from '../../config/routes';
 
 import './styles.scss';
 
@@ -44,7 +44,7 @@ const QueueCard = ({party}) => {
                 <p className="queue-card__approval-status">{party.statusName}</p>
                 <Link 
                     className="queue-card__action-link"
-                    to={replaceParam(SERVICE_PARTY_ID.path, party.id)}>
+                    to={replaceParam(ACCOUNT_MAINTENANCE_ID.path, party.id)}>
                     {STATUS_INFO.actionText}
                 </Link>
             </div>

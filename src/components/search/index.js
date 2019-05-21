@@ -7,10 +7,15 @@ import classnames from 'classnames';
 import InputWrapper from '../input-wrapper';
 import Button from '../button';
 
+import { ACCOUNT_MAINTENANCE_ID, replaceParam} from 'config/routes';
+
 import './styles.scss';
+import { replace } from 'connected-react-router';
 
 //TODO - Utils?
 const has = val => val && val.length > 0;
+
+// TODO - URL onClick needs to be part of config;
 
 const Search = ({currentSearch = '', results, onSearch, onSelect}) => {
     const [isSearching, setIsSearching] = useState(false);
@@ -30,7 +35,7 @@ const Search = ({currentSearch = '', results, onSearch, onSelect}) => {
                     setIsSearching(true);
                 }}>
 
-                {({handleReset, touched, errors}) => {
+                {({handleReset}) => {
                     const resetForm = () => {
                         setIsSearching(false);
                         handleReset();
@@ -49,7 +54,7 @@ const Search = ({currentSearch = '', results, onSearch, onSelect}) => {
                                         <Fragment>
                                             {results.map(r => (
                                                 <div key={r.id} className="search__result">
-                                                    <Link className="search__link" to={`/party/${r.id}`} onClick={() => onSelect(r)}>
+                                                    <Link className="search__link" to={replaceParam(ACCOUNT_MAINTENANCE_ID.path, r.id)} onClick={() => onSelect(r)}>
                                                         {r.partyName}
                                                     </Link>
                                                 </div>

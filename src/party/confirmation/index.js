@@ -2,7 +2,7 @@ import React from 'react'
 import { Link, Redirect } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { ACCOUNT_MAINTENANCE, HOME, CREATE_PARTY, SERVICE_PARTY_ID } from 'config/routes';
+import { ACCOUNT_MAINTENANCE, HOME, CREATE_PARTY, ACCOUNT_MAINTENANCE_ID } from 'config/routes';
 
 import AppPanel from 'components/app-panel';
 import Banner from 'components/banner';
@@ -34,7 +34,7 @@ const Confirmation = ({party, queueItemsLength, networks, countries}) => {
                     party={party} />
 
                 <Link 
-                    to={SERVICE_PARTY_ID.path.replace(':id', party.id)} 
+                    to={ACCOUNT_MAINTENANCE_ID.path.replace(':id', party.id)} 
                     className="button--default confirmation__">
                     Edit Details
                 </Link>
