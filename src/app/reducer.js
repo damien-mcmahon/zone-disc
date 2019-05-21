@@ -18,6 +18,7 @@ const defaultState = {
     user: {
         networks: [
             {shortCode:'DN', name: 'Discover'},
+            // Leaving this in for AC Demo {shortCode:'DCI', name: 'Diners Club'},
         ]
     }
 };

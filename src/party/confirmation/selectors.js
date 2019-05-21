@@ -1,13 +1,13 @@
 import { createSelector } from 'reselect';
 
-import { partiesSelector } from 'app/selectors';
+import { userQueueSelector } from 'dashboard/selectors';
 
 export const newestPartySelector = createSelector(
-    partiesSelector,
+    userQueueSelector,
     (parties) => parties[parties.length -1]
 );
 
 export const queueItemsSelector = createSelector(
-    partiesSelector,
+    userQueueSelector,
     parties => parties.length
 );

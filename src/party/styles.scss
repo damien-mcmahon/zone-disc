@@ -1,0 +1,58 @@
+@import 'styles/grid';
+@import 'styles/mixins';
+@import 'styles/colors';
+@import 'styles/fonts';
+
+$product-info-empty-list-color: $gray-4;
+$party-info-header-color: $primary;
+
+.party-index {
+    &__header {
+        @include grid(10, sp(3));
+
+        .new-party-card__wrapper {
+            @include grid-span(2);
+        }
+
+        .search-card__wrapper {
+            @include grid-span(5);
+        }
+    }
+
+    &__content {
+        @include grid(10, sp(3));
+    }
+
+    &__party-info-wrapper,
+    &__product-info-wrapper {
+        @include grid-span(4);
+    }
+
+    &__product-info-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    &__party-title {
+        @extend .font--h3;
+        color: $party-info-header-color;
+        margin-bottom: sp(2);
+    }
+
+    &__edit {
+        display: inline-block;
+        margin: sp(3) sp(1);
+    }
+}
+
+.product-info {
+    &__item {
+        @extend .font--body;
+
+        &.--empty {
+            color: $product-info-empty-list-color;
+        }
+    }
+}

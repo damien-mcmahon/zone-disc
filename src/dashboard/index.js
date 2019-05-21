@@ -11,7 +11,7 @@ import QueueCard from 'components/queue-card';
 
 import './styles.scss';
 
-const Dashboard = ({searchResults, sendSearch, userQueue = []}) => (
+const Dashboard = ({searchResults, selectParty, sendSearch, userQueue = []}) => (
     <AppPanel title="Welcome">
         <header className="dashboard__header">
             <Link to={CREATE_PARTY.path} className="new-party-card__wrapper">
@@ -39,6 +39,7 @@ const Dashboard = ({searchResults, sendSearch, userQueue = []}) => (
                     <Search 
                         results={searchResults}
                         onSearch={sendSearch}
+                        onSelect={selectParty}
                     />
                 </div>
             </Card>

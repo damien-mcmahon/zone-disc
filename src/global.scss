@@ -14,8 +14,14 @@ html {
 
 body {
     background: $body-bg;
+    font-family: 'Open sans', sans-serif;
 }
 
 a {
     text-decoration: none;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
 }

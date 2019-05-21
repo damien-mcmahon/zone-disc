@@ -3,6 +3,7 @@ import get from 'lodash.get';
 import classnames from 'classnames';
 
 import './styles.scss';
+import { shape, array, string, oneOf } from 'prop-types';
 
 const getNetwork = networks => tenantId => {
     const result = networks && networks.find(n => n.shortCode === tenantId);
@@ -82,5 +83,23 @@ const PartyOverview = ({className, party, countries, networks}) => {
         </div>
     );
 }
+
+PartyOverview.propTypes = {
+    party: shape({
+        partyName: string,
+        networkId: oneOf(['DN', 'DCI']),
+        currencyCode: array,
+        contactDetails: shape({
+            postalAddressLine1: string,
+            postalAddressLine2: string,
+            city: string,
+            state: string,
+            postalCode: string
+        }),
+        DXSCode: string,
+    }),
+    countries: array.isRequired,
+    networks: array.isRequired
+};
 
 export default PartyOverview;

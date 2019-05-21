@@ -30,6 +30,7 @@ $nav-bg: $white;
         text-decoration: none;
         color: $nav-item-color;
 
+        &:hover,
         &.--active {
             background: $nav-item-bg;
             color: $nav-item-active-color;

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Dashboard from './index';
 import { searchResultsSelector, userQueueSelector } from './selectors';
 import { searchParties } from './actions';
+import { setCurrentParty } from 'party/actions';
 
 const mapStateToProps = state => ({
     userQueue: userQueueSelector(state),
@@ -12,6 +13,10 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
     sendSearch(search) {
         dispatch(searchParties(search));
+    },
+
+    selectParty(party) {
+        dispatch(setCurrentParty(party));
     }
 });
 

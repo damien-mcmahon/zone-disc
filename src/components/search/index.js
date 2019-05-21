@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react'
-import { func, array} from 'prop-types';
+import { string, func, array} from 'prop-types';
 import { Form, Formik } from 'formik';
 import * as Yup from 'yup';
 import { Link } from 'react-router-dom';
@@ -10,24 +10,27 @@ import Button from '../button';
 
 import './styles.scss';
 
+//TODO - Utils?
 const has = val => val && val.length > 0;
-const searchInitialValues = { search: '' };
+
 const searchValidationSchema = Yup.object().shape({
     search: Yup.string()
         .min(2, 'Please enter 2 characters')
         .required('Please enter a search term')
 });
     
-const Search = ({results, onSearch, clearResult}) => {
+const Search = ({currentSearch = '', results, onSearch, onSelect}) => {
     const [isSearching, setIsSearching] = useState(false);
     const autoCompleteClasses = classnames('search__autocomplete-wrapper', {
         '--has-results': has(results)
     });
 
+    const searchInitialValues = { search: currentSearch };
 
     return (
         <div className="search__wrapper">
             <Formik
+                enableReinitialize
                 initialValues={searchInitialValues}
                 validationSchema={searchValidationSchema}
                 onSubmit={({search}) => {
@@ -35,7 +38,7 @@ const Search = ({results, onSearch, clearResult}) => {
                     setIsSearching(true);
                 }}>
 
-                {({handleReset}) => {
+                {({handleReset, touched, errors}) => {
                     const resetForm = () => {
                         setIsSearching(false);
                         handleReset();
@@ -44,7 +47,11 @@ const Search = ({results, onSearch, clearResult}) => {
                     return (
                     <Form className="search__form-wrapper">
                         <div className={autoCompleteClasses}>
-                            <InputWrapper className="search__input"  name="search" />
+                            <InputWrapper 
+                                errors={errors}
+                                touched={touched}
+                                className="search__input"  
+                                name="search" />
 
                             {isSearching &&
                                 <div className="search__results-wrapper">
@@ -52,7 +59,7 @@ const Search = ({results, onSearch, clearResult}) => {
                                         <Fragment>
                                             {results.map(r => (
                                                 <div key={r.id} className="search__result">
-                                                    <Link className="search__link" to={`/party/${r.id}`} onClick={clearResult}>
+                                                    <Link className="search__link" to={`/party/${r.id}`} onClick={() => onSelect(r)}>
                                                         {r.partyName}
                                                     </Link>
                                                 </div>
@@ -79,7 +86,9 @@ const Search = ({results, onSearch, clearResult}) => {
 
 Search.propTypes = {
     results: array,
-    onSearch: func.isRequired
+    onSearch: func.isRequired,
+    currentSearch: string,
+    onSelect: func
 };
 
 export default Search;

@@ -29,7 +29,11 @@ const InputWrapper = ({name, label, type = 'text', errors, className, required =
                 </label>
             }
 
-            <Field className={fieldClassNames} type={type} name={name} {...props}/>
+            <Field 
+                className={fieldClassNames} 
+                type={type} 
+                name={name} 
+                {...props} />
 
             <div className="input-wrapper__error">
                 <ErrorMessage name={name}>
