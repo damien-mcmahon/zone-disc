@@ -62,5 +62,6 @@ $input-error-color: $error;
         @extend .font--error;
         color: $input-error-color;
         display: block;
+        height: sp(3);
     }
 }

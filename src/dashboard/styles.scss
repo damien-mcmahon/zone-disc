@@ -35,7 +35,7 @@ $dashboard-bg: $white;
 
 .new-party-card {
     &__wrapper {
-        @include grid-span(3);
+        @include grid-span(2);
     }
 
     &__icon {

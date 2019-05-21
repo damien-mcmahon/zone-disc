@@ -25,7 +25,7 @@ $create-party-icon-color: $primary;
 
     &__inline-fields {
         display: flex;
-        align-items: center;
+        align-items: baseline;
 
         .select-wrapper__wrapper:first-child {
             margin-right: sp(3);

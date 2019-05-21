@@ -2,19 +2,16 @@ import React from 'react';
 import AppPanel from 'components/app-panel';
 import {Link} from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Formik } from 'formik';
 
 import { CREATE_PARTY } from 'config/routes';
 
 import Card from 'components/card';
-import SearchForm from './search-form';
+import Search from 'components/search';
 import QueueCard from 'components/queue-card';
 
 import './styles.scss';
 
-const searchFormInitialValues = { search: '' };
-
-const Dashboard = ({sendSearch, userQueue = []}) => (
+const Dashboard = ({searchResults, selectParty, sendSearch, userQueue = []}) => (
     <AppPanel title="Welcome">
         <header className="dashboard__header">
             <Link to={CREATE_PARTY.path} className="new-party-card__wrapper">
@@ -39,10 +36,11 @@ const Dashboard = ({sendSearch, userQueue = []}) => (
                 </header>
 
                 <div className="search-card__form-wrapper">
-                    <Formik
-                        initialValues={searchFormInitialValues}
-                        onSubmit={sendSearch} 
-                        render={SearchForm} />
+                    <Search 
+                        results={searchResults}
+                        onSearch={sendSearch}
+                        onSelect={selectParty}
+                    />
                 </div>
             </Card>
         </header>

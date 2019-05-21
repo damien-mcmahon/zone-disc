@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { ACCOUNT_MAINTENANCE, HOME, CREATE_PARTY, SERVICE_PARTY_ID } from 'config/routes';
@@ -11,7 +11,11 @@ import PartyOverview from 'components/party-overview';
 
 import './styles.scss';
 
-const Confirmation = ({party, queueItemsLength}) => {
+const Confirmation = ({party, queueItemsLength, networks, countries}) => {
+    if (!party) {
+        return <Redirect to="/" />
+    }
+
     return (
         <AppPanel className="confirmation__wrapper">
             <Banner
@@ -23,7 +27,11 @@ const Confirmation = ({party, queueItemsLength}) => {
             <Card className="confirmation__info-wrapper">
                 <h1 className="confirmation__title">Details submitted for approval</h1>    
 
-                <PartyOverview className="confirmation__party-overview" party={party} />
+                <PartyOverview 
+                    countries={countries}
+                    networks={networks}
+                    className="confirmation__party-overview" 
+                    party={party} />
 
                 <Link 
                     to={SERVICE_PARTY_ID.path.replace(':id', party.id)} 

@@ -10,7 +10,7 @@ import AppFooter from 'components/app-footer';
 import Dashboard from 'dashboard/container';
 import CreateParty from 'party/create/container';
 import Confirmation from 'party/confirmation/container';
-import PartyIndex from 'party';
+import PartyIndex from 'party/container';
 
 import './styles.scss';
 

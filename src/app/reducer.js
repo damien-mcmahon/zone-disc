@@ -1,31 +1,52 @@
 import { handleActions } from 'redux-actions';
 import { setLoggedIn } from './actions';
 import { createParty } from 'party/create/actions';
-
-import {QUEUE_MOCKS} from '../config/mocks';
+import { getQueueDataSuccess, getInitialDataSuccess } from 'app/actions';
 
 const defaultState = {
+    config: {
+        currencies: [],
+        countries: [],
+        states: [],
+        currentCountry: 'USA',
+        networks: []
+    },
     loggedIn: false,
-    parties: [...QUEUE_MOCKS],
+    parties: [],
+    tenant: 'DN',
     tenants: [],
-    currentTenant: 'DN',
-    tenant: 'DN'
+    user: {
+        networks: [
+            {shortCode:'DN', name: 'Discover'},
+            // Leaving this in for AC Demo {shortCode:'DCI', name: 'Diners Club'},
+        ]
+    }
 };
 
 const AppReducer = handleActions({
-    [setLoggedIn] : (state, {payload: loggedIn}) => {
-        return {
-            ...state,
-            loggedIn
-        }
-    },
+    [setLoggedIn] : (state, {payload: loggedIn}) => ({
+        ...state,
+        loggedIn
+    }),
 
-    [createParty] : (state, { payload: party}) => {
-        return {
-            ...state,
-            parties: [...state.parties, party],
-        };
-    }
+    [getQueueDataSuccess] : (state, { payload: parties}) => ({
+        ...state,
+        parties
+    }),
+
+    [getInitialDataSuccess] : (state, { payload }) => ({
+        ...state,
+        config: {
+            ...state.config,
+            ...payload
+        }
+    }),
+
+    [createParty] : (state, { payload: party}) => ({
+        ...state,
+        parties: [...state.parties, party],
+    })
+    
 }, defaultState);
 
 export default AppReducer;

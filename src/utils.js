@@ -4,3 +4,14 @@ export const getRandomInt = (min, max) => {
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min;
 };
+
+export const alphabetise = key => ({[key]:strA}, {[key]: strB}) => {
+    return strA === strB ? 0 : 
+        strA < strB ?  -1 : 1;
+};
+
+export const optionise = (labelKey, valueKey) => 
+    ({[labelKey]: label, [valueKey]: value}) => ({
+        label,
+        value
+    });
