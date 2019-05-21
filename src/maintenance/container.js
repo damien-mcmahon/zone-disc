@@ -1,12 +1,9 @@
 import { connect } from 'react-redux';
 import { currentPartySelector } from './selectors';
 
-import { 
-    countriesSelector,
-    networksSelector,
-} from 'app/selectors';
+import { countriesSelector, networksSelector } from 'app/selectors';
 import { searchParties } from 'dashboard/actions';
-import PartyIndex from '../maintenance';
+import MaintenanceIndex from '.';
 import { searchResultsSelector } from 'dashboard/selectors';
 
 const mapStateToProps = (state, props) => ({ 
@@ -22,4 +19,4 @@ const mapDispatchToProps = dispatch => ({
     }
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(PartyIndex);
+export default connect(mapStateToProps, mapDispatchToProps)(MaintenanceIndex);
