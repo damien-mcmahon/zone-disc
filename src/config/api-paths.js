@@ -7,6 +7,7 @@ const API_PATHS = {
     },
     QUEUE: '/queue',
     SEARCH_PARTIES: '/parties',
+    PRODUCT_TEMPLATES: '/productTemplates'
 };
 
 export default API_PATHS;

@@ -1,15 +1,16 @@
 import React, { useRef } from 'react'
 import { bool, func, oneOfType, element, arrayOf, any, string } from 'prop-types';
+import classnames from 'classnames';
 
 import Card from '../card';
 
 import './styles.scss';
 
-const SelectableCard = ({children, onSelect, name, selected = false, value}) => {
+const SelectableCard = ({className, children, onSelect, name, selected = false, value}) => {
     const radioRef = useRef(null);
-
+    const classes = classnames('selectable-card__outer-wrapper', className);
     return (
-        <div className="selectable-card__outer-wrapper">
+        <div className={classes}>
             <input 
                 ref={radioRef}
                 type="radio"

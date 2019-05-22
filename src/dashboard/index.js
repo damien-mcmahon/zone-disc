@@ -50,7 +50,10 @@ const Dashboard = ({searchResults, selectParty, sendSearch, userQueue = []}) => 
 
             <div className="dashboard__queue-items-wrapper">
                 {userQueue.map(party => (
-                    <QueueCard key={party.id} party={party} />
+                    <QueueCard 
+                        key={party.id} 
+                        party={party} 
+                        onClick={() => selectParty(party)} />
                 ))}
             </div>
         </section>

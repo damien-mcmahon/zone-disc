@@ -41,8 +41,6 @@ const AppHeader = ({tenant}) => (
     <header className="app__header__wrapper">
         <Logo tenant={tenant} />
 
-        <h1 className="header__title">Servicing Portal</h1>
-
         <div className="header__actions-wrapper">
             {NAV_ACTIONS.map(action => (
                 <div key={action.icon} className="header__nav-action">

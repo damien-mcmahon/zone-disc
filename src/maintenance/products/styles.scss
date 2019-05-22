@@ -1,0 +1,92 @@
+@import 'styles/mixins';
+@import 'styles/grid';
+@import 'styles/fonts';
+@import 'styles/colors';
+
+$grid-padding: sp(3);
+$party-info-account-number-color: $gray-4;
+$product-code-color: $success;
+
+.products {
+    &__header {
+        @include grid(10, $grid-padding);
+    }
+
+    &__party-info {
+        @include grid-span(3);
+    }
+
+    &__party-address {
+        @include grid-span(5);
+    }
+
+    &__selection-wrapper {
+        margin-top: sp(3);
+    }
+
+    &__selection-title {
+        @extend .font--h3;
+    }
+
+    &__selector-wrapper {
+        @include grid(10, $grid-padding);
+        grid-auto-rows: 1fr;
+        margin-top: sp(2);
+    }
+
+    &__product {
+        @include grid-span(4);
+        display: flex;
+        align-content: stretch;
+    }
+}
+
+.party-info {
+    &__tenant-logo {
+        margin-bottom: sp(3);
+
+        .logo__image {
+            width: auto;
+        }
+    }
+
+    &__account-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+    }
+
+    &__account-number {
+        color: $party-info-account-number-color;
+    }
+}
+
+.party-address {
+    &__contact-wrapper {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.product {
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__name {
+        margin: 0;
+    }
+
+    &__code {
+        @extend .font--note;
+        color: $product-code-color;
+        margin: 0;
+    }
+
+    &__description {
+        @extend .font--input;
+        margin: sp(1) 0 0;
+    }
+}

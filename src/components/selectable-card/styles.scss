@@ -35,6 +35,8 @@ $selectable-toggle-border: $primary;
     &__selection-wrapper {
         padding: sp(1);
         max-width: sp(10);
+        display: flex;
+        align-items: center;
     }
 
     &__select-toggle {

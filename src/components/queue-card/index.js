@@ -27,12 +27,12 @@ const STATUSES = {
     }
 };
 
-const QueueCard = ({party}) => {
+const QueueCard = ({party, ...props}) => {
     const STATUS_INFO = STATUSES[party.statusName];
     const queueCardClassNames = classnames('queue-card__wrapper', `--${STATUS_INFO.extraClass}`);
 
     return (
-        <div className={queueCardClassNames}>
+        <div className={queueCardClassNames} {...props}>
             <div className="queue-card__status-wrapper">
                 <FontAwesomeIcon 
                     className="queue-card__icon"

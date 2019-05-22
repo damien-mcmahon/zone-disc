@@ -6,6 +6,8 @@ import { createParty } from 'party/create/actions';
 import { createPartySaga } from 'party/create/sagas';
 import { searchParties } from 'dashboard/actions';
 import { searchPartiesSaga } from 'dashboard/sagas';
+import { getProductsInfo } from 'maintenance/products/actions';
+import { getProductTemplatesSaga } from 'maintenance/sagas';
 
 export default function *rootSaga() {
     // App
@@ -18,4 +20,7 @@ export default function *rootSaga() {
 
     //Dashboard
     yield takeEvery(searchParties, searchPartiesSaga);
+
+    //Maintenance
+    yield takeEvery(getProductsInfo, getProductTemplatesSaga);
 } 

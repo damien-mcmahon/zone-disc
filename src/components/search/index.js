@@ -6,15 +6,11 @@ import classnames from 'classnames';
 
 import InputWrapper from '../input-wrapper';
 import Button from '../button';
+import { has } from 'utils';
 
 import { ACCOUNT_MAINTENANCE_ID, replaceParam} from '../../config/routes';
 
 import './styles.scss';
-
-//TODO - Utils?
-const has = val => val && val.length > 0;
-
-// TODO - URL onClick needs to be part of config;
 
 const Search = ({currentSearch = '', results, onSearch, onSelect}) => {
     const [isSearching, setIsSearching] = useState(false);

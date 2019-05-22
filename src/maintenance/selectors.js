@@ -1,7 +1,14 @@
 import { createSelector } from 'reselect';
 import { partiesSelector } from 'app/selectors'; 
 
-const partyIdFromParamsSelector = (_, {match: {params: {id}}}) => id;
+const partyIdFromParamsSelector = (_, props ) => {
+    if (!props) {
+        return '';
+    }
+
+    const {match: {params: {id}}} = props;
+    return props ? id : '';
+}
 export const partyInStateSelector = state => state.party.currentParty;
 
 export const currentPartySelector = createSelector(

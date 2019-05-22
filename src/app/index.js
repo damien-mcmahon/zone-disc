@@ -12,7 +12,7 @@ import CreateParty from 'party/create/container';
 import Confirmation from 'party/confirmation/container';
 import MaintenanceIndex from 'maintenance/container';
 import MaintenanceEdit from 'maintenance/edit';
-import MaintenanceProducts from 'maintenance/products';
+import MaintenanceProducts from 'maintenance/products/container';
 
 import { 
     ACCOUNT_MAINTENANCE,

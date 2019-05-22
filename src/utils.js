@@ -15,3 +15,5 @@ export const optionise = (labelKey, valueKey) =>
         label,
         value
     });
+
+export const has = val => val && val.length > 0;
