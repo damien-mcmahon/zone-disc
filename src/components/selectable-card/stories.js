@@ -2,10 +2,8 @@ import React from 'react'
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import SelectableCard from '.';
-import { FormikWrapper } from '../../stories/decorators';
 
 storiesOf('Components/Selectable Card', module)
-    .addDecorator(FormikWrapper({test: ''}))
     .add('Default', () =>
         <div>
             <SelectableCard name="test" value="One" onSelect={action('onSelect')}>
@@ -17,7 +15,11 @@ storiesOf('Components/Selectable Card', module)
         </div>
     )
     .add('With Selected Prop', () => 
-        <SelectableCard onSelect={action('onSelect')} selected={true}>
+        <SelectableCard 
+            name="thing" 
+            value="Singular" 
+            onSelect={action('onSelect')} 
+            selected={true}>
             <p>This one is selected...</p>
         </SelectableCard>
     );
