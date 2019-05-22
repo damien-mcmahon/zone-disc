@@ -1,36 +1,35 @@
-import React, { useState } from 'react'
+import React, { useRef } from 'react'
 import { bool, func, oneOfType, element, arrayOf } from 'prop-types';
-import classnames from 'classnames';
 
-import Button from '../button';
 import Card from '../card';
 
 import './styles.scss';
 
-const SelectableCard = ({children, onSelect, selected = false}) => {
-    const [isSelected, setSelected] = useState(selected);
-    const cardClassnames = classnames('selectable-card__wrapper', {
-        '--selected': isSelected,
-    });
+const SelectableCard = ({children, onSelect, name, selected = false, value}) => {
+    const radioRef = useRef(selected);
     return (
-        <Card 
-            depth={isSelected ? 0 : 2}
-            className={cardClassnames} 
-            onClick={() => {
-                setSelected(!isSelected)
-                onSelect(!isSelected)
-            }}>
-            <div className="selectable-card__selection-wrapper">
-                <Button 
-                    className="selectable-card__select-toggle" 
-                    role="radio" 
-                    ariaChecked={isSelected} />
-            </div>
+        <div className="selectable-card__outer-wrapper">
+            <input 
+                ref={radioRef}
+                type="radio"
+                name={name}
+                value={value}
+                className="selectable-card__toggle" />
+            <Card 
+                className="selectable-card__wrapper" 
+                onClick={() => {
+                    onSelect(value);
+                    radioRef.current.checked = true;
+                }}>
+                <div className="selectable-card__selection-wrapper">
+                    <div className="selectable-card__select-toggle" />
+                </div>
 
-            <div className="selectable-card__content-wrapper">
-                {children}
-            </div>
-        </Card>
+                <div className="selectable-card__content-wrapper">
+                    {children}
+                </div>
+            </Card>
+        </div>
     );
 }
 

@@ -1,5 +1,6 @@
 @import 'styles/colors';
 @import 'styles/mixins';
+@import 'styles/shadows';
 
 $selectable-border-hover: $primary;
 $selectable-border: transparent;
@@ -8,15 +9,27 @@ $selectable-toggle-button-selected-bg: $primary;
 $selectable-toggle-border: $primary;
 
 .selectable-card {
+    &__toggle {
+        position: absolute;
+        height: 0;
+        width: 0;
+        display: none;
+
+        &:checked + .selectable-card__wrapper {
+            border: 2px solid $selectable-border-hover;
+            box-shadow: none;
+        }
+
+        &:checked + div .selectable-card__select-toggle {
+            background: $selectable-toggle-button-selected-bg;
+        }
+    }
+    
     &__wrapper {
+        @extend .shadow--medium;
         border: 2px solid $selectable-border;
         display: flex;
         cursor: pointer;
-
-        &.--selected,
-        &:hover {
-            border: 2px solid $selectable-border-hover;
-        }
     }
 
     &__selection-wrapper {
@@ -35,10 +48,6 @@ $selectable-toggle-border: $primary;
 
         &:hover {
             background: $selectable-toggle-button-bg;
-        }
-
-        .--selected & {
-            background: $selectable-toggle-button-selected-bg;
         }
     }
 
