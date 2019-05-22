@@ -218,7 +218,7 @@ const CreateParty = ({
                     validationSchema={createPartyValidationSchema}
                     initialValues={initialValues}
                     render={renderPartyForm(countries, currencies, states, currentCountryIndex, networks, user)}
-                    onSubmit={values => submitPartyForm(values)} />
+                    onSubmit={values => submitPartyForm(values, user)} />
             </section>
         </AppPanel>
     );

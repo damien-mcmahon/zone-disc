@@ -18,7 +18,17 @@ export function * clearCurrentPartySaga() {
 export function * getProductTemplatesSaga() {
     try {
         const {productTemplates} = yield call(GET, API_PATHS.PRODUCT_TEMPLATES);
-        yield put(getProductsInfoSuccess(productTemplates)) 
+        //map the product features
+        const productFeatures = productTemplates.reduce((features, template) => {
+            if (!template.prdctFeatures) {
+                return features;
+            }
+
+            features[template.resourceId] = template.prdctFeatures;
+            return features;
+        }, {});
+
+        yield put(getProductsInfoSuccess({productTemplates, productFeatures})) 
     } catch (err) {
         yield call(getProductsInfoError(err));
     }

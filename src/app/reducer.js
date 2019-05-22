@@ -16,6 +16,7 @@ const defaultState = {
     tenant: 'DN',
     tenants: [],
     user: {
+        username: 'Damien McMahon',
         networks: [
             {shortCode:'DN', name: 'Discover'},
             // Leaving this in for AC Demo {shortCode:'DCI', name: 'Diners Club'},

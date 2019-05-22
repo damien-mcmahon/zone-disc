@@ -25,8 +25,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    submitPartyForm(values) {
-        dispatch(createParty(values));
+    submitPartyForm(values, user) {
+        dispatch(createParty(values, user));
     }
 });
 

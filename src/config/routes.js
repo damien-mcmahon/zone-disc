@@ -36,6 +36,14 @@ export const ACCOUNT_PRODUCTS = {
     path: '/maintenance/:id/products',
 }
 
+export const ACCOUNT_TEMPLATE_CONFIG = {
+    path: '/maintenance/:id/products/config',
+};
+
+export const PRODUCT_CHECKLIST = {
+    path: '/maintenance/:id/checklist'
+};
+
 export const replaceParam = (path, val, REPLACE_REG_EX = /:([\w]+)/gim) => path.replace(REPLACE_REG_EX, val);
 
 const ROUTES = {

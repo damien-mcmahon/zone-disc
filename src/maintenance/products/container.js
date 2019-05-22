@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import Products from '.';
 import { currentPartySelector } from '../selectors';
-import { getProductsInfo } from './actions';
+import { getProductsInfo, setSelectedProductTemplate } from './actions';
 import { getProductTemplatesSelector } from './selectors';
 
 const mapStateToProps = state => ({
@@ -15,7 +15,7 @@ const mapDispatchToProps = dispatch => ({
     },
 
     setProductTemplate(template) {
-        console.log("DM => SPT", template);
+        dispatch(setSelectedProductTemplate(template));
     }
 });
 

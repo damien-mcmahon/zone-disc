@@ -13,15 +13,19 @@ import Confirmation from 'party/confirmation/container';
 import MaintenanceIndex from 'maintenance/container';
 import MaintenanceEdit from 'maintenance/edit';
 import MaintenanceProducts from 'maintenance/products/container';
+import MaintenanceProductsConfig from 'maintenance/products-config/container';
+import Checklist from 'maintenance/checklist/container';
 
 import { 
+    ACCOUNT_EDIT,
     ACCOUNT_MAINTENANCE,
     ACCOUNT_MAINTENANCE_ID,
-    ACCOUNT_EDIT,
     ACCOUNT_PRODUCTS,
+    ACCOUNT_TEMPLATE_CONFIG,
     CREATE_PARTY,
     CREATE_PARTY_CONFIRMATION,
-    HOME 
+    HOME,
+    PRODUCT_CHECKLIST, 
 } from 'config/routes';
 
 import './styles.scss';
@@ -45,6 +49,8 @@ const App = ({init, tenant}) => {
                         <Route path={ACCOUNT_MAINTENANCE_ID.path} exact component={MaintenanceIndex} />
                         <Route path={ACCOUNT_EDIT.path} exact component={MaintenanceEdit} />
                         <Route path={ACCOUNT_PRODUCTS.path} exact component={MaintenanceProducts} />
+                        <Route path={ACCOUNT_TEMPLATE_CONFIG.path} exact component={MaintenanceProductsConfig} />
+                        <Route path={PRODUCT_CHECKLIST.path} exact component={Checklist} />
                     </Switch>
 
                     <AppFooter />
