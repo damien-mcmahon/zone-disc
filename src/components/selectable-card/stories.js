@@ -8,4 +8,9 @@ storiesOf('Components/Selectable Card', module)
         <SelectableCard onSelect={action('onSelect')}>
             <p>Some Text here...</p>
         </SelectableCard>
+    )
+    .add('With Selected Prop', () => 
+        <SelectableCard onSelect={action('onSelect')} selected={true}>
+            <p>This one is selected...</p>
+        </SelectableCard>
     );

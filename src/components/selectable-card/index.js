@@ -13,10 +13,13 @@ const SelectableCard = ({children, onSelect, selected = false}) => {
         '--selected': isSelected,
     });
     return (
-        <Card className={cardClassnames} onClick={() => {
-            setSelected(!isSelected)
-            onSelect(!isSelected)
-        }}>
+        <Card 
+            depth={isSelected ? 0 : 2}
+            className={cardClassnames} 
+            onClick={() => {
+                setSelected(!isSelected)
+                onSelect(!isSelected)
+            }}>
             <div className="selectable-card__selection-wrapper">
                 <Button 
                     className="selectable-card__select-toggle" 
