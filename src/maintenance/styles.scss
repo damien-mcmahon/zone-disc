@@ -11,11 +11,11 @@ $party-info-header-color: $primary;
         @include grid(10, sp(3));
 
         .new-party-card__wrapper {
-            @include grid-span(2);
+            @include grid-span(3);
         }
 
         .search-card__wrapper {
-            @include grid-span(5);
+            @include grid-span(6);
         }
     }
 
@@ -25,7 +25,7 @@ $party-info-header-color: $primary;
 
     &__party-info-wrapper,
     &__product-info-wrapper {
-        @include grid-span(4);
+        @include grid-span(5);
     }
 
     &__product-info-wrapper {
