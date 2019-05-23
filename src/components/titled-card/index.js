@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import classnames from 'classnames';
-import { arrayOf, element, string, oneOfType, number, bool } from 'prop-types';
+import { any, arrayOf, element, string, oneOfType, number, bool } from 'prop-types';
 
 import Card from '../card';
 
@@ -43,7 +43,7 @@ TitledCard.propTypes = {
     className: string,
     collapsible: bool,
     depth: number,
-    title: string
+    title: any
 };
 
 export default TitledCard;

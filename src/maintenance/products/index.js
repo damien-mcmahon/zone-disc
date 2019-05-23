@@ -31,6 +31,7 @@ const PartyProducts = ({history, party, products, getProductInfo, setProductTemp
                 <div className="products__selector-wrapper">
                     {has(products) && products.map(p => (
                         <SelectableCard 
+                            key={p.prdctCde}
                             onSelect={() => {
                                 setProductTemplate(p)
                                 setCanProgress(true);

@@ -7,7 +7,7 @@ import {
 const defaultState = {
     productTemplates: [],
     productFeatures: {},
-    selectedProductTemplate: null
+    selectedProductTemplates: []
 };
 
 const MaintenanceReducer = handleActions({
@@ -19,7 +19,7 @@ const MaintenanceReducer = handleActions({
 
     [setSelectedProductTemplate]: (state, {payload: selectedProductTemplate}) => ({
         ...state,
-        selectedProductTemplate
+        selectedProductTemplates: [...state.selectedProductTemplates, selectedProductTemplate]
     })
 }, defaultState);
 

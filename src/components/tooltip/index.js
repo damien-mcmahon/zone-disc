@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactTooltip from 'react-tooltip';
+import { element, oneOf, arrayOf, string, oneOfType } from 'prop-types';
 
 import './styles.scss';
 
@@ -12,5 +13,12 @@ const Tooltip = ({direction = "top", name, children, content}) => (
         </ReactTooltip>
     </span>
 );
+
+Tooltip.propTypes = {
+    direction: oneOf(['top', 'right', 'bottom', 'left']),
+    name: string.isRequired,
+    children: oneOfType([element, arrayOf(element)]),
+    content: oneOfType([string, element])
+}
 
 export default Tooltip;

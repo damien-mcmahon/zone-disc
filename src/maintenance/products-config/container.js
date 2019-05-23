@@ -5,14 +5,16 @@ import { currentPartySelector } from 'maintenance/selectors';
 import { 
     checkHasConfig,
     getProductTemplatesSelector, 
-    selectedProductTemplateSelector 
+    selectedProductTemplateSelector,
+    getProductFeaturesAsArraySelector 
 } from 'maintenance/products/selectors';
 
 const mapStateToProps = state => ({
     party: currentPartySelector(state),
     products: getProductTemplatesSelector(state),
-    selectedProduct: selectedProductTemplateSelector(state),
-    hasConfig: checkHasConfig(state)
+    selectedProducts: selectedProductTemplateSelector(state),
+    hasConfig: checkHasConfig(state),
+    productFeatures: getProductFeaturesAsArraySelector(state)
 });
 
 export default connect(mapStateToProps)(ProductsConfig);
