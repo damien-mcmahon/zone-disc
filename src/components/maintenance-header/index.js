@@ -4,6 +4,8 @@ import get from 'lodash.get';
 import Card from 'components/card';
 import Logo from 'components/logo';
 
+import './styles.scss';
+
 const hasField = values => field => !!get(values, field);
 
 const MaintenanceHeader = ({party}) => {
@@ -13,8 +15,8 @@ const MaintenanceHeader = ({party}) => {
     const hasEmailAddress = has('contactDetails.eAddress[0].address');
 
     return (
-        <header className="products__header">
-            <Card depth={1} className="products__party-info party-info__wrapper">
+        <header className="products-header__wrapper">
+            <Card depth={1} className="products-header__party-info party-info__wrapper">
                 <Logo className="party-info__tenant-logo" tenant={party.networkId} />
 
                 <p className="party-info__party-name">{party.partyName}</p>
@@ -25,7 +27,7 @@ const MaintenanceHeader = ({party}) => {
                 </div>
             </Card>
 
-            <Card depth={1} className="products__party-address party-address__wrapper">
+            <Card depth={1} className="products-header__party-address party-address__wrapper">
                 <p className="party-address__line1">{party.contactDetails.postalAddress.postalAddressLine1}</p>
 
                 {hasPostalAddress2 &&

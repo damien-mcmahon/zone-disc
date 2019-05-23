@@ -13,13 +13,13 @@ const defaultState = {
     },
     loggedIn: false,
     parties: [],
-    tenant: 'DN',
+    tenant: 'DCI',
     tenants: [],
     user: {
         username: 'Damien McMahon',
         networks: [
-            {shortCode:'DN', name: 'Discover'},
-            // Leaving this in for AC Demo {shortCode:'DCI', name: 'Diners Club'},
+            {shortCode:'DCI', name: 'Diners Club'},
+            // Leaving this in for AC Demo {shortCode:'DN', name: 'Discover'},
         ]
     }
 };

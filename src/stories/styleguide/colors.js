@@ -5,10 +5,10 @@ import ColorOption from '../components/color-option';
 
 // TODO - Styled Components would handle this better
 const colors = {
-    "primary": "hsl(19.2, 85%, 55.3%)",
-    "primary-dark": "hsl(19, 92%, 41%)",
-    "complementary": "hsl(199, 100%, 42%)",
-    "complementary-dark": "hsl(199, 99%, 34%)",
+    "primary": "hsl(199, 100%, 42%)", 
+    "primary-dark": "hsl(199, 99%, 34%)",
+    "complementary": "hsl(19.2, 85%, 55.3%)",
+    "complementary-dark":"hsl(19, 92%, 41%)", 
     "secondary-blue": "hsl(210, 65%, 30%)",
     "secondary-light-blue": "hsl(186, 45%, 76%)",
     "secondary-gray": "hsl(216, 33%, 97%)",
