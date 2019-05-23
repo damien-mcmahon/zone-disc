@@ -9,7 +9,9 @@ import MaintenanceHeader from 'components/maintenance-header';
 import TitledCard from 'components/titled-card';
 import Tooltip from 'components/tooltip';
 
-import { HOME, PRODUCT_CHECKLIST, PRODUCT_CHECKLIST, replaceParam } from 'config/routes';
+import { HOME, PRODUCT_CHECKLIST, replaceParam } from 'config/routes';
+
+import './styles.scss';
 
 class ProductsConfig extends Component {
     state = {
@@ -103,6 +105,7 @@ class ProductsConfig extends Component {
 
     setChecked = (featureId, productCode, value) => {
         const { removeSelectedProduct, setSelectedProduct } = this;
+
         if (value) {
             setSelectedProduct(featureId, productCode, );
         } else {
@@ -163,10 +166,15 @@ class ProductsConfig extends Component {
     
     defaultDisabled = platformProduct =>
         platformProduct.scope === ProductsConfig.MANDATORY_PRODUCT
+    
+    handleCheckboxSelection = feature => (productCode, checked) => {
+        const { setChecked } = this;
+        setChecked(feature.id, productCode, checked)
+    }
 
     render() {
-        const {canProceed, defaultChecked, defaultDisabled, props, getCardTitleFromFeature, platformProductLabel, setChecked} = this; 
-        const {party, hasConfig, productFeatures, selectedProducts} = props;
+        const {canProceed, defaultChecked, defaultDisabled, handleCheckboxSelection, props, getCardTitleFromFeature, platformProductLabel} = this; 
+        const {party, hasConfig, productFeatures, selectedProducts, history} = props;
 
         if (!party) {
             return <Redirect to={HOME.path} />
@@ -184,37 +192,48 @@ class ProductsConfig extends Component {
 
                 <section className="product-config__content">
                     <header className="product-config__header">
-                        <h1>Now choose the products for {party.partyName}</h1>
+                        <h1 className="product-config__title">Now choose the products for {party.partyName}</h1>
                         <Tooltip
+                            className="product-config__tooltip"
                             direction="top" 
                             name="product-config-info"
                             content={`Select the products that ${party.partyName} will use`}>
-                            <FontAwesomeIcon icon={TOOLTIP_ICON} />
+                            <FontAwesomeIcon 
+                                className="product-config__tooltip-icon"
+                                icon={TOOLTIP_ICON} />
                         </Tooltip> 
                     </header>
 
                     <div className="product-config__configurations-wrapper">
                         {productFeatures.map(feature => (
                             <TitledCard 
+                                className="product-config__feature-card"
                                 key={feature} 
                                 title={getCardTitleFromFeature(feature, selectedProducts)} 
                                 collapsible={productFeatures.length > 1}>
                                 
                                 {feature.permittedPlatformProducts.map(platformProduct => (
-                                <Checkbox
-                                    key={platformProduct.prdctCde}
-                                    onChange={(productCode, checked) => setChecked(feature.id, productCode, checked)}
-                                    value={platformProduct.prdctCde}
-                                    label={platformProductLabel(platformProduct)} 
-                                    name={`${platformProduct.prdctNm}`}
-                                    checked={defaultChecked(platformProduct)} 
-                                    disabled={defaultDisabled(platformProduct)} /> 
-                                ))}
+                                    <Checkbox
+                                        className="product-config__checkbox"
+                                        key={platformProduct.prdctCde}
+                                        onChange={handleCheckboxSelection(feature)}
+                                        value={platformProduct.prdctCde}
+                                        label={platformProductLabel(platformProduct)} 
+                                        name={`${platformProduct.prdctNm}`}
+                                        checked={defaultChecked(platformProduct)} 
+                                        disabled={defaultDisabled(platformProduct)} /> 
+                                    ))
+                                }
                             </TitledCard>
                         ))}                
                     </div>
+
                     <div className="product-config__proceed-wrapper">
-                        <Button disabled={!canProceed()}>Next Steps</Button>
+                        <Button 
+                            disabled={!canProceed()} 
+                            onClick={() => history.push(replaceParam(PRODUCT_CHECKLIST.path, party.id))}>
+                            Save Products for {party.partyName}
+                        </Button>
                     </div>
                 </section>
             </AppPanel>

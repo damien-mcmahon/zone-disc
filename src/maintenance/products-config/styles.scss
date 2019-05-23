@@ -1,0 +1,66 @@
+@import 'styles/colors';
+@import 'styles/mixins';
+@import 'styles/fonts';
+@import 'styles/grid';
+
+$product-config-tooltip-color: $primary;
+$product-code-color: $gray-4;
+$grid-span: sp(3);
+
+.product-config {
+    &__header {
+        display: flex;
+        align-items: center;
+    }
+
+    &__product-title {
+        .product {
+            &__title {
+                margin-right: sp(1);
+            }
+
+            &__code {
+                @extend .font--h3;
+                color: $product-code-color;
+            }
+        }
+    }
+
+    &__tooltip-icon {
+        font-size: px(20);
+        color: $product-config-tooltip-color;
+    }
+
+    &__content {
+        margin-top: sp(3);
+    }
+
+    &__title {
+        @extend .font--h3;
+    }
+
+    &__configurations-wrapper {
+        @include grid(10, $grid-span);
+        margin: sp(3) 0;
+    }
+
+    &__feature-card {
+        @include grid-span(8);
+    }
+
+    &__checkbox {
+        margin: sp(1) 0;
+    }
+}
+
+.platform-product {
+    &__name {
+        @extend .font--button;
+        @extend .bold;
+        margin-right: sp(1);
+    }
+
+    &__desc {
+        margin-left: sp(1);
+    }
+}

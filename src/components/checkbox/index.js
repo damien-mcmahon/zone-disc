@@ -5,13 +5,13 @@ import classnames from 'classnames';
 
 import './styles.scss';
 
-const Checkbox = ({name, label, value, checked, onChange, disabled}) => {
+const Checkbox = ({className, name, label, value, checked, onChange, disabled}) => {
     const checkboxRef = useRef(null);
     const [isChecked, setChecked] = useState(checked);
     const CHECKED_ICON = 'check-square';
     const UNCHECKED_ICON = 'square';
 
-    const classes = classnames('checkbox__wrapper', {
+    const classes = classnames('checkbox__wrapper', className, {
         '--disabled': disabled
     });
 
