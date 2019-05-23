@@ -9,3 +9,8 @@ storiesOf('Components/Titled Card', module)
             <p>This is some content inside the card</p> 
         </TitledCard>
     )
+    .add('Collapsible', () => 
+        <TitledCard collapsible title="Titled Card">
+            <p>This is a collapsible Card</p> 
+        </TitledCard>
+    )

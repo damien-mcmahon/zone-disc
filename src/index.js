@@ -6,6 +6,8 @@ import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { 
+    faAngleUp,
+    faAngleDown,
     faComments,
     faEnvelope, 
     faGripHorizontal, 
@@ -29,6 +31,8 @@ import store from 'store';
 import './global.scss';
 
 library.add(
+    faAngleUp,
+    faAngleDown,
     faCheckCircle,
     faComments,
     faEnvelope, 

@@ -1,5 +1,7 @@
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { 
+    faAngleUp,
+    faAngleDown,
     faComments,
     faEnvelope, 
     faGripHorizontal, 
@@ -18,6 +20,8 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
+  faAngleUp,
+  faAngleDown,
   faEnvelope, 
   faGripHorizontal, 
   faPlusSquare, 

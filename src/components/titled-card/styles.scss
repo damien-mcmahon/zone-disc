@@ -3,6 +3,7 @@
 @import 'styles/fonts';
 
 $title-bg: $secondary-gray;
+$title-collapsible-icon-color: $gray-3;
 
 .titled-card {
     &__wrapper {
@@ -11,12 +12,29 @@ $title-bg: $secondary-gray;
 
     &__header {
         @extend .font--h3;
+        position: relative;
         margin: 0;
         background: $title-bg;
         padding: sp(3);
     }
 
+    &__collapse-wrapper {
+        position: absolute;
+        right: sp(2);
+    }
+
+    &__collapse-icon {
+        font-size: px(20);
+        color: $title-collapsible-icon-color;
+    }
+
     &__body {
         padding: sp(2);
+
+        &.--collapsed {
+            height: 0;
+            padding: 0;
+            display: none;
+        }
     }
 }
