@@ -1,0 +1,22 @@
+@import 'styles/colors';
+@import 'styles/mixins';
+@import 'styles/fonts';
+
+$title-bg: $secondary-gray;
+
+.titled-card {
+    &__wrapper {
+        padding: 0;
+    }
+
+    &__header {
+        @extend .font--h3;
+        margin: 0;
+        background: $title-bg;
+        padding: sp(3);
+    }
+
+    &__body {
+        padding: sp(2);
+    }
+}

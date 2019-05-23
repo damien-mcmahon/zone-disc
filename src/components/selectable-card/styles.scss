@@ -40,8 +40,8 @@ $selectable-toggle-border: $primary;
     }
 
     &__select-toggle {
-        height: sp(4);
-        width: sp(4);
+        height: sp(4.5);
+        width: sp(4.5);
         border-radius: 50%;
         padding: 0;
         box-shadow: none;
@@ -55,6 +55,6 @@ $selectable-toggle-border: $primary;
 
     &__content-wrapper {
         flex: 1;
-        padding: sp(1);
+        padding: sp(1) sp(1) sp(1) sp(3);
     }
 }
