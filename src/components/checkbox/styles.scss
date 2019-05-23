@@ -1,0 +1,33 @@
+@import 'styles/mixins';
+@import 'styles/fonts';
+@import 'styles/colors';
+
+$checkbox-bg: $primary;
+$checkbox-color: $white;
+
+.checkbox {
+    &__wrapper {
+        padding: sp(1);
+
+        &.--disabled {
+            opacity: .5;
+            cursor: not-allowed;
+        }
+    }
+
+    &__input {
+        display: none;
+    }
+
+    &__icon-wrapper {
+        font-size: 20px;
+        display: inline-block;
+        vertical-align: middle;
+        color: $checkbox-bg;
+    }
+
+    &__label-wrapper {
+        @extend .font--label;
+        margin-left: sp(2);
+    }
+}

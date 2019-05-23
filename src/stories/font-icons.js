@@ -11,14 +11,18 @@ import {
     faCheckCircle,
     faCheckDouble,
     faHourglassStart,
+    faSquare,
     faTimes,
-    faTimesCircle
+    faTimesCircle,
+    faCheckSquare
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
   faEnvelope, 
   faGripHorizontal, 
   faPlusSquare, 
+  faCheckSquare,
+  faSquare,
   faUserCircle,
   faWrench,
   faCheckDouble,
