@@ -23,9 +23,10 @@ const Checkbox = ({name, label, value, checked, onChange, disabled}) => {
                     type="checkbox" 
                     className="checkbox__input"
                     onClick={() => {
-                        onChange(value);
+                        onChange(value, checkboxRef.current.checked);
                         setChecked(checkboxRef.current.checked);
                     }}
+                    defaultChecked={checked}
                     disabled={disabled}
                     name={name} 
                     value={value} />
@@ -42,7 +43,7 @@ const Checkbox = ({name, label, value, checked, onChange, disabled}) => {
 
 Checkbox.propTypes = {
     label: any,
-    name: string,
+    name: string.isRequired,
     value: any,
     checked: bool,
     onChange: func
