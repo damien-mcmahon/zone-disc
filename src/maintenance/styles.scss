@@ -21,11 +21,15 @@ $party-info-header-color: $primary;
 
     &__content {
         @include grid(10, sp(3));
+        margin-top: sp(5);
     }
 
-    &__party-info-wrapper,
+    &__party-info-wrapper {
+        @include grid-span(4);
+    }
+
     &__product-info-wrapper {
-        @include grid-span(5);
+        @include grid-offset(5, 4, 10);
     }
 
     &__product-info-wrapper {

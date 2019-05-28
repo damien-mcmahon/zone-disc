@@ -24,7 +24,7 @@ $nav-bg: $white;
     }
 
     &__link {
-        @extend .font--button;
+        @extend .font--nav;
         display: block;
         padding: sp(3) sp(2);
         text-decoration: none;

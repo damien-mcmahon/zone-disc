@@ -8,8 +8,8 @@ import './styles.scss';
 const Checkbox = ({className, name, label, value, checked, onChange, disabled}) => {
     const checkboxRef = useRef(null);
     const [isChecked, setChecked] = useState(checked);
-    const CHECKED_ICON = 'check-square';
-    const UNCHECKED_ICON = 'square';
+    const CHECKED_ICON = ['fas','check-square'];
+    const UNCHECKED_ICON = ['far','square'];
 
     const classes = classnames('checkbox__wrapper', className, {
         '--disabled': disabled
@@ -32,7 +32,10 @@ const Checkbox = ({className, name, label, value, checked, onChange, disabled}) 
                     value={value} />
                 
                 <div className="checkbox__icon-wrapper">
-                    <FontAwesomeIcon key={checked} icon={isChecked ? CHECKED_ICON : UNCHECKED_ICON} />
+                    <FontAwesomeIcon 
+                        key={checked} 
+                        className="checkbox__icon"
+                        icon={isChecked ? CHECKED_ICON : UNCHECKED_ICON} />
                 </div>
 
                 <span className="checkbox__label-wrapper">{label}</span>

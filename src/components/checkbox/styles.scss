@@ -22,8 +22,10 @@ $checkbox-color: $white;
     &__icon-wrapper {
         font-size: px(24);
         display: inline-block;
-        vertical-align: middle;
+        vertical-align: text-bottom;
         color: $checkbox-bg;
+        height: sp(3);
+        width: sp(3);
     }
 
     &__label-wrapper {

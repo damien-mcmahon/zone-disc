@@ -46,7 +46,6 @@ const PartyProducts = ({history, party, products, getProductInfo, setProductTemp
                             <p className="product__description">{p.prdctDesc}</p>
                         </SelectableCard>
                     ))}
-
                 </div>
 
                 <Button 

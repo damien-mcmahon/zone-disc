@@ -207,6 +207,7 @@ class ProductsConfig extends Component {
                     <div className="product-config__configurations-wrapper">
                         {productFeatures.map(feature => (
                             <TitledCard 
+                                depth={1}
                                 className="product-config__feature-card"
                                 key={feature} 
                                 title={getCardTitleFromFeature(feature, selectedProducts)} 

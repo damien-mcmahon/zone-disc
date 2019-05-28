@@ -5,6 +5,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
 import { library } from '@fortawesome/fontawesome-svg-core';
+import { faSquare } from '@fortawesome/free-regular-svg-icons';
 import { 
     faAngleUp,
     faAngleDown,
@@ -14,7 +15,6 @@ import {
     faPlusSquare,
     faCheckSquare,
     faSearch,
-    faSquare,
     faQuestionCircle,
     faUserCircle, 
     faWrench,

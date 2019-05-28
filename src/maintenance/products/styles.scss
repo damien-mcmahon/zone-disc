@@ -26,6 +26,10 @@ $product-code-color: $success;
         display: flex;
         align-content: stretch;
     }
+
+    &__submit {
+        margin-top: sp(3);
+    }
 }
 
 .product {

@@ -1,4 +1,5 @@
 import { library } from '@fortawesome/fontawesome-svg-core';
+import { faSquare } from '@fortawesome/free-regular-svg-icons';
 import { 
     faAngleUp,
     faAngleDown,
@@ -13,7 +14,6 @@ import {
     faCheckCircle,
     faCheckDouble,
     faHourglassStart,
-    faSquare,
     faTimes,
     faTimesCircle,
     faCheckSquare
