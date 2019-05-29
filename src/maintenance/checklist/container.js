@@ -2,17 +2,20 @@ import { connect } from 'react-redux';
 
 import ProductsConfig from '.';
 import { currentPartySelector } from 'maintenance/selectors';
-import { 
-    checkHasConfig,
-    getProductTemplatesSelector, 
-    selectedProductTemplateSelector 
-} from 'maintenance/products/selectors';
+import { getChecklistSelector, selectedProductTemplateSelector } from 'maintenance/products/selectors';
+
+import { getChecklistInfo } from './actions';
 
 const mapStateToProps = state => ({
     party: currentPartySelector(state),
-    products: getProductTemplatesSelector(state),
-    selectedProduct: selectedProductTemplateSelector(state),
-    hasConfig: checkHasConfig(state)
+    checklist: getChecklistSelector(state),
+    selectedProduct: selectedProductTemplateSelector(state)
 });
 
-export default connect(mapStateToProps)(ProductsConfig);
+const mapDispatchToProps = dispatch => ({
+    getChecklistInfo() {
+        dispatch(getChecklistInfo())
+    }
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductsConfig);

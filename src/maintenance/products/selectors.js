@@ -1,5 +1,6 @@
 import { createSelector } from 'reselect';
 
+export const getChecklistSelector = state => state.maintenance.selectedProductChecklist;
 export const getProductTemplatesSelector = state => state.maintenance.productTemplates;
 export const selectedProductTemplateSelector = state => state.maintenance.selectedProductTemplates;
 export const getProductFeaturesSelector = state => state.maintenance.productFeatures;

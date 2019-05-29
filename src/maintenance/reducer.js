@@ -3,11 +3,13 @@ import {
     getProductsInfoSuccess,
     setSelectedProductTemplate
  } from './products/actions';
+import { getChecklistInfoSuccess } from './checklist/actions';
 
 const defaultState = {
     productTemplates: [],
     productFeatures: {},
-    selectedProductTemplates: []
+    selectedProductTemplates: [],
+    selectedProductChecklist: {}
 };
 
 const MaintenanceReducer = handleActions({
@@ -20,7 +22,13 @@ const MaintenanceReducer = handleActions({
     [setSelectedProductTemplate]: (state, {payload: selectedProductTemplate}) => ({
         ...state,
         selectedProductTemplates: [...state.selectedProductTemplates, selectedProductTemplate]
-    })
+    }),
+
+    [getChecklistInfoSuccess]: (state, {payload: selectedProductChecklist}) => ({
+        ...state,
+        selectedProductChecklist
+    }),
+
 }, defaultState);
 
 export default MaintenanceReducer;

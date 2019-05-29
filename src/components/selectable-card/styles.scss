@@ -24,19 +24,27 @@ $selectable-toggle-border: $primary;
             background: $selectable-toggle-button-selected-bg;
         }
     }
-    
+
     &__wrapper {
         @extend .shadow--medium;
         border: 2px solid $selectable-border;
         display: flex;
         cursor: pointer;
+
+        .--selected & {
+            border: 2px solid $selectable-border-hover;
+            box-shadow: none;
+        }
     }
 
     &__selection-wrapper {
-        padding: sp(1);
         max-width: sp(10);
         display: flex;
         align-items: center;
+
+        .--multi & {
+            align-items: initial;
+        }
     }
 
     &__select-toggle {

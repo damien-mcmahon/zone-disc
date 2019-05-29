@@ -22,4 +22,15 @@ storiesOf('Components/Selectable Card', module)
             selected={true}>
             <p>This one is selected...</p>
         </SelectableCard>
-    );
+    )
+    .add('Multiple values checking', () => 
+        <div>
+            <SelectableCard isMulti name="something" value="A" onSelect={action('onSelect')} >
+                <p>A</p>
+            </SelectableCard>
+
+            <SelectableCard isMulti name="something" value="B" onSelect={action('onSelect')} >
+                <p>B</p>
+            </SelectableCard>
+        </div>
+    )

@@ -8,6 +8,8 @@ import './styles.scss';
 
 const hasField = values => field => !!get(values, field);
 
+const HARD_CODED_LOGO = 'DCI';
+
 const MaintenanceHeader = ({party}) => {
     const has = hasField(party);
     const hasPostalAddress2 = has('contactDetails.postalAddress.postalAddressLine2');
@@ -17,7 +19,7 @@ const MaintenanceHeader = ({party}) => {
     return (
         <header className="products-header__wrapper">
             <Card depth={1} className="products-header__party-info party-info__wrapper">
-                <Logo className="party-info__tenant-logo" tenant={party.networkId} />
+                <Logo className="party-info__tenant-logo" tenant={HARD_CODED_LOGO} />
 
                 <p className="party-info__party-name">{party.partyName}</p>
 

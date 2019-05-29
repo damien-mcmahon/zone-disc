@@ -5,7 +5,7 @@ import classnames from 'classnames';
 
 import './styles.scss';
 
-const Checkbox = ({className, name, label, value, checked, onChange, disabled}) => {
+const Checkbox = ({className, name, label, value, checked, onChange, disabled, size = "1x"}) => {
     const checkboxRef = useRef(null);
     const [isChecked, setChecked] = useState(checked);
     const CHECKED_ICON = ['fas','check-square'];
@@ -35,6 +35,7 @@ const Checkbox = ({className, name, label, value, checked, onChange, disabled}) 
                     <FontAwesomeIcon 
                         key={checked} 
                         className="checkbox__icon"
+                        size={size}
                         icon={isChecked ? CHECKED_ICON : UNCHECKED_ICON} />
                 </div>
 
@@ -49,7 +50,8 @@ Checkbox.propTypes = {
     name: string.isRequired,
     value: any,
     checked: bool,
-    onChange: func
+    onChange: func,
+    size: string
 };
 
 export default Checkbox;

@@ -86,7 +86,7 @@ class ProductsConfig extends Component {
         });
     }
 
-    getCardTitleFromFeature = ({id}, selectedProducts) => {
+    getCardTitleFromFeature = ({id}, selectedProducts = []) => {
         const {prdctNm, prdctCde} = selectedProducts.find(s => s.resourceId === id);
 
         return ( 

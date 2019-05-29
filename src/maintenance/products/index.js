@@ -36,6 +36,7 @@ const PartyProducts = ({history, party, products, getProductInfo, setProductTemp
                                 setProductTemplate(p)
                                 setCanProgress(true);
                             }}
+                            isMulti
                             className="products__product product__wrapper"
                             name="product-template" 
                             value={p.prdctCde}>
