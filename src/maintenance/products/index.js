@@ -26,7 +26,7 @@ const PartyProducts = ({history, party, products, getProductInfo, setProductTemp
             <MaintenanceHeader party={party} />
 
             <section className="products__selection-wrapper">
-                <h1 className="products__selection-title">Select Party Type</h1>
+                <h1 className="products__selection-title">Select Template</h1>
 
                 <div className="products__selector-wrapper">
                     {has(products) && products.map(p => (
