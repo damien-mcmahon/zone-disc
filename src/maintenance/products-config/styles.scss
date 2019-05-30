@@ -39,6 +39,15 @@ $grid-span: sp(3);
         @extend .font--h3;
     }
 
+    &__selection-rules-wrapper {
+        @extend .font--note;
+        margin: 0;
+        top: sp(1);
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+
     &__configurations-wrapper {
         @include grid(10, $grid-span);
         margin: sp(3) 0;

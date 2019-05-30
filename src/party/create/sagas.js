@@ -1,6 +1,6 @@
 import { call, put } from 'redux-saga/effects';
 import { push } from 'connected-react-router';
-import { createPartySuccess, createPartyError } from './actions';
+import { createPartySuccess } from './actions';
 import { POST } from 'store/api';
 
 import { CREATE_PARTY_CONFIRMATION } from 'config/routes';
