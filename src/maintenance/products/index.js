@@ -11,10 +11,12 @@ import { ACCOUNT_TEMPLATE_CONFIG, replaceParam } from 'config/routes';
 import './styles.scss';
 
 
-const PartyProducts = ({history, party, products, getProductInfo, setProductTemplate}) => {
+const PartyProducts = ({history, party, products, removeProductTemplate, selectedProducts, getProductInfo, setProductTemplate}) => {
     useEffect(() => getProductInfo(), [getProductInfo]);
 
-    const [canProgress, setCanProgress] = useState(false);
+    const hasSelectedProducts = selectedProducts.length > 0;
+    const isSelectedProduct = ({resourceId}) => 
+        !!selectedProducts.find(sP => sP.resourceId === resourceId);
 
     //TODO - Handle this better
     if (!party) {
@@ -32,11 +34,15 @@ const PartyProducts = ({history, party, products, getProductInfo, setProductTemp
                     {has(products) && products.map(p => (
                         <SelectableCard 
                             key={p.prdctCde}
-                            onSelect={() => {
-                                setProductTemplate(p)
-                                setCanProgress(true);
+                            onSelect={(_, __, selected) => {
+                                if (selected) {
+                                    setProductTemplate(p);
+                                } else {
+                                    removeProductTemplate(p);
+                                }
                             }}
                             isMulti
+                            selected={isSelectedProduct(p)}
                             className="products__product product__wrapper"
                             name="product-template" 
                             value={p.prdctCde}>
@@ -52,7 +58,7 @@ const PartyProducts = ({history, party, products, getProductInfo, setProductTemp
                 <Button 
                     onClick={() => history.push(replaceParam(ACCOUNT_TEMPLATE_CONFIG.path, party.id))}
                     className="products__submit" 
-                    disabled={!canProgress}>
+                    disabled={!hasSelectedProducts}>
                     Next</Button>
             </section>
         </AppPanel>

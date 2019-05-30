@@ -31,13 +31,10 @@ const SelectableCard = ({className, children, isMulti = false, onSelect, name, s
                 className="selectable-card__wrapper" 
                 onClick={() => {
                     setSelected(!isSelected);
+                    onSelect(value, name, !isSelected);
 
-                    if (!selected) {
-                        onSelect(value, name);
-
-                        if (!isMulti) {
-                            radioRef.current.checked = true;
-                        }
+                    if (!selected && !isMulti) {
+                        radioRef.current.checked = true;
                     }
                 }}>
                 <div className="selectable-card__selection-wrapper">

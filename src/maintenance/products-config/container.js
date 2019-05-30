@@ -14,7 +14,7 @@ const mapStateToProps = state => ({
     products: getProductTemplatesSelector(state),
     selectedProducts: selectedProductTemplateSelector(state),
     hasConfig: checkHasConfig(state),
-    productFeatures: getProductFeaturesAsArraySelector(state)
+    selectedProductsFeatures: getProductFeaturesAsArraySelector(state)
 });
 
 export default connect(mapStateToProps)(ProductsConfig);

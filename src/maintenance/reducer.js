@@ -1,6 +1,7 @@
 import { handleActions } from 'redux-actions';
 import { 
     getProductsInfoSuccess,
+    removeSelectedProductTemplate,
     setSelectedProductTemplate
  } from './products/actions';
 import { getChecklistInfoSuccess } from './checklist/actions';
@@ -17,6 +18,12 @@ const MaintenanceReducer = handleActions({
         ...state,
         productTemplates,
         productFeatures  
+    }),
+
+    [removeSelectedProductTemplate]: (state, { payload: {resourceId}}) => ({
+        ...state,
+        selectedProductTemplates: 
+            state.selectedProductTemplates.filter(sPT => sPT.resourceId !== resourceId)
     }),
 
     [setSelectedProductTemplate]: (state, {payload: selectedProductTemplate}) => ({

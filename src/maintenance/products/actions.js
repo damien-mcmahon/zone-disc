@@ -5,3 +5,4 @@ export const getProductsInfoSuccess = createAction('PRODUCTS.GET_ALL.SUCCESS', p
 export const getProductsInfoError = createAction('PRODUCTS.GET_ALL.ERROR', err => err);
 
 export const setSelectedProductTemplate = createAction('PRODUCTS.SET_SELECTED', product => product);
+export const removeSelectedProductTemplate = createAction('PRODUCTS.REMOVE_SELECTED', product => product);

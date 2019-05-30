@@ -24,13 +24,13 @@ class ProductsConfig extends Component {
 
     componentDidMount() {
         const { props } = this;
-        const { selectedProducts, productFeatures, hasConfig } = props;
+        const { selectedProducts, selectedProductsFeatures, hasConfig } = props;
         const { setSelectedProduct } = this;
 
         if (hasConfig && selectedProducts.length) {
             selectedProducts.forEach(selected => {
                 //grab the mandatory items from the productFeatures
-                const productFeatureSet = productFeatures.find(f => f.id === selected.resourceId);
+                const productFeatureSet = selectedProductsFeatures.find(f => f.id === selected.resourceId);
 
                 if (!productFeatureSet) {
                     return
@@ -117,7 +117,7 @@ class ProductsConfig extends Component {
     validateFeatureSelection = featureId => {
         //get the product codes for this featureId
         const { props, state } = this;
-        const { productFeatures } = props; 
+        const { selectedProductsFeatures } = props; 
         const { productSelections, validSelections } = state;
 
         if (!productSelections[featureId]) {
@@ -125,7 +125,7 @@ class ProductsConfig extends Component {
         }
 
         //get the rules for this featureSet
-        const {prdctClssCdeRules:ruleSet} = productFeatures.find(feature => feature.id === featureId);
+        const {prdctClssCdeRules:ruleSet} = selectedProductsFeatures.find(feature => feature.id === featureId);
 
         if (!ruleSet) {
             return;
@@ -155,10 +155,10 @@ class ProductsConfig extends Component {
 
     canProceed = () => {
         const { props, state } = this;
-        const { productFeatures } = props;
+        const { selectedProductsFeatures } = props;
         const { validSelections } = state;
 
-        return validSelections.length === productFeatures.length;
+        return validSelections.length === selectedProductsFeatures.length;
     }
 
     defaultChecked = platformProduct =>
@@ -174,7 +174,7 @@ class ProductsConfig extends Component {
 
     render() {
         const {canProceed, defaultChecked, defaultDisabled, handleCheckboxSelection, props, getCardTitleFromFeature, platformProductLabel} = this; 
-        const {party, hasConfig, productFeatures, selectedProducts, history} = props;
+        const {party, hasConfig, selectedProductsFeatures, selectedProducts, history} = props;
 
         if (!party) {
             return <Redirect to={HOME.path} />
@@ -205,13 +205,13 @@ class ProductsConfig extends Component {
                     </header>
 
                     <div className="product-config__configurations-wrapper">
-                        {productFeatures.map(feature => (
+                        {selectedProductsFeatures.map(feature => (
                             <TitledCard 
                                 depth={1}
                                 className="product-config__feature-card"
                                 key={feature} 
                                 title={getCardTitleFromFeature(feature, selectedProducts)} 
-                                collapsible={productFeatures.length > 1}>
+                                collapsible={selectedProductsFeatures.length > 1}>
                                 
                                 {feature.permittedPlatformProducts.map(platformProduct => (
                                     <Checkbox
