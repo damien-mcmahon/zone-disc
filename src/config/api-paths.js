@@ -9,8 +9,9 @@ const API_PATHS = {
     SEARCH_PARTIES: '/parties',
     PRODUCT: {
         TEMPLATES: '/productTemplates',
-        SELECTIONS: '/productSelections'
-    }
+        SELECTIONS: '/productSelections',
+        CHECKLIST: '/checklist'
+    },
 };
 
 export default API_PATHS;

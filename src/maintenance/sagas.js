@@ -14,6 +14,10 @@ import {
     sendSelectedProductsSuccess, 
     sendSelectedProductsError 
 } from './products-config/actions';
+import { 
+    getChecklistInfoError, 
+    getChecklistInfoSuccess 
+} from './checklist/actions';
 
 export function * clearCurrentPartySaga() {
     try {
@@ -54,5 +58,14 @@ export function * sendSelectedProductsSaga({payload: selections}) {
         yield put(sendSelectedProductsSuccess());
     } catch (err) {
         yield put(sendSelectedProductsError(err));
+    }
+}
+
+export function * getChecklistItemsSaga({payload: party}) {
+    try {
+        const {checklist} = yield call(GET, API_PATHS.PRODUCT.CHECKLIST, {party});
+        yield put(getChecklistInfoSuccess(checklist));
+    } catch (err) {
+        yield put(getChecklistInfoError(err));
     }
 }
