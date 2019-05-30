@@ -7,7 +7,10 @@ const API_PATHS = {
     },
     QUEUE: '/queue',
     SEARCH_PARTIES: '/parties',
-    PRODUCT_TEMPLATES: '/productTemplates'
+    PRODUCT: {
+        TEMPLATES: '/productTemplates',
+        SELECTIONS: '/productSelections'
+    }
 };
 
 export default API_PATHS;

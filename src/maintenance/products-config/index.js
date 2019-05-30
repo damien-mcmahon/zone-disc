@@ -218,9 +218,33 @@ class ProductsConfig extends Component {
         setChecked(feature.id, productCode, checked)
     }
 
+    submitProducts = () => {
+        const { props, state } = this;
+        const { history, party, sendSelectedProducts } = props;
+        const { productSelections } = state;
+        
+        sendSelectedProducts(productSelections);
+
+        history.push(replaceParam(PRODUCT_CHECKLIST.path, party.id));
+    }
+
     render() {
-        const {canProceed, defaultChecked, defaultDisabled, handleCheckboxSelection, props, getCardTitleFromFeature, platformProductLabel} = this; 
-        const {party, hasConfig, selectedProductsFeatures, selectedProducts, history} = props;
+        const {
+            canProceed, 
+            defaultChecked, 
+            defaultDisabled, 
+            getCardTitleFromFeature, 
+            handleCheckboxSelection, 
+            platformProductLabel,
+            props, 
+            submitProducts,
+        } = this; 
+        const {
+            hasConfig, 
+            party, 
+            selectedProducts,
+            selectedProductsFeatures, 
+        } = props;
     
         if (!party) {
             return <Redirect to={HOME.path} />
@@ -277,7 +301,7 @@ class ProductsConfig extends Component {
                     <div className="product-config__proceed-wrapper">
                         <Button 
                             disabled={!canProceed()} 
-                            onClick={() => history.push(replaceParam(PRODUCT_CHECKLIST.path, party.id))}>
+                            onClick={submitProducts}>
                             Save Products for {party.partyName}
                         </Button>
                     </div>

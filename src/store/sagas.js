@@ -7,7 +7,8 @@ import { createPartySaga } from 'party/create/sagas';
 import { searchParties } from 'dashboard/actions';
 import { searchPartiesSaga } from 'dashboard/sagas';
 import { getProductsInfo } from 'maintenance/products/actions';
-import { getProductTemplatesSaga } from 'maintenance/sagas';
+import { getProductTemplatesSaga, sendSelectedProductsSaga } from 'maintenance/sagas';
+import { sendSelectedProducts} from 'maintenance/products-config/actions';
 
 export default function *rootSaga() {
     // App
@@ -23,4 +24,5 @@ export default function *rootSaga() {
 
     //Maintenance
     yield takeEvery(getProductsInfo, getProductTemplatesSaga);
+    yield takeEvery(sendSelectedProducts, sendSelectedProductsSaga);
 } 

@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 
 import ProductsConfig from '.';
+import { sendSelectedProducts } from './actions';
 import { currentPartySelector } from 'maintenance/selectors';
 import { 
     checkHasConfig,
@@ -17,4 +18,10 @@ const mapStateToProps = state => ({
     selectedProductsFeatures: getProductFeaturesAsArraySelector(state)
 });
 
-export default connect(mapStateToProps)(ProductsConfig);
+const mapDispatchToProps = dispatch => ({
+    sendSelectedProducts(productSelections) {
+        dispatch(sendSelectedProducts(productSelections));
+    }
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductsConfig);

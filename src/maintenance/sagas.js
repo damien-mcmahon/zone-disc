@@ -3,9 +3,17 @@ import {
     clearCurrentParty,
     clearCurrentPartyError
 } from './actions';
-import { GET } from 'store/api';
+import { GET, POST } from 'store/api';
 import API_PATHS from 'config/api-paths';
-import { getProductsInfoSuccess, getProductsInfoError } from './products/actions';
+import { 
+    getProductsInfoSuccess, 
+    getProductsInfoError 
+} from './products/actions';
+
+import { 
+    sendSelectedProductsSuccess, 
+    sendSelectedProductsError 
+} from './products-config/actions';
 
 export function * clearCurrentPartySaga() {
     try {
@@ -17,7 +25,7 @@ export function * clearCurrentPartySaga() {
 
 export function * getProductTemplatesSaga() {
     try {
-        const {productTemplates} = yield call(GET, API_PATHS.PRODUCT_TEMPLATES);
+        const {productTemplates} = yield call(GET, API_PATHS.PRODUCT.TEMPLATES);
         //map the product features
         const productFeatures = productTemplates.reduce((features, template) => {
             if (!template.prdctFeatures) {
@@ -30,6 +38,21 @@ export function * getProductTemplatesSaga() {
 
         yield put(getProductsInfoSuccess({productTemplates, productFeatures})) 
     } catch (err) {
-        yield call(getProductsInfoError(err));
+        yield put(getProductsInfoError(err));
+    }
+}
+
+export function * sendSelectedProductsSaga({payload: selections}) {
+    try {
+        //TODO - Match the correct format...
+        const selectionsToSend = Object.keys(selections).reduce((selected, key) => {
+            selected = [...selected, {resourceId:key, productCodes: selections[key].productCodes}]
+            return selected;
+        }, []);
+
+        yield call(POST, API_PATHS.PRODUCT.SELECTIONS, {productTemplates: selectionsToSend});
+        yield put(sendSelectedProductsSuccess());
+    } catch (err) {
+        yield put(sendSelectedProductsError(err));
     }
 }
