@@ -36,12 +36,14 @@ $title-collapsible-icon-color: $white;
         transition: 
             background .05s .2s,
             color .3s .2s;
-        cursor: pointer;
-        
 
         .--collapsed & {
             background: $title-collapsed-bg;
             color: $title-collapsed-color;
+        }
+
+        &.--collapsible {
+            cursor: pointer;
         }
     }
 

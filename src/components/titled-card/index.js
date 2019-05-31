@@ -12,16 +12,20 @@ const TitledCard = ({className, children, depth, title, collapsible = false, col
     const [isSelected, setSelected] = useState(selected);
     const classes = classnames('titled-card__wrapper', className, {
         '--collapsed': isCollapsed,
-        '--selected': isSelected
+        '--selected': isSelected,
+        '--collapsible': collapsible
     });
     const bodyClasses = classnames('titled-card__body');
     const COLLAPSED_ICON = 'angle-up';
     const COLLAPSE_ICON = 'angle-down';
 
     return (
-        <Card className={classes} depth={depth} onClick={() => setSelected(!isSelected)}>
+        <Card 
+            className={classes} 
+            depth={depth} 
+            onClick={() => setSelected(!isSelected)}>
             <header 
-            onClick={() => setCollapsed(!isCollapsed)}
+            onClick={() => collapsible && setCollapsed(!isCollapsed)}
             className="titled-card__header">
                 {title}
 

@@ -6,6 +6,8 @@
 $product-config-tooltip-color: $primary;
 $grid-span: sp(3);
 $product-config-header-color: $white;
+$product-config-success-header-bg: $success;
+$product-config-success-header-color: $white;
 
 .product-config {
     &__header {
@@ -54,6 +56,13 @@ $product-config-header-color: $white;
 
     &__feature-card {
         @include grid-span(8);
+
+        &.--completed {
+            .titled-card__header {
+                background: $product-config-success-header-bg !important;
+                color: $product-config-success-header-color;
+            }
+        }
     }
 
     &__checkbox {

@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { Redirect } from 'react-router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import classnames from 'classnames';
 
 import AppPanel from 'components/app-panel';
 import Button from 'components/button';
@@ -229,9 +230,17 @@ class ProductsConfig extends Component {
         history.push(replaceParam(PRODUCT_CHECKLIST.path, party.id));
     }
 
+    completedFeature = feature => {
+        const { state } = this;
+        const { validSelections } = state;
+        //see if the feature is in the validated list
+        return validSelections.includes(feature.id);
+    }
+
     render() {
         const {
             canProceed, 
+            completedFeature,
             defaultChecked, 
             defaultDisabled, 
             getCardTitleFromFeature, 
@@ -264,11 +273,13 @@ class ProductsConfig extends Component {
                 <section className="product-config__content">
                     <header className="product-config__header">
                         <h1 className="product-config__title">Now choose the products for {party.partyName}</h1>
+
                         <Tooltip
                             className="product-config__tooltip"
                             direction="top" 
                             name="product-config-info"
                             content={`Select the products that ${party.partyName} will use`}>
+
                             <FontAwesomeIcon 
                                 className="product-config__tooltip-icon"
                                 icon={TOOLTIP_ICON} />
@@ -278,9 +289,11 @@ class ProductsConfig extends Component {
                     <div className="product-config__configurations-wrapper">
                         {selectedProductsFeatures.map(feature => (
                             <TitledCard 
-                                depth={1}
-                                className="product-config__feature-card"
                                 key={feature.id} 
+                                depth={1}
+                                className={classnames('product-config__feature-card',{
+                                    '--completed': completedFeature(feature)
+                                })}
                                 title={getCardTitleFromFeature(feature, selectedProducts)} 
                                 collapsible={selectedProductsFeatures.length > 1}>
                                 {feature.permittedPlatformProducts.map(platformProduct => (
