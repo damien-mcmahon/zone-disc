@@ -43,7 +43,6 @@ const SelectableCard = ({className, children, isMulti = false, onSelect, name, s
                             key={isSelected}
                             className="selectable-card__checkbox-toggle"
                             name={name}
-                            size="2x"
                             checked={isSelected}
                             value={value} />
                     ) : (

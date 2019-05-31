@@ -2,11 +2,12 @@
 @import 'styles/mixins';
 @import 'styles/shadows';
 
-$selectable-border-hover: $primary;
-$selectable-border: transparent;
+$selectable-border-hover-color: $primary;
+$selectable-border-color: transparent;
 $selectable-toggle-button-bg: transparent;
 $selectable-toggle-button-selected-bg: $primary;
 $selectable-toggle-border: $primary;
+$selectable-border: 3px solid $selectable-border-hover-color;
 
 .selectable-card {
     &__toggle {
@@ -16,7 +17,7 @@ $selectable-toggle-border: $primary;
         display: none;
 
         &:checked + .selectable-card__wrapper {
-            border: 2px solid $selectable-border-hover;
+            border: $selectable-border; 
             box-shadow: none;
         }
 
@@ -27,12 +28,12 @@ $selectable-toggle-border: $primary;
 
     &__wrapper {
         @extend .shadow--medium;
-        border: 2px solid $selectable-border;
+        border: 3px solid $selectable-border-color;
         display: flex;
         cursor: pointer;
 
         .--selected & {
-            border: 2px solid $selectable-border-hover;
+            border: $selectable-border;
             box-shadow: none;
         }
     }
@@ -44,6 +45,17 @@ $selectable-toggle-border: $primary;
 
         .--multi & {
             align-items: initial;
+        }
+
+        .checkbox {
+            &__wrapper {
+                margin-top: px(10);
+                height: px(50);
+            }
+
+            &__icon {
+                font-size: px(42);
+            }
         }
     }
 
