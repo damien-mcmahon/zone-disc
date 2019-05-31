@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import classnames from 'classnames';
 import { any, arrayOf, element, string, oneOfType, number, bool } from 'prop-types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import Card from '../card';
 
 import './styles.scss';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const TitledCard = ({className, children, depth, title, collapsible = false, collapsed = false, selected = false}) => {
     const [isCollapsed, setCollapsed] = useState(collapsed);
@@ -20,18 +20,19 @@ const TitledCard = ({className, children, depth, title, collapsible = false, col
 
     return (
         <Card className={classes} depth={depth} onClick={() => setSelected(!isSelected)}>
-           <header className="titled-card__header">
-            {title}
+            <header 
+            onClick={() => setCollapsed(!isCollapsed)}
+            className="titled-card__header">
+                {title}
 
-            {collapsible &&
-                <span className="titled-card__collapse-wrapper">
-                    <FontAwesomeIcon
-                        className="titled-card__collapse-icon" 
-                        onClick={() => setCollapsed(!isCollapsed)}
-                        icon={isCollapsed ? COLLAPSE_ICON : COLLAPSED_ICON} />
-                </span>
-            }
-           </header> 
+                {collapsible &&
+                    <span className="titled-card__collapse-wrapper">
+                        <FontAwesomeIcon
+                            className="titled-card__collapse-icon" 
+                            icon={isCollapsed ? COLLAPSE_ICON : COLLAPSED_ICON} />
+                    </span>
+                }
+            </header> 
 
            <section className={bodyClasses}>{children}</section>
         </Card> 
