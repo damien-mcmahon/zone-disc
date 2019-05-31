@@ -115,6 +115,7 @@ class ProductsConfig extends Component {
         const { state } = this;
         const { productSelections } = state;
         const {prdctNm, prdctCde} = selectedProducts.find(s => s.resourceId === id);
+
         //TODO - Remove this <NASTY-BLOCK>
         let minimumSelectable;
         let productCodes;
@@ -130,7 +131,7 @@ class ProductsConfig extends Component {
         return ( 
             <Fragment>
                 <span className="product-config__product-title">
-                    <span className="product__title">{prdctNm}</span> - <span className="product__code">{prdctCde}</span>
+                    <span className="product__title">{prdctNm}</span> - <span className="product__code--header">{prdctCde}</span>
                 </span>
 
                 {minimumSelectable &&

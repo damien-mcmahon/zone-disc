@@ -7,19 +7,19 @@ import Card from '../card';
 import './styles.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const TitledCard = ({className, children, depth, title, collapsible = false}) => {
-    const [isCollapsed, setCollapsed] = useState(false);
-
-    const classes = classnames('titled-card__wrapper', className);
-    const bodyClasses = classnames('titled-card__body', {
-        '--collapsed': isCollapsed
+const TitledCard = ({className, children, depth, title, collapsible = false, collapsed = false, selected = false}) => {
+    const [isCollapsed, setCollapsed] = useState(collapsed);
+    const [isSelected, setSelected] = useState(selected);
+    const classes = classnames('titled-card__wrapper', className, {
+        '--collapsed': isCollapsed,
+        '--selected': isSelected
     });
-
+    const bodyClasses = classnames('titled-card__body');
     const COLLAPSED_ICON = 'angle-up';
     const COLLAPSE_ICON = 'angle-down';
 
     return (
-        <Card className={classes} depth={depth}>
+        <Card className={classes} depth={depth} onClick={() => setSelected(!isSelected)}>
            <header className="titled-card__header">
             {title}
 
@@ -41,6 +41,7 @@ const TitledCard = ({className, children, depth, title, collapsible = false}) =>
 TitledCard.propTypes = {
     children: oneOfType([element, arrayOf(element)]),
     className: string,
+    collapsed: bool,
     collapsible: bool,
     depth: number,
     title: any

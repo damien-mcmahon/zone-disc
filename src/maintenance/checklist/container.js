@@ -9,7 +9,7 @@ import { getChecklistInfo } from './actions';
 const mapStateToProps = state => ({
     party: currentPartySelector(state),
     checklist: getChecklistSelector(state),
-    selectedProduct: selectedProductTemplateSelector(state)
+    selectedProducts: selectedProductTemplateSelector(state)
 });
 
 const mapDispatchToProps = dispatch => ({

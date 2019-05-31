@@ -1,21 +1,47 @@
 @import 'styles/colors';
 @import 'styles/mixins';
 @import 'styles/fonts';
+@import 'styles/variables';
+@import 'styles/shadows';
 
-$title-bg: $secondary-gray;
-$title-collapsible-icon-color: $gray-3;
+$title-bg: $primary;
+$title-color: $white;
+$title-collapsed-bg: $white;
+$title-collapsed-color: $gray-1;
+$title-collapsed-collapsible-icon-color: $gray-3;
+$title-collapsible-icon-color: $white;
 
 .titled-card {
     &__wrapper {
+        @extend .shadow--regular;
         padding: 0;
+        border-radius: $border-radius;
+        overflow: hidden;
+
+        &.--collapsed {
+            @extend .shadow--small;
+        }
     }
 
     &__header {
-        @extend .font--h3;
+        @extend .font--body;
         position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         margin: 0;
         background: $title-bg;
-        padding: sp(3);
+        padding: sp(2) sp(5) sp(2) sp(2);
+        color: $title-color;
+        transition: 
+            background .05s .2s,
+            color .3s .2s;
+        
+
+        .--collapsed & {
+            background: $title-collapsed-bg;
+            color: $title-collapsed-color;
+        }
     }
 
     &__collapse-wrapper {
@@ -25,13 +51,17 @@ $title-collapsible-icon-color: $gray-3;
 
     &__collapse-icon {
         font-size: px(20);
-        color: $title-collapsible-icon-color;
+        color: $title-collapsible-icon-color !important;
+
+        .--collapsed & {
+            color: $title-collapsed-collapsible-icon-color !important;
+        }
     }
 
     &__body {
         padding: sp(2);
 
-        &.--collapsed {
+        .--collapsed & {
             height: 0;
             padding: 0;
             display: none;

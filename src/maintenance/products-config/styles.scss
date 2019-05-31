@@ -4,8 +4,8 @@
 @import 'styles/grid';
 
 $product-config-tooltip-color: $primary;
-$product-code-color: $gray-4;
 $grid-span: sp(3);
+$product-config-header-color: $white;
 
 .product-config {
     &__header {
@@ -19,9 +19,8 @@ $grid-span: sp(3);
                 margin-right: sp(1);
             }
 
-            &__code {
-                @extend .font--h3;
-                color: $product-code-color;
+            &__code--header {
+                @extend .font--note;
             }
         }
     }
@@ -40,7 +39,7 @@ $grid-span: sp(3);
     }
 
     &__selection-rules-wrapper {
-        @extend .font--note;
+        @extend .font--label;
         margin: 0;
         top: sp(1);
         display: inline-block;
