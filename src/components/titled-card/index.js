@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import classnames from 'classnames';
-import { any, arrayOf, element, string, oneOfType, number, bool } from 'prop-types';
+import { any, string, number, bool, node } from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import Card from '../card';
@@ -44,7 +44,7 @@ const TitledCard = ({className, children, depth, title, collapsible = false, col
 }
 
 TitledCard.propTypes = {
-    children: oneOfType([element, arrayOf(element)]),
+    children: node,
     className: string,
     collapsed: bool,
     collapsible: bool,

@@ -1,11 +1,14 @@
 import React, { useEffect } from 'react'
 import { Redirect } from 'react-router';
 
+import { HOME } from 'config/routes';
+import { has } from 'utils';
 import AppPanel from 'components/app-panel';
 import MaintenanceHeader from 'components/maintenance-header';
-import { HOME } from 'config/routes';
 import TitledCard from 'components/titled-card';
-import { has } from 'utils';
+import TaskCard from 'components/task-card';
+
+import './styles.scss';
 
 const Checklist = ({party, checklist, selectedProducts, getChecklistInfo}) => {
     useEffect(() => getChecklistInfo(), [getChecklistInfo]);
@@ -15,20 +18,33 @@ const Checklist = ({party, checklist, selectedProducts, getChecklistInfo}) => {
     }
 
     return (
-        <AppPanel>
+        <AppPanel className="checklist__wrapper">
             <MaintenanceHeader party={party} />
+
             {selectedProducts.map(selected => (
-                <section key={selected.prdctNm} className="checklist__content-wrapper">
-                    <h1 className="checklist__title">{party.partyName} - {selected.prdctNm}</h1> 
+                <section 
+                    key={selected.prdctNm} 
+                    className="checklist__content-wrapper">
+                    <h1 className="checklist__title">
+                        {party.partyName} - {selected.prdctNm}
+                    </h1> 
 
                     <section className="checklist__sections-wrapper">
                         {has(checklist) && checklist.map(item => (
                             <TitledCard
+                                key={item.header}
+                                className="checklist__task-card"
                                 title={item.header}
                                 collapsible={true}
                                 collapsed={true}>
-                                <h1>SSSS</h1>
-                                </TitledCard>
+
+                                {has(item.tasks) && item.tasks.map((task,index) => (
+                                    <TaskCard 
+                                        key={`${item.header}-${index}`}
+                                        className="checklist__task-card"
+                                        task={task} />
+                                ))}
+                            </TitledCard>
                         ))} 
                     </section>
                 </section>

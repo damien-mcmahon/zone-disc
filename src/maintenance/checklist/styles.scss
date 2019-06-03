@@ -1,0 +1,25 @@
+@import 'styles/mixins';
+@import 'styles/colors';
+@import 'styles/variables';
+@import 'styles/shadows';
+
+$checklist-task-card-bg: $background;
+
+.checklist {
+    &__sections-wrapper {
+        margin: sp(3) 0;
+    }
+
+    &__task-card {
+        box-shadow: none;
+
+        .titled-card__header {
+            @extend .shadow--medium;
+            border-bottom-left-radius: $border-radius;
+            border-bottom-right-radius: $border-radius;
+        }
+        .titled-card__body {
+            background: $checklist-task-card-bg;
+        }
+    }
+}

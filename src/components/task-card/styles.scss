@@ -1,0 +1,39 @@
+@import 'styles/mixins';
+@import 'styles/colors';
+
+$task-card-done-button-bg: $white;
+$task-card-done-button-color: $primary;
+$task-card-completed-icon-color: $success;
+
+.task-card {
+    &__wrapper {
+        display: flex;
+        align-items: center;
+    }
+
+    &__action-wrapper {
+        padding: sp(1);
+        padding-left: 0;
+        min-width: 150px;
+    }
+
+    &__done-button {
+        background: $task-card-done-button-bg;
+        color: $task-card-done-button-color;
+        padding: sp(2) sp(3);
+
+        &__icon {
+            margin-right: sp(1);
+        }
+    }
+
+    &__completed-icon {
+        color: $task-card-completed-icon-color!important;
+        fill: $task-card-completed-icon-color;
+    }
+
+    &__info-wrapper {
+        flex: 1;
+        padding: sp(1);
+    }
+}
