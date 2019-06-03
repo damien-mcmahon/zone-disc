@@ -10,7 +10,7 @@ const defaultState = {
     productTemplates: [],
     productFeatures: {},
     selectedProductTemplates: [],
-    selectedProductChecklist: {}
+    selectedProductChecklist: []
 };
 
 const MaintenanceReducer = handleActions({

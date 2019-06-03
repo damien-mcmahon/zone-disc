@@ -1,7 +1,10 @@
 import { handleActions } from 'redux-actions';
-import { setLoggedIn } from './actions';
 import { createParty } from 'party/create/actions';
-import { getQueueDataSuccess, getInitialDataSuccess } from 'app/actions';
+import { 
+    setLoggedIn, 
+    getQueueDataSuccess, 
+    getInitialDataSuccess 
+} from 'app/actions';
 
 const defaultState = {
     config: {

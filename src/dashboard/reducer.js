@@ -15,7 +15,8 @@ const DashboardReducer = handleActions({
 
     [searchPartiesSuccess]: (state, {payload: searchResults}) => ({
         ...state,
-        searchResults
+        searchResults,
+        searching: false
     })
 }, defaultState);
 
