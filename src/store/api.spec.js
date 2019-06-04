@@ -1,22 +1,12 @@
 import axios from 'axios';
 import * as API from './api';
 
-jest.mock('axios', () => {
-    return {
-        get: jest.fn(() => {
-            return Promise.resolve({data: [{id: '123'}]})
-        }),
-        post: jest.fn(() => {
-            return Promise.resolve({data: [{id: '123'}]})
-        }),
-        put: jest.fn(() => {
-            return Promise.resolve({data: [{id: '123'}]})
-        }),
-        delete: jest.fn(() => {
-            return Promise.resolve({data: [{id: '123'}]})
-        }),
-    };
-});
+jest.mock('axios', () => ({
+    get: jest.fn(() => Promise.resolve({data: [{id: '123'}]})),
+    post: jest.fn(() => Promise.resolve({data: []})),
+    put: jest.fn(() => Promise.resolve({data: []})),
+    delete: jest.fn(() => Promise.resolve({data: []}))
+}));
 
 describe('API', () => {
     describe('GET', () => {
