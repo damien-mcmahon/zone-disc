@@ -4,7 +4,11 @@ import axios from 'axios';
 
 const api = axios.create({
     baseURL: `${config.host}${config.apiPath}`,
-    withCredentials: true
+    withCredentials: true,
+    headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+    }
 });
 
 const getData = ({data}) => data;

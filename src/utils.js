@@ -6,8 +6,7 @@ export const getRandomInt = (min, max) => {
 };
 
 export const alphabetise = key => ({[key]:strA}, {[key]: strB}) => {
-    return strA === strB ? 0 : 
-        strA < strB ?  -1 : 1;
+    return strA === strB ? 0 : strA < strB ?  -1 : 1;
 };
 
 export const optionise = (labelKey, valueKey) => 
@@ -16,4 +15,4 @@ export const optionise = (labelKey, valueKey) =>
         value
     });
 
-export const has = val => val && val.length > 0;
+export const has = val => val !== undefined && val.length > 0;

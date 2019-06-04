@@ -44,7 +44,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --coverage --verbose",
     "eject": "react-scripts eject",
     "local-mocks": "json-server -c ./src/api/config.json -w ./src/api/db.js",
     "storybook": "start-storybook -p 9009 -s public",
@@ -77,5 +77,15 @@
     "json-server": "^0.14.2",
     "prettier": "1.17.0",
     "storybook-react-router": "^1.0.5"
+  },
+  "jest": {
+    "coverageThreshold": {
+      "global": {
+        "statements": 80,
+        "branches": 50,
+        "functions": 80,
+        "lines": 80
+      }
+    }
   }
 }
