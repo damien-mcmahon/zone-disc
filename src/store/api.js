@@ -2,18 +2,18 @@
 import config from '../config/api.json';
 import axios from 'axios';
 
-const api = axios.create({
+export const options = {
     baseURL: `${config.host}${config.apiPath}`,
     withCredentials: true,
     headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
     }
-});
+};
 
 const getData = ({data}) => data;
 
-export const GET = (path, params) => api.get(path, {params}).then(getData);
-export const POST = (path, data) => api.post(path, data);
-export const PUT = (path, data) => api.put(path, data);
-export const DELETE = (path, data) => api.delete(path, data);
+export const GET = (path, params) => axios.get(path, {...options, params}).then(getData);
+export const POST = (path, data) => axios.post(path, {...options, data});
+export const PUT = (path, data) => axios.put(path, {...options, data});
+export const DELETE = (path, data) => axios.delete(path, {...options,data});
