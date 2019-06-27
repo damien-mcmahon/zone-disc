@@ -1,6 +1,6 @@
 const { Given, When, Then } = require('cucumber');
 const { Selector: NativeSelector } = require('testcafe');
-const DashboardPage = require('../../../test/page-objects/search');
+const DashboardPage = require('../../page-objects/search');
 
 const Selector = (input, t) => NativeSelector(input).with({ boundTestRun: t });
 

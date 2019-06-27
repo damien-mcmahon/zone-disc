@@ -51,7 +51,7 @@
     "local-mocks": "json-server -c ./src/api/config.json -w ./src/api/db.js",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public",
-    "e2e": "gherkin-testcafe chrome features/**/*.js features/**/*.feature"
+    "e2e": "gherkin-testcafe chrome features/**/*.steps.js features/**/*.feature"
   },
   "eslintConfig": {
     "extends": "react-app"
