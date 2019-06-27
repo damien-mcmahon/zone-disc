@@ -19,7 +19,7 @@
     "cucumber": "^5.1.0",
     "faker": "^4.1.0",
     "formik": "^1.5.4",
-    "gherkin-testcafe": "^2.3.2",
+    "gherkin-testcafe": "2.2.0",
     "history": "^4.9.0",
     "js-cookie": "^2.2.0",
     "lodash.get": "^4.4.2",
@@ -50,7 +50,8 @@
     "eject": "react-scripts eject",
     "local-mocks": "json-server -c ./src/api/config.json -w ./src/api/db.js",
     "storybook": "start-storybook -p 9009 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "e2e": "gherkin-testcafe chrome features/**/*.js features/**/*.feature"
   },
   "eslintConfig": {
     "extends": "react-app"
