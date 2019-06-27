@@ -1,5 +1,6 @@
 const { Given, When, Then } = require('cucumber');
 const { Selector: NativeSelector } = require('testcafe');
+const DashboardPage = require('../../../test/page-objects/search');
 
 const Selector = (input, t) => NativeSelector(input).with({ boundTestRun: t });
 
@@ -8,24 +9,24 @@ Given("I am on the dashboard", async t => {
 });
 
 When(/^I search for \"(.*)\"$/, async (t, [searchTerm]) => {
-    await t.typeText('.search__input .input-wrapper__input', searchTerm);
-    await t.click('button.search__button'); 
+    await t.typeText(DashboardPage.searchInput, searchTerm);
+    await t.click(DashboardPage.searchButton); 
 });
 
 Then('I should see a list of results', async t => {
-    const searchResults = Selector('.search__result', t);
-    await t.expect(searchResults.count).eql(3);
+    const searchResults = Selector(DashboardPage.searchResult, t);
+    await t.expect(searchResults.count).gt(0);
 });
 
 Then(/^I should see a message saying \"(.*)\"$/, async (t, [expectedText]) => {
-    const emptyResultsMessage = Selector('.--no-results', t);
+    const emptyResultsMessage = Selector(DashboardPage.emptyResults, t);
     await t.expect(emptyResultsMessage.innerText).contains(expectedText);
 });
 
 Given('when I click on the message', async t => {
-    await t.click('.search__result.--no-results');
+    await t.click(DashboardPage.emptyResults);
 });
 
 Then('the results list disappears', async t => {
-    await t.expect(Selector('.search__results.--no-results',t).count).eql(0);
+    await t.expect(Selector(DashboardPage.emptyResults).count).eql(0);
 });
