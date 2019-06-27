@@ -1,7 +1,7 @@
 import { createSelector } from 'reselect';
 import { partiesSelector } from 'app/selectors'; 
 
-const partyIdFromParamsSelector = (_, props ) => {
+export const partyIdFromParamsSelector = (_, props) => {
     if (!props) {
         return '';
     }
